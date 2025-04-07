@@ -37,6 +37,7 @@ export default defineType({
           { title: "Interview", value: "Interview" },
           { title: "Workshop", value: "Workshop" },
           { title: "Video", value: "Video" },
+          { title: "Case Study", value: "Case Study" },
         ],
       },
       validation: (Rule) => Rule.required(),
@@ -91,12 +92,165 @@ export default defineType({
       },
       initialValue: "medium",
     }),
+    defineField({
+      name: "featured",
+      title: "Featured Content",
+      type: "boolean",
+      description:
+        "Whether this content should be featured in the main Savvy Hub section",
+      initialValue: false,
+    }),
+    defineField({
+      name: "featuredPosition",
+      title: "Featured Position",
+      type: "number",
+      description:
+        "Position in the featured content carousel (lower numbers appear first)",
+      hidden: ({ document }) => !document?.featured,
+      initialValue: 1,
+    }),
+    defineField({
+      name: "fullContent",
+      title: "Full Content",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H1", value: "h1" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "H4", value: "h4" },
+            { title: "Quote", value: "blockquote" },
+          ],
+          marks: {
+            decorators: [
+              { title: "Strong", value: "strong" },
+              { title: "Emphasis", value: "em" },
+              { title: "Code", value: "code" },
+              { title: "Underline", value: "underline" },
+              { title: "Strike", value: "strike-through" },
+            ],
+          },
+        },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            {
+              name: "caption",
+              type: "string",
+              title: "Caption",
+            },
+            {
+              name: "alt",
+              type: "string",
+              title: "Alt Text",
+            },
+          ],
+        },
+        {
+          type: "code",
+          options: {
+            withFilename: true,
+          },
+        },
+      ],
+      description: "The full content of the article/post in rich text format",
+    }),
+    defineField({
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+      rows: 3,
+      description:
+        "A short excerpt for previews and teasers (defaults to the description if not provided)",
+    }),
+    defineField({
+      name: "authors",
+      title: "Authors",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: { type: "teamMember" },
+        },
+      ],
+      description: "The authors of this content piece",
+    }),
+    defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "tags",
+      },
+      description: "Tags to categorize the content",
+    }),
+    defineField({
+      name: "relatedContent",
+      title: "Related Content",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: { type: "hubContent" },
+        },
+      ],
+      description: "Other related content pieces to show alongside this one",
+    }),
+    defineField({
+      name: "podcast",
+      title: "Podcast Details",
+      type: "object",
+      hidden: ({ document }) => document?.category !== "Podcast",
+      fields: [
+        { name: "duration", type: "string", title: "Duration" },
+        { name: "episodeNumber", type: "number", title: "Episode Number" },
+        { name: "audioUrl", type: "url", title: "Audio URL" },
+        { name: "embedUrl", type: "url", title: "Embed URL (e.g., Spotify)" },
+        { name: "transcript", type: "text", title: "Transcript" },
+      ],
+    }),
+    defineField({
+      name: "video",
+      title: "Video Details",
+      type: "object",
+      hidden: ({ document }) => document?.category !== "Video",
+      fields: [
+        { name: "duration", type: "string", title: "Duration" },
+        { name: "videoUrl", type: "url", title: "Video URL" },
+        { name: "embedUrl", type: "url", title: "Embed URL (e.g., YouTube)" },
+        { name: "transcript", type: "text", title: "Transcript" },
+      ],
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description: "The URL-friendly identifier for this content",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {
       title: "title",
       subtitle: "category",
       media: "image",
+      featured: "featured",
+    },
+    prepare({ title, subtitle, media, featured }) {
+      return {
+        title: featured ? `★ ${title}` : title,
+        subtitle,
+        media,
+      };
     },
   },
 });

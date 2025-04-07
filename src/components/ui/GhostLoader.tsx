@@ -57,6 +57,38 @@ const GhostLoader = ({
     };
   }, [propIsLoading, onLoadingComplete, minDuration, delay]);
 
+  // Glitch effect variants
+  const glitchVariants = {
+    initial: { x: 0, y: 0, opacity: 1 },
+    glitch: {
+      x: [0, -2, 3, -1, 0, 2, -2, 0],
+      y: [0, 1, -1, 2, -1, 0, 1, 0],
+      opacity: [1, 0.8, 1, 0.9, 1, 0.8, 1],
+      transition: {
+        duration: 0.4,
+        repeat: Infinity,
+        repeatType: "mirror" as const,
+        ease: "easeInOut",
+        times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
+      },
+    },
+  };
+
+  // RGB split variants
+  const rgbSplitVariants = {
+    initial: { x: 0, opacity: 0 },
+    animate: {
+      opacity: [0, 0.3, 0.1, 0.2, 0, 0.3, 0],
+      x: [-2, 1, -1, 0, 1, -1, 0],
+      transition: {
+        duration: 0.6,
+        repeat: Infinity,
+        repeatType: "mirror" as const,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <AnimatePresence mode='wait'>
       {isLoading && (
@@ -79,76 +111,167 @@ const GhostLoader = ({
             }}
             className='relative flex flex-col items-center'
           >
-            {/* Ghost Icon Container */}
-            <div className='relative w-16 h-20 md:w-20 md:h-28'>
-              {/* Circular pulse behind the ghost */}
+            {/* Ghost Icon Container - Smaller size */}
+            <div className='relative w-12 h-16 md:w-14 md:h-20'>
+              {/* RGB Split effect - Red channel */}
               <motion.div
-                className='absolute inset-0 flex items-center justify-center'
-                initial={{ opacity: 0.3 }}
-                animate={{ opacity: [0.3, 0.7, 0.3] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2,
-                  ease: "easeInOut",
+                className='absolute inset-0 left-[-2px]'
+                style={{
+                  filter: "brightness(1.2) contrast(1.5)",
+                  mixBlendMode: "screen",
                 }}
+                variants={rgbSplitVariants}
+                initial='initial'
+                animate='animate'
               >
-                <div className='w-full h-full rounded-full bg-white/5'></div>
+                <svg
+                  width='100%'
+                  height='100%'
+                  viewBox='0 0 165 257'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                  style={{ opacity: 0.5, color: "#ff0000" }}
+                >
+                  <g>
+                    <path
+                      d='M82.5 0C36.9371 0 0 36.9371 0 82.5C0 128.063 36.9371 165 82.5 165C128.063 165 165 128.063 165 82.5C165 36.9371 128.063 0 82.5 0ZM82.5 114.737C68.3844 114.737 56.9393 100.305 56.9393 82.5C56.9393 64.6953 68.3844 50.263 82.5 50.263C96.6156 50.263 108.061 64.6953 108.061 82.5C108.061 100.305 96.6156 114.737 82.5 114.737Z'
+                      fill='currentColor'
+                    />
+                    <path
+                      d='M108.01 176.018C107.212 192.911 96.0953 206.301 82.4985 206.301C68.9017 206.301 57.7847 192.911 56.9874 176.018H0.0175781C1.05527 220.68 37.5842 256.56 82.4985 256.56C127.413 256.56 163.934 220.68 164.972 176.018H108.01Z'
+                      fill='currentColor'
+                    />
+                  </g>
+                </svg>
               </motion.div>
 
-              {/* Ghost SVG with animated paths */}
-              <svg
-                width='100%'
-                height='100%'
-                viewBox='0 0 165 257'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-                className='relative z-10'
+              {/* RGB Split effect - Blue channel */}
+              <motion.div
+                className='absolute inset-0 left-[2px]'
+                style={{
+                  filter: "brightness(1.2) contrast(1.5)",
+                  mixBlendMode: "screen",
+                }}
+                variants={rgbSplitVariants}
+                initial='initial'
+                animate='animate'
+                custom={1}
               >
-                <g>
-                  <motion.path
-                    d='M82.5 0C36.9371 0 0 36.9371 0 82.5C0 128.063 36.9371 165 82.5 165C128.063 165 165 128.063 165 82.5C165 36.9371 128.063 0 82.5 0ZM82.5 114.737C68.3844 114.737 56.9393 100.305 56.9393 82.5C56.9393 64.6953 68.3844 50.263 82.5 50.263C96.6156 50.263 108.061 64.6953 108.061 82.5C108.061 100.305 96.6156 114.737 82.5 114.737Z'
-                    fill='white'
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{
-                      pathLength: 1,
-                      opacity: 1,
-                      transition: {
-                        pathLength: {
-                          delay: 0.2,
-                          duration: 1.5,
-                          ease: "easeInOut",
+                <svg
+                  width='100%'
+                  height='100%'
+                  viewBox='0 0 165 257'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                  style={{ opacity: 0.5, color: "#0000ff" }}
+                >
+                  <g>
+                    <path
+                      d='M82.5 0C36.9371 0 0 36.9371 0 82.5C0 128.063 36.9371 165 82.5 165C128.063 165 165 128.063 165 82.5C165 36.9371 128.063 0 82.5 0ZM82.5 114.737C68.3844 114.737 56.9393 100.305 56.9393 82.5C56.9393 64.6953 68.3844 50.263 82.5 50.263C96.6156 50.263 108.061 64.6953 108.061 82.5C108.061 100.305 96.6156 114.737 82.5 114.737Z'
+                      fill='currentColor'
+                    />
+                    <path
+                      d='M108.01 176.018C107.212 192.911 96.0953 206.301 82.4985 206.301C68.9017 206.301 57.7847 192.911 56.9874 176.018H0.0175781C1.05527 220.68 37.5842 256.56 82.4985 256.56C127.413 256.56 163.934 220.68 164.972 176.018H108.01Z'
+                      fill='currentColor'
+                    />
+                  </g>
+                </svg>
+              </motion.div>
+
+              {/* Main ghost SVG with glitch animation */}
+              <motion.div
+                className='relative z-10'
+                variants={glitchVariants}
+                initial='initial'
+                animate='glitch'
+              >
+                <svg
+                  width='100%'
+                  height='100%'
+                  viewBox='0 0 165 257'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <g>
+                    <motion.path
+                      d='M82.5 0C36.9371 0 0 36.9371 0 82.5C0 128.063 36.9371 165 82.5 165C128.063 165 165 128.063 165 82.5C165 36.9371 128.063 0 82.5 0ZM82.5 114.737C68.3844 114.737 56.9393 100.305 56.9393 82.5C56.9393 64.6953 68.3844 50.263 82.5 50.263C96.6156 50.263 108.061 64.6953 108.061 82.5C108.061 100.305 96.6156 114.737 82.5 114.737Z'
+                      fill='white'
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{
+                        pathLength: 1,
+                        opacity: 1,
+                        transition: {
+                          pathLength: {
+                            delay: 0.2,
+                            duration: 1.5,
+                            ease: "easeInOut",
+                          },
+                          opacity: { delay: 0.2, duration: 0.6 },
                         },
-                        opacity: { delay: 0.2, duration: 0.6 },
-                      },
+                      }}
+                    />
+                    <motion.path
+                      d='M108.01 176.018C107.212 192.911 96.0953 206.301 82.4985 206.301C68.9017 206.301 57.7847 192.911 56.9874 176.018H0.0175781C1.05527 220.68 37.5842 256.56 82.4985 256.56C127.413 256.56 163.934 220.68 164.972 176.018H108.01Z'
+                      fill='white'
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{
+                        pathLength: 1,
+                        opacity: 1,
+                        transition: {
+                          pathLength: {
+                            delay: 0.8,
+                            duration: 1.5,
+                            ease: "easeInOut",
+                          },
+                          opacity: { delay: 0.8, duration: 0.6 },
+                        },
+                      }}
+                    />
+                  </g>
+                </svg>
+              </motion.div>
+
+              {/* Glitch lines */}
+              <motion.div
+                className='absolute inset-0 overflow-hidden opacity-10'
+                animate={{ opacity: [0.1, 0, 0.15, 0, 0.1] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+              >
+                {[...Array(5)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className='absolute h-[1px] bg-cyan-400 w-full'
+                    style={{
+                      top: `${20 + i * 15}%`,
+                      left: 0,
+                    }}
+                    animate={{
+                      scaleX: [0, 1, 0],
+                      x: ["-100%", "100%"],
+                      opacity: [0, 0.8, 0],
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      delay: i * 0.1,
+                      repeat: Infinity,
+                      repeatDelay: 1.5,
                     }}
                   />
-                  <motion.path
-                    d='M108.01 176.018C107.212 192.911 96.0953 206.301 82.4985 206.301C68.9017 206.301 57.7847 192.911 56.9874 176.018H0.0175781C1.05527 220.68 37.5842 256.56 82.4985 256.56C127.413 256.56 163.934 220.68 164.972 176.018H108.01Z'
-                    fill='white'
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{
-                      pathLength: 1,
-                      opacity: 1,
-                      transition: {
-                        pathLength: {
-                          delay: 0.8,
-                          duration: 1.5,
-                          ease: "easeInOut",
-                        },
-                        opacity: { delay: 0.8, duration: 0.6 },
-                      },
-                    }}
-                  />
-                </g>
-              </svg>
+                ))}
+              </motion.div>
 
               {/* Animated dot in the center of the ghost */}
               <motion.div
-                className='absolute left-1/2 top-[40%] w-1.5 h-1.5 rounded-full bg-[#00ff9d]'
+                className='absolute left-1/2 top-[40%] w-1 h-1 rounded-full bg-[#00fff2]'
                 style={{ x: "-50%", y: "-50%" }}
                 animate={{
                   scale: [1, 1.5, 1],
                   opacity: [0.7, 1, 0.7],
+                  filter: [
+                    "drop-shadow(0 0 1px #00fff2)",
+                    "drop-shadow(0 0 3px #00fff2)",
+                    "drop-shadow(0 0 1px #00fff2)",
+                  ],
                 }}
                 transition={{
                   repeat: Infinity,
@@ -158,9 +281,9 @@ const GhostLoader = ({
               />
             </div>
 
-            {/* Loading text */}
+            {/* Loading text with glitch effect */}
             <motion.div
-              className='mt-6 font-display text-sm uppercase tracking-widest text-white/60'
+              className='mt-4 font-mono text-xs uppercase tracking-widest text-white/70'
               initial={{ opacity: 0, y: 10 }}
               animate={{
                 opacity: 1,
@@ -171,8 +294,39 @@ const GhostLoader = ({
               <motion.span
                 animate={{ opacity: [0.4, 1, 0.4] }}
                 transition={{ repeat: Infinity, duration: 1.8 }}
+                className='relative inline-block'
               >
-                Loading
+                <span className='relative z-10'>Loading</span>
+                <motion.span
+                  className='absolute left-0 top-0 text-cyan-400 invisible sm:visible'
+                  animate={{
+                    x: [0, -1, 1, -1, 0],
+                    opacity: [0, 0.5, 0, 0.3, 0],
+                  }}
+                  transition={{
+                    duration: 0.2,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                    repeatDelay: 2,
+                  }}
+                >
+                  Loading
+                </motion.span>
+                <motion.span
+                  className='absolute left-0 top-0 text-red-400 invisible sm:visible'
+                  animate={{
+                    x: [0, 1, -1, 1, 0],
+                    opacity: [0, 0.3, 0, 0.5, 0],
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                    repeatDelay: 2.5,
+                  }}
+                >
+                  Loading
+                </motion.span>
               </motion.span>
             </motion.div>
           </motion.div>

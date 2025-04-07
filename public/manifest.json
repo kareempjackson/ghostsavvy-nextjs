@@ -1,0 +1,25 @@
+{
+  "name": "Ghost Savvy Studios",
+  "short_name": "Ghost Savvy",
+  "description": "Premium digital product studio building exceptional experiences as ghost partners for agencies and startups.",
+  "icons": [
+    {
+      "src": "/images/ghost_savvy_icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/ghost_savvy_icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait"
+} 
