@@ -20,7 +20,7 @@ const LogoImage = ({
   return (
     <Link
       href={href}
-      className='h-6 px-4 flex-shrink-0 flex items-center justify-center group'
+      className='h-5 sm:h-6 px-3 sm:px-4 flex-shrink-0 flex items-center justify-center group'
     >
       <Image
         src={src}
@@ -82,7 +82,7 @@ const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className='relative min-h-screen w-full overflow-hidden bg-black flex flex-col justify-center'
+      className='relative min-h-[90vh] sm:min-h-screen w-full overflow-hidden bg-black flex flex-col justify-center'
     >
       {/* Background Video with Parallax */}
       <motion.div
@@ -108,7 +108,7 @@ const HeroSection = () => {
 
         {/* Dark overlay for better text visibility */}
         <motion.div
-          className='absolute inset-0 bg-black/30'
+          className='absolute inset-0 bg-black/50 sm:bg-black/30'
           style={{ opacity: backgroundOpacity }}
         />
         {/* Gradient overlay for smooth transition */}
@@ -117,7 +117,7 @@ const HeroSection = () => {
 
       {/* Hero Content */}
       <motion.div
-        className='relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-[90%] mx-auto py-32 pt-[180px] mt-32'
+        className='relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-[95%] sm:max-w-[90%] mx-auto py-16 sm:py-24 md:py-32 pt-[100px] sm:pt-[140px] md:pt-[180px] mt-16 sm:mt-24 md:mt-32'
         style={{ y, opacity }}
       >
         <motion.div
@@ -130,11 +130,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: entryEasing }}
-            className='text-3xl md:text-4xl lg:text-6xl text-brand-white leading-[1.2] mb-16 tracking-[-0.2px]'
+            className='text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-brand-white leading-[1.2] mb-8 sm:mb-12 md:mb-16 tracking-[-0.2px]'
           >
             Solving Real-World Problems
-            <br />
-            <span className='mt-4 inline-block'>
+            <br className='hidden sm:block' />
+            <span className='mt-2 sm:mt-4 inline-block'>
               Through Design and Technology
             </span>
           </motion.h1>
@@ -143,17 +143,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: entryEasing }}
-            className='flex flex-wrap justify-center gap-8'
+            className='flex flex-col sm:flex-row justify-center gap-4 sm:gap-8'
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className='relative group'
+              className='relative group w-full sm:w-auto'
             >
               <div className='absolute inset-0 bg-brand-sage rounded-[4px] blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300'></div>
               <Link
                 href='/work'
-                className='relative px-6 py-3 bg-brand-sage text-brand-forest rounded-[4px] transition-all duration-300 text-sm inline-flex items-center group-hover:bg-brand-sage/90 group-hover:translate-y-[-2px] group-hover:text-brand-forest/90 font-medium'
+                className='relative w-full sm:w-auto px-5 sm:px-6 py-3 bg-brand-sage text-brand-forest rounded-[4px] transition-all duration-300 text-sm inline-flex items-center justify-center group-hover:bg-brand-sage/90 group-hover:translate-y-[-2px] group-hover:text-brand-forest/90 font-medium'
               >
                 Explore Our Work
                 <svg
@@ -172,12 +172,12 @@ const HeroSection = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className='relative group'
+              className='relative group w-full sm:w-auto'
             >
               <div className='absolute inset-0 bg-brand-white/10 rounded-[4px] blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300'></div>
               <Link
                 href='/about'
-                className='relative px-6 py-3 bg-transparent border border-white text-brand-white rounded-[4px] transition-all duration-300 text-sm inline-flex items-center group-hover:bg-brand-white/10 group-hover:translate-y-[-2px] group-hover:border-brand-white group-hover:text-brand-white font-medium'
+                className='relative w-full sm:w-auto px-5 sm:px-6 py-3 bg-transparent border border-white text-brand-white rounded-[4px] transition-all duration-300 text-sm inline-flex items-center justify-center group-hover:bg-brand-white/10 group-hover:translate-y-[-2px] group-hover:border-brand-white group-hover:text-brand-white font-medium'
               >
                 Learn More About Us
                 <svg
@@ -199,13 +199,13 @@ const HeroSection = () => {
 
       {/* Partner Logos Marquee */}
       <motion.div
-        className='relative w-full z-10 mt-auto mb-10'
+        className='relative w-full z-10 mt-auto mb-6 sm:mb-10'
         style={{ opacity }}
       >
-        <div className='max-w-7xl mx-auto px-6'>
-          <div className='overflow-hidden py-6'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6'>
+          <div className='overflow-hidden py-4 sm:py-6'>
             <motion.div
-              className='flex items-center gap-16 py-10'
+              className='flex items-center gap-8 sm:gap-16 py-6 sm:py-10'
               animate={{
                 x: [0, -2400],
                 transition: {

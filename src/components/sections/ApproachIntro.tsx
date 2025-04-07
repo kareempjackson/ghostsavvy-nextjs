@@ -67,7 +67,7 @@ const ApproachIntro = ({
   return (
     <section
       ref={sectionRef}
-      className='relative w-full h-screen overflow-hidden bg-black'
+      className='relative w-full h-[85vh] sm:h-screen overflow-hidden bg-black'
       style={{ marginTop: "-1px" }}
     >
       {/* Background Video */}
@@ -81,7 +81,7 @@ const ApproachIntro = ({
       >
         {videoError ? (
           <div className='w-full h-full bg-black flex items-center justify-center'>
-            <p className='text-white/50'>{videoError}</p>
+            <p className='text-white/50 text-sm'>{videoError}</p>
           </div>
         ) : (
           <video
@@ -104,7 +104,7 @@ const ApproachIntro = ({
       {/* Text Container with enhanced animations */}
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className='relative z-10 flex flex-col items-center justify-center h-full px-6 text-center'
+        className='relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center'
       >
         <div className='max-w-4xl'>
           <motion.p
@@ -112,7 +112,7 @@ const ApproachIntro = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className='text-sm md:text-base font-display tracking-widest text-[#00ff9d] uppercase mb-4 font-bold'
+            className='text-xs sm:text-sm md:text-base font-display tracking-widest text-[#00ff9d] uppercase mb-3 sm:mb-4 font-bold'
           >
             {kicker}
           </motion.p>
@@ -121,7 +121,7 @@ const ApproachIntro = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className='text-5xl md:text-7xl font-display text-white mb-6 font-bold'
+            className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display text-white mb-4 sm:mb-6 font-bold leading-tight'
           >
             {title}
           </motion.h2>
@@ -130,7 +130,7 @@ const ApproachIntro = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className='text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-medium'
+            className='text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-medium px-2'
           >
             {subtitle}
           </motion.p>

@@ -73,8 +73,8 @@ const SavvyHubSection = () => {
     // Determine the styling based on item size
     const sizeClasses = {
       large: "col-span-12 md:col-span-8 row-span-2",
-      medium: "col-span-12 md:col-span-4 row-span-1",
-      small: "col-span-12 md:col-span-4 row-span-1",
+      medium: "col-span-12 sm:col-span-6 md:col-span-4 row-span-1",
+      small: "col-span-12 sm:col-span-6 md:col-span-4 row-span-1",
     };
 
     const aspectRatioClasses = {
@@ -84,15 +84,15 @@ const SavvyHubSection = () => {
     };
 
     const titleSizeClasses = {
-      large: "text-2xl md:text-3xl",
-      medium: "text-xl md:text-2xl",
-      small: "text-lg md:text-xl",
+      large: "text-xl sm:text-2xl md:text-3xl",
+      medium: "text-lg sm:text-xl md:text-2xl",
+      small: "text-base sm:text-lg md:text-xl",
     };
 
     const descriptionSizeClasses = {
-      large: "text-base",
-      medium: "text-base",
-      small: "text-sm",
+      large: "text-sm sm:text-base",
+      medium: "text-sm sm:text-base",
+      small: "text-xs sm:text-sm",
     };
 
     const size = item.size || "medium";
@@ -109,7 +109,7 @@ const SavvyHubSection = () => {
       >
         <Link href={item.link} className='block group h-full'>
           <div
-            className={`relative ${aspectRatioClasses[size]} rounded-lg overflow-hidden mb-4`}
+            className={`relative ${aspectRatioClasses[size]} rounded-lg overflow-hidden mb-3 sm:mb-4`}
           >
             {item.video ? (
               <video
@@ -133,37 +133,37 @@ const SavvyHubSection = () => {
             )}
 
             {/* Category badge */}
-            <div className='absolute top-4 left-4'>
-              <span className='bg-black/80 text-white text-xs py-1 px-3 rounded-full backdrop-blur-sm'>
+            <div className='absolute top-3 sm:top-4 left-3 sm:left-4'>
+              <span className='bg-black/80 text-white text-[10px] sm:text-xs py-1 px-2 sm:px-3 rounded-full backdrop-blur-sm'>
                 {item.category}
               </span>
             </div>
           </div>
 
           <div className='px-1'>
-            <div className='mb-2'>
-              <span className='text-gray-500 text-xs'>
+            <div className='mb-1 sm:mb-2'>
+              <span className='text-gray-500 text-[10px] sm:text-xs'>
                 {item.date ? formatDate(item.date) : ""}
               </span>
             </div>
 
             <h3
-              className={`${titleSizeClasses[size]} font-display font-medium text-gray-900 mb-2 leading-tight group-hover:text-gray-700 transition-colors duration-300`}
+              className={`${titleSizeClasses[size]} font-display font-medium text-gray-900 mb-1 sm:mb-2 leading-tight group-hover:text-gray-700 transition-colors duration-300`}
             >
               {item.title}
             </h3>
 
             <p
-              className={`${descriptionSizeClasses[size]} text-gray-600 mb-4 leading-relaxed line-clamp-3`}
+              className={`${descriptionSizeClasses[size]} text-gray-600 mb-3 sm:mb-4 leading-relaxed line-clamp-2 sm:line-clamp-3`}
             >
               {item.description}
             </p>
 
             <div className='flex items-center'>
-              <span className='text-black font-medium group-hover:translate-x-1 transform transition-transform inline-flex items-center'>
+              <span className='text-black text-sm sm:text-base font-medium group-hover:translate-x-1 transform transition-transform inline-flex items-center'>
                 {item.ctaText}
                 <svg
-                  className='w-4 h-4 ml-2 transition-transform group-hover:translate-x-1'
+                  className='w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 transition-transform group-hover:translate-x-1'
                   fill='none'
                   viewBox='0 0 24 24'
                   stroke='currentColor'
@@ -186,8 +186,8 @@ const SavvyHubSection = () => {
   // Loading state while fetching content
   if (isLoading) {
     return (
-      <section className='py-28 bg-white'>
-        <div className='container mx-auto px-6 lg:px-8 text-center'>
+      <section className='py-16 sm:py-20 md:py-28 bg-white'>
+        <div className='container-custom text-center'>
           <p>Loading latest content...</p>
         </div>
       </section>
@@ -195,23 +195,23 @@ const SavvyHubSection = () => {
   }
 
   return (
-    <section ref={sectionRef} className='py-28 bg-white'>
-      <div className='container mx-auto px-6 lg:px-8' ref={containerRef}>
+    <section ref={sectionRef} className='py-16 sm:py-20 md:py-28 bg-white'>
+      <div className='container-custom' ref={containerRef}>
         {/* Header with consistent styling */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className='text-center mb-16'
+          className='text-center mb-8 sm:mb-12 md:mb-16'
         >
-          <span className='text-gray-600 uppercase tracking-wider text-sm'>
+          <span className='text-gray-600 uppercase tracking-wider text-xs sm:text-sm'>
             Savvy Hub
           </span>
-          <h2 className='text-3xl md:text-4xl font-display font-medium text-gray-900 mt-2 mb-6'>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-display font-medium text-gray-900 mt-1 sm:mt-2 mb-3 sm:mb-4 md:mb-6'>
             From the Savvy Hub
           </h2>
-          <p className='text-lg text-gray-600 max-w-3xl mx-auto mb-8'>
+          <p className='text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4'>
             Ideas. Stories. Conversations. Explore insights, behind-the-scenes
             builds, and thought leadership from the Ghost Savvy team.
           </p>
@@ -219,11 +219,11 @@ const SavvyHubSection = () => {
           {/* Top CTA */}
           <Link
             href='/savvy-hub'
-            className='inline-flex items-center px-8 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-all duration-300 group'
+            className='inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-all duration-300 group text-sm sm:text-base'
           >
             <span>Explore All Content</span>
             <svg
-              className='w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform'
+              className='w-3 h-3 sm:w-4 sm:h-4 ml-2 transform group-hover:translate-x-1 transition-transform'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -239,13 +239,13 @@ const SavvyHubSection = () => {
         </motion.div>
 
         {/* Content grid - dynamic based on screen size */}
-        <div className='grid grid-cols-12 gap-6 md:gap-8'>
+        <div className='grid grid-cols-12 gap-4 sm:gap-6 md:gap-8'>
           {hubContent.map((item, index) => renderContentItem(item, index))}
         </div>
 
         {/* Bottom CTA */}
         <motion.div
-          className='flex justify-center mt-16'
+          className='flex justify-center mt-8 sm:mt-12 md:mt-16'
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -253,11 +253,11 @@ const SavvyHubSection = () => {
         >
           <Link
             href='/savvy-hub'
-            className='inline-flex items-center text-gray-900 hover:text-black group'
+            className='inline-flex items-center text-gray-900 hover:text-black group text-sm sm:text-base'
           >
             <span className='font-medium'>View All Content</span>
             <svg
-              className='w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform'
+              className='w-4 h-4 sm:w-5 sm:h-5 ml-1 sm:ml-2 transform group-hover:translate-x-1 transition-transform'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'

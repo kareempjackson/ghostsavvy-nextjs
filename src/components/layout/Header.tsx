@@ -16,7 +16,7 @@ const NavItem = ({
   return (
     <Link
       href={href}
-      className='relative font-display text-sm md:text-base text-white/90 hover:text-white transition-colors duration-200 group'
+      className='relative font-display text-sm md:text-base text-white/90 hover:text-white transition-colors duration-200 group py-2'
     >
       {children}
       <span className='absolute left-0 right-0 bottom-0 h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center' />
@@ -45,7 +45,7 @@ const MenuLink = ({
     >
       <Link
         href={href}
-        className='relative font-display text-3xl md:text-4xl text-white/90 hover:text-white transition-colors duration-300 inline-block'
+        className='relative font-display text-2xl sm:text-3xl md:text-4xl text-white/90 hover:text-white transition-colors duration-300 inline-block py-2'
       >
         {label}
         <span className='absolute left-0 right-0 bottom-0 h-0.5 bg-[#00ff9d] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left' />
@@ -58,7 +58,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const [email, setEmail] = useState("");
   const [activeMedia, setActiveMedia] = useState<{
     image?: string;
     video?: string;
@@ -199,16 +198,16 @@ const Header = () => {
             : "translate-y-[-100%] opacity-0"
         }`}
       >
-        <div className='container mx-auto px-4 lg:px-10 relative'>
+        <div className='container-custom relative'>
           <div className='flex items-center justify-between'>
             {/* Logo */}
-            <div className='flex-shrink-0 -ml-6 md:-ml-8'>
+            <div className='flex-shrink-0 -ml-4 sm:-ml-6 md:-ml-8'>
               <Link href='/' className='relative z-40'>
                 <div
                   className={`relative transition-all duration-500 ${
                     isScrolled
-                      ? "w-[480px] h-[70px] md:w-[560px] md:h-[90px]"
-                      : "w-[420px] h-[105px] md:w-[500px] md:h-[125px]"
+                      ? "w-[280px] h-[60px] sm:w-[350px] sm:h-[65px] md:w-[420px] md:h-[70px] lg:w-[560px] lg:h-[90px]"
+                      : "w-[250px] h-[70px] sm:w-[320px] sm:h-[80px] md:w-[420px] md:h-[105px] lg:w-[500px] lg:h-[125px]"
                   }`}
                 >
                   <Image
@@ -222,10 +221,10 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Navigation */}
+            {/* Navigation - Desktop Only */}
             <nav
               className={`hidden ${
-                isMenuOpen ? "xl:hidden" : "xl:flex"
+                isMenuOpen ? "lg:hidden" : "lg:flex"
               } items-center absolute left-[45%] transform -translate-x-1/2`}
             >
               <ul className='flex items-center space-x-6'>
@@ -237,25 +236,25 @@ const Header = () => {
               </ul>
             </nav>
 
-            {/* Menu Button */}
-            <div className='flex items-center space-x-4'>
-              {/* Start a Project Button */}
+            {/* Menu Button and CTA */}
+            <div className='flex items-center space-x-3 sm:space-x-4'>
+              {/* Start a Project Button - Hidden on smallest screens */}
               <Link
                 href='/start-project'
-                className='hidden md:flex items-center px-4 py-2 bg-transparent border border-white/30 text-white rounded-[4px] text-sm font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/60 mr-2'
+                className='hidden sm:flex items-center px-4 py-2 bg-transparent border border-white/30 text-white rounded-[4px] text-sm font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/60 mr-1 sm:mr-2'
               >
                 Start a Project
               </Link>
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='flex items-center space-x-3 focus:outline-none group'
+                className='flex items-center space-x-2 sm:space-x-3 focus:outline-none group'
                 aria-label='Toggle menu'
               >
-                <span className='hidden md:block text-white/70 text-sm font-display tracking-wider group-hover:text-white transition-colors duration-300'>
+                <span className='hidden sm:block text-white/70 text-sm font-display tracking-wider group-hover:text-white transition-colors duration-300'>
                   {isMenuOpen ? "Close" : "Menu"}
                 </span>
-                <div className='w-8 h-8 flex items-center justify-center transition-colors duration-300 group-hover:bg-white/10 rounded-full'>
+                <div className='w-10 h-10 flex items-center justify-center transition-colors duration-300 group-hover:bg-white/10 rounded-full'>
                   <div className='flex flex-col justify-center items-center w-5 h-5 relative'>
                     <motion.span
                       animate={
@@ -295,7 +294,7 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className='fixed inset-0 z-40 bg-black/95 backdrop-blur-xl overflow-hidden'
+            className='fixed inset-0 z-40 bg-black/95 backdrop-blur-xl overflow-auto'
           >
             {/* Background Media */}
             <AnimatePresence>
@@ -335,7 +334,7 @@ const Header = () => {
 
             {/* Background Icon (always visible, with different opacity depending on active media) */}
             <div className='absolute inset-0 z-1 pointer-events-none transition-opacity duration-500'>
-              <div className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-[600px] h-[600px] opacity-[0.08]'>
+              <div className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] opacity-[0.08]'>
                 <Image
                   src='/images/ghost_savvy_icon.svg'
                   alt=''
@@ -354,10 +353,10 @@ const Header = () => {
                 delay: 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className='container mx-auto px-5 lg:px-12 h-full flex flex-col relative z-10'
+              className='container-custom h-full flex flex-col relative z-10'
             >
               {/* Menu Content */}
-              <div className='flex-1 grid grid-cols-1 lg:grid-cols-2 gap-16 pt-32 pb-20'>
+              <div className='flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pt-28 sm:pt-32 pb-16 sm:pb-20'>
                 {/* Left Column - Menu Items */}
                 <div className='flex flex-col justify-center'>
                   <motion.nav
@@ -375,7 +374,7 @@ const Header = () => {
                       },
                     }}
                   >
-                    <ul className='space-y-8'>
+                    <ul className='space-y-6 sm:space-y-8'>
                       {menuItems.map((item) => (
                         <motion.li
                           key={item.path}
@@ -401,7 +400,7 @@ const Header = () => {
                   </motion.nav>
                 </div>
 
-                {/* Right Column - Preview Content */}
+                {/* Right Column - Preview Content - Desktop Only */}
                 <div className='hidden lg:flex items-center justify-center'>
                   {/* Preview content here (empty now since we're using full-screen backgrounds) */}
                 </div>
@@ -413,12 +412,12 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className='py-8 border-t border-white/5'
+                className='py-6 sm:py-8 border-t border-white/5'
               >
-                <div className='grid grid-cols-12 gap-8'>
+                <div className='grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-8'>
                   {/* Contact & Social */}
-                  <div className='col-span-12 md:col-span-4'>
-                    <div className='flex items-center space-x-4'>
+                  <div className='sm:col-span-12 md:col-span-4'>
+                    <div className='flex flex-wrap items-center gap-4 sm:space-x-4'>
                       {[
                         {
                           name: "Instagram",
@@ -504,48 +503,6 @@ const Header = () => {
                           {social.icon}
                         </a>
                       ))}
-                    </div>
-                  </div>
-
-                  {/* Subscribe Form */}
-                  <div className='col-span-12 md:col-span-5'>
-                    <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                      }}
-                      className='relative'
-                    >
-                      <input
-                        type='email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder='Subscribe to Savvy Hub'
-                        className='w-full bg-transparent border-b border-white/10 px-0 py-2 text-white placeholder-white/30 focus:outline-none focus:border-[#00ff9d]/30 transition-colors text-sm font-display'
-                      />
-                      <button
-                        type='submit'
-                        className='absolute right-0 top-1/2 -translate-y-1/2 text-sm text-white/40 hover:text-[#00ff9d] transition-colors font-display tracking-wider'
-                      >
-                        →
-                      </button>
-                    </form>
-                  </div>
-
-                  {/* Legal Links */}
-                  <div className='col-span-12 md:col-span-3 flex md:justify-end items-center'>
-                    <div className='flex space-x-4 text-xs'>
-                      <Link
-                        href='/terms'
-                        className='text-white/40 hover:text-white transition-colors font-display tracking-wider'
-                      >
-                        Terms
-                      </Link>
-                      <Link
-                        href='/privacy'
-                        className='text-white/40 hover:text-white transition-colors font-display tracking-wider'
-                      >
-                        Privacy
-                      </Link>
                     </div>
                   </div>
                 </div>

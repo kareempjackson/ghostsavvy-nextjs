@@ -57,34 +57,54 @@ const GhostLoader = ({
     };
   }, [propIsLoading, onLoadingComplete, minDuration, delay]);
 
-  // Glitch effect variants
+  // Enhanced glitch effect variants
   const glitchVariants = {
     initial: { x: 0, y: 0, opacity: 1 },
     glitch: {
-      x: [0, -2, 3, -1, 0, 2, -2, 0],
-      y: [0, 1, -1, 2, -1, 0, 1, 0],
-      opacity: [1, 0.8, 1, 0.9, 1, 0.8, 1],
+      x: [0, -3, 5, -2, 0, 4, -4, 1, -1, 0],
+      y: [0, 2, -2, 3, -1, 0, 2, -3, 1, 0],
+      opacity: [1, 0.7, 1, 0.8, 1, 0.9, 0.7, 1, 0.8, 1],
+      scale: [1, 1.02, 0.98, 1.01, 1, 0.99, 1.03, 0.97, 1],
       transition: {
-        duration: 0.4,
+        duration: 0.3,
         repeat: Infinity,
         repeatType: "mirror" as const,
         ease: "easeInOut",
-        times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
+        times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1],
       },
     },
   };
 
-  // RGB split variants
+  // Enhanced RGB split variants
   const rgbSplitVariants = {
     initial: { x: 0, opacity: 0 },
     animate: {
-      opacity: [0, 0.3, 0.1, 0.2, 0, 0.3, 0],
-      x: [-2, 1, -1, 0, 1, -1, 0],
+      opacity: [0, 0.5, 0.2, 0.4, 0, 0.3, 0.1, 0],
+      x: [-3, 2, -2, 0, 3, -2, 1, 0],
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         repeat: Infinity,
         repeatType: "mirror" as const,
         ease: "easeInOut",
+      },
+    },
+  };
+
+  // Noise overlay animation
+  const noiseVariants = {
+    animate: {
+      opacity: [0.05, 0.1, 0.05, 0.15, 0.05],
+      backgroundPosition: [
+        "0% 0%",
+        "100% 100%",
+        "200% 50%",
+        "0% 100%",
+        "0% 0%",
+      ],
+      transition: {
+        duration: 1,
+        repeat: Infinity,
+        repeatType: "mirror" as const,
       },
     },
   };
@@ -96,12 +116,44 @@ const GhostLoader = ({
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 0.8, ease: [0.65, 0, 0.35, 1] },
+            transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] },
           }}
           className={`${
             fullScreen ? "fixed inset-0" : "absolute inset-0"
           } z-50 flex flex-col items-center justify-center bg-black`}
         >
+          {/* Noise overlay */}
+          <motion.div
+            className='absolute inset-0 z-0 opacity-5'
+            style={{
+              backgroundImage: 'url("/images/noise-texture.png")',
+              backgroundSize: "200px",
+              mixBlendMode: "overlay",
+            }}
+            variants={noiseVariants}
+            animate='animate'
+          />
+
+          {/* Occasional scan lines */}
+          <motion.div
+            className='absolute inset-0 z-0 opacity-10'
+            style={{
+              backgroundImage:
+                "linear-gradient(transparent 50%, rgba(0, 255, 255, 0.05) 50%)",
+              backgroundSize: "4px 4px",
+              mixBlendMode: "overlay",
+            }}
+            animate={{
+              opacity: [0.05, 0.15, 0.05],
+              y: [0, 10, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{
@@ -112,12 +164,12 @@ const GhostLoader = ({
             className='relative flex flex-col items-center'
           >
             {/* Ghost Icon Container - Smaller size */}
-            <div className='relative w-12 h-16 md:w-14 md:h-20'>
+            <div className='relative w-10 h-14 sm:w-11 sm:h-15'>
               {/* RGB Split effect - Red channel */}
               <motion.div
-                className='absolute inset-0 left-[-2px]'
+                className='absolute inset-0 left-[-3px]'
                 style={{
-                  filter: "brightness(1.2) contrast(1.5)",
+                  filter: "brightness(1.3) contrast(1.7)",
                   mixBlendMode: "screen",
                 }}
                 variants={rgbSplitVariants}
@@ -130,7 +182,7 @@ const GhostLoader = ({
                   viewBox='0 0 165 257'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
-                  style={{ opacity: 0.5, color: "#ff0000" }}
+                  style={{ opacity: 0.7, color: "#ff0000" }}
                 >
                   <g>
                     <path
@@ -147,9 +199,9 @@ const GhostLoader = ({
 
               {/* RGB Split effect - Blue channel */}
               <motion.div
-                className='absolute inset-0 left-[2px]'
+                className='absolute inset-0 left-[3px]'
                 style={{
-                  filter: "brightness(1.2) contrast(1.5)",
+                  filter: "brightness(1.3) contrast(1.7)",
                   mixBlendMode: "screen",
                 }}
                 variants={rgbSplitVariants}
@@ -163,7 +215,7 @@ const GhostLoader = ({
                   viewBox='0 0 165 257'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
-                  style={{ opacity: 0.5, color: "#0000ff" }}
+                  style={{ opacity: 0.7, color: "#0000ff" }}
                 >
                   <g>
                     <path
@@ -178,7 +230,7 @@ const GhostLoader = ({
                 </svg>
               </motion.div>
 
-              {/* Main ghost SVG with glitch animation */}
+              {/* Main ghost SVG with enhanced glitch animation */}
               <motion.div
                 className='relative z-10'
                 variants={glitchVariants}
@@ -202,11 +254,11 @@ const GhostLoader = ({
                         opacity: 1,
                         transition: {
                           pathLength: {
-                            delay: 0.2,
-                            duration: 1.5,
+                            delay: 0.1,
+                            duration: 1.2,
                             ease: "easeInOut",
                           },
-                          opacity: { delay: 0.2, duration: 0.6 },
+                          opacity: { delay: 0.1, duration: 0.5 },
                         },
                       }}
                     />
@@ -219,11 +271,11 @@ const GhostLoader = ({
                         opacity: 1,
                         transition: {
                           pathLength: {
-                            delay: 0.8,
-                            duration: 1.5,
+                            delay: 0.6,
+                            duration: 1.2,
                             ease: "easeInOut",
                           },
-                          opacity: { delay: 0.8, duration: 0.6 },
+                          opacity: { delay: 0.6, duration: 0.5 },
                         },
                       }}
                     />
@@ -231,98 +283,101 @@ const GhostLoader = ({
                 </svg>
               </motion.div>
 
-              {/* Glitch lines */}
+              {/* Enhanced glitch lines - more of them, more random */}
               <motion.div
-                className='absolute inset-0 overflow-hidden opacity-10'
-                animate={{ opacity: [0.1, 0, 0.15, 0, 0.1] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
+                className='absolute inset-0 overflow-hidden opacity-20'
+                animate={{ opacity: [0.2, 0.1, 0.3, 0, 0.2] }}
+                transition={{ repeat: Infinity, duration: 1.2 }}
               >
-                {[...Array(5)].map((_, i) => (
+                {[...Array(8)].map((_, i) => (
                   <motion.div
                     key={i}
                     className='absolute h-[1px] bg-cyan-400 w-full'
                     style={{
-                      top: `${20 + i * 15}%`,
+                      top: `${Math.random() * 100}%`,
                       left: 0,
+                      height: `${Math.random() * 2 + 1}px`,
                     }}
                     animate={{
                       scaleX: [0, 1, 0],
                       x: ["-100%", "100%"],
-                      opacity: [0, 0.8, 0],
+                      opacity: [0, 0.9, 0],
                     }}
                     transition={{
-                      duration: 0.4,
+                      duration: Math.random() * 0.3 + 0.2,
                       delay: i * 0.1,
                       repeat: Infinity,
-                      repeatDelay: 1.5,
+                      repeatDelay: Math.random() * 3 + 1,
                     }}
                   />
                 ))}
               </motion.div>
 
-              {/* Animated dot in the center of the ghost */}
+              {/* Enhanced animated dot in the center of the ghost */}
               <motion.div
-                className='absolute left-1/2 top-[40%] w-1 h-1 rounded-full bg-[#00fff2]'
+                className='absolute left-1/2 top-[40%] w-[3px] h-[3px] rounded-full bg-[#00fff2]'
                 style={{ x: "-50%", y: "-50%" }}
                 animate={{
-                  scale: [1, 1.5, 1],
+                  scale: [1, 2, 1],
                   opacity: [0.7, 1, 0.7],
                   filter: [
                     "drop-shadow(0 0 1px #00fff2)",
-                    "drop-shadow(0 0 3px #00fff2)",
+                    "drop-shadow(0 0 5px #00fff2)",
                     "drop-shadow(0 0 1px #00fff2)",
                   ],
                 }}
                 transition={{
                   repeat: Infinity,
-                  duration: 2,
+                  duration: 1.5,
                   ease: "easeInOut",
                 }}
               />
             </div>
 
-            {/* Loading text with glitch effect */}
+            {/* Loading text with enhanced glitch effect */}
             <motion.div
-              className='mt-4 font-mono text-xs uppercase tracking-widest text-white/70'
+              className='mt-3 font-mono text-[10px] uppercase tracking-widest text-white/70'
               initial={{ opacity: 0, y: 10 }}
               animate={{
                 opacity: 1,
                 y: 0,
-                transition: { delay: 0.6, duration: 0.5 },
+                transition: { delay: 0.4, duration: 0.4 },
               }}
             >
               <motion.span
                 animate={{ opacity: [0.4, 1, 0.4] }}
-                transition={{ repeat: Infinity, duration: 1.8 }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
                 className='relative inline-block'
               >
                 <span className='relative z-10'>Loading</span>
                 <motion.span
-                  className='absolute left-0 top-0 text-cyan-400 invisible sm:visible'
+                  className='absolute left-0 top-0 text-cyan-400'
                   animate={{
-                    x: [0, -1, 1, -1, 0],
-                    opacity: [0, 0.5, 0, 0.3, 0],
+                    x: [0, -2, 2, -1, 0],
+                    y: [0, 1, -1, 0],
+                    opacity: [0, 0.7, 0, 0.5, 0],
                   }}
                   transition={{
                     duration: 0.2,
                     repeat: Infinity,
                     repeatType: "mirror",
-                    repeatDelay: 2,
+                    repeatDelay: 1.5,
                   }}
                 >
                   Loading
                 </motion.span>
                 <motion.span
-                  className='absolute left-0 top-0 text-red-400 invisible sm:visible'
+                  className='absolute left-0 top-0 text-red-400'
                   animate={{
-                    x: [0, 1, -1, 1, 0],
-                    opacity: [0, 0.3, 0, 0.5, 0],
+                    x: [0, 2, -2, 1, 0],
+                    y: [0, -1, 1, 0],
+                    opacity: [0, 0.5, 0, 0.7, 0],
                   }}
                   transition={{
                     duration: 0.3,
                     repeat: Infinity,
                     repeatType: "mirror",
-                    repeatDelay: 2.5,
+                    repeatDelay: 1.2,
                   }}
                 >
                   Loading

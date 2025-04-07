@@ -49,7 +49,7 @@ const PurposeSection = () => {
           alt='Ghost Savvy Icon'
           width={600}
           height={600}
-          className='w-[600px] h-[600px] object-contain opacity-[0.15]'
+          className='w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] object-contain opacity-[0.15]'
           style={{
             filter:
               "brightness(0) saturate(100%) invert(91%) sepia(10%) saturate(1015%) hue-rotate(44deg) brightness(103%) contrast(96%)",
@@ -72,17 +72,17 @@ const PurposeSection = () => {
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className='max-w-6xl mx-auto px-6 py-32'
+        className='container-custom py-20 sm:py-24 md:py-28 lg:py-32'
       >
-        <div className='flex flex-col items-center text-center space-y-16'>
+        <div className='flex flex-col items-center text-center space-y-10 sm:space-y-12 md:space-y-16'>
           {/* Headline Blocks */}
-          <div className='space-y-8'>
+          <div className='space-y-4 sm:space-y-6 md:space-y-8'>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: entryEasing }}
-              className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-brand-white leading-[1.1] tracking-[-0.5px]'
+              className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-brand-white leading-[1.2] sm:leading-[1.1] tracking-[-0.5px]'
             >
               We build digital products.
             </motion.h2>
@@ -91,7 +91,7 @@ const PurposeSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4, ease: entryEasing }}
-              className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-brand-white leading-[1.1] tracking-[-0.5px]'
+              className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-brand-white leading-[1.2] sm:leading-[1.1] tracking-[-0.5px]'
             >
               But not just any products.
             </motion.h2>
@@ -100,7 +100,7 @@ const PurposeSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6, ease: entryEasing }}
-              className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-brand-white leading-[1.1] tracking-[-0.5px]'
+              className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-brand-white leading-[1.2] sm:leading-[1.1] tracking-[-0.5px]'
             >
               We build what matters.
             </motion.h2>
@@ -112,7 +112,7 @@ const PurposeSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.8, ease: entryEasing }}
-            className='text-lg md:text-xl text-brand-white/70 max-w-3xl leading-[1.6]'
+            className='text-base sm:text-lg md:text-xl text-brand-white/70 max-w-3xl leading-[1.6]'
           >
             Ghost Savvy Studios is an AI-driven product studio obsessed with
             impact. We don&apos;t just design. We don&apos;t just build. We
@@ -126,20 +126,20 @@ const PurposeSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1, ease: entryEasing }}
-            className='flex items-center space-x-6 pt-8'
+            className='flex flex-col sm:flex-row items-center sm:space-x-6 pt-4 sm:pt-6 md:pt-8 space-y-4 sm:space-y-0'
           >
             <Image
               src='/images/ghost_savvy_icon.svg'
               alt='Ghost Savvy Icon'
               width={40}
               height={40}
-              className='w-10 h-10 object-contain opacity-75'
+              className='w-8 h-8 sm:w-10 sm:h-10 object-contain opacity-75'
               style={{
                 filter:
                   "brightness(0) saturate(100%) invert(91%) sepia(10%) saturate(1015%) hue-rotate(44deg) brightness(103%) contrast(96%)",
               }}
             />
-            <p className='text-xl md:text-2xl italic text-brand-white/90 tracking-[-0.5px]'>
+            <p className='text-lg sm:text-xl md:text-2xl italic text-brand-white/90 tracking-[-0.5px]'>
               &ldquo;We build in silence. We scale in public.&rdquo;
             </p>
           </motion.div>
@@ -151,11 +151,11 @@ const PurposeSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1.2, ease: entryEasing }}
-            className='flex flex-col sm:flex-row gap-4 pt-8'
+            className='flex flex-col sm:flex-row gap-4 pt-6 sm:pt-8 w-full sm:w-auto'
           >
             <Link
               href='/contact'
-              className='px-8 py-4 bg-brand-sage text-brand-forest rounded-[4px] text-sm hover:bg-brand-sage/90 transition-all duration-300 group font-medium hover:text-brand-black'
+              className='w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-sage text-brand-forest rounded-[4px] text-sm hover:bg-brand-sage/90 transition-all duration-300 group font-medium hover:text-brand-black'
             >
               Start a Project
               <span className='ml-2 inline-block transform group-hover:translate-x-1 transition-transform'>
@@ -164,7 +164,7 @@ const PurposeSection = () => {
             </Link>
             <Link
               href='/savvy-impact'
-              className='px-8 py-4 bg-transparent border border-brand-white/30 text-brand-white rounded-[4px] text-sm hover:bg-brand-white/10 transition-all duration-300 group hover:border-brand-white font-medium hover:text-brand-white'
+              className='w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border border-brand-white/30 text-brand-white rounded-[4px] text-sm hover:bg-brand-white/10 transition-all duration-300 group hover:border-brand-white font-medium hover:text-brand-white'
             >
               See Our Impact
               <span className='ml-2 inline-block transform group-hover:translate-x-1 transition-transform'>

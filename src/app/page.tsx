@@ -1,7 +1,6 @@
 import HeroSection from "@/sections/HeroSection";
 import PurposeSection from "@/sections/PurposeSection";
 import ApproachSection from "@/sections/ApproachSection";
-import ServicesSection from "@/sections/ServicesSection";
 import StoriesOfImpact from "@/sections/StoriesOfImpact";
 import SavvyHubSection from "@/sections/SavvyHubSection";
 import CtaSection from "@/sections/CtaSection";
@@ -18,7 +17,6 @@ export default function Home() {
       />
       <HeroSection />
       <PurposeSection />
-      <ServicesSection />
       <ApproachSection />
       <StoriesOfImpact />
       <SavvyHubSection />

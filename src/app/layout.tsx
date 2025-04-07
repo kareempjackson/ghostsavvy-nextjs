@@ -125,7 +125,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/images/ghost_savvy_icon.svg", type: "image/svg+xml" }],
     shortcut: "/images/ghost_savvy_icon.svg",
-    apple: [{ url: "/images/ghost_savvy_icon.svg" }],
+    apple: [
+      { url: "/images/ghost_savvy_icon.svg" },
+      { url: "/images/apple-touch-icon.png", sizes: "180x180" },
+    ],
     other: [
       {
         rel: "apple-touch-icon-precomposed",
@@ -139,6 +142,11 @@ export const metadata: Metadata = {
     google: "google-site-verification=YOUR_VERIFICATION_ID",
   },
   category: "technology",
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "mobile-web-app-capable": "yes",
+  },
 };
 
 export const viewport: Viewport = {
@@ -148,7 +156,11 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
+  minimumScale: 1,
   maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-visual",
 };
 
 export default function RootLayout({
@@ -158,7 +170,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={`${aloeveraDisplay.variable}`}>
-      <body className='font-display'>
+      <body className='font-display antialiased text-rendering-optimizeLegibility'>
         <GhostLoader />
         <MouseFollower />
         <Header />
@@ -189,6 +201,19 @@ export default function RootLayout({
                 contactType: "customer support",
               },
             }),
+          }}
+        />
+
+        {/* Fast click for mobile devices */}
+        <Script
+          id='fast-click'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('ontouchstart' in window) {
+                document.documentElement.classList.add('touch-device');
+              }
+            `,
           }}
         />
       </body>

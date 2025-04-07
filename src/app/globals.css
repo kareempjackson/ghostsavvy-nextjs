@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
   body {
     @apply text-brand-forest bg-brand-white;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
@@ -13,23 +18,23 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-medium tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl font-medium;
+    @apply text-xl sm:text-2xl md:text-3xl font-medium;
   }
 
   h4 {
-    @apply text-xl md:text-2xl font-medium;
+    @apply text-lg sm:text-xl md:text-2xl font-medium;
   }
 
   p {
-    @apply text-base md:text-lg leading-relaxed;
+    @apply text-sm sm:text-base md:text-lg leading-relaxed;
   }
 
   a {
@@ -39,23 +44,23 @@
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .btn-primary {
-    @apply bg-brand-forest text-brand-white px-6 py-3 rounded-[4px] hover:bg-brand-black transition-colors duration-200;
+    @apply bg-brand-forest text-brand-white px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-black transition-colors duration-200 text-sm sm:text-base;
   }
 
   .btn-secondary {
-    @apply bg-transparent border border-brand-forest text-brand-forest px-6 py-3 rounded-[4px] hover:bg-brand-forest hover:text-brand-white transition-colors duration-200;
+    @apply bg-transparent border border-brand-forest text-brand-forest px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-forest hover:text-brand-white transition-colors duration-200 text-sm sm:text-base;
   }
 
   .btn-accent {
-    @apply bg-brand-sage text-brand-white px-6 py-3 rounded-[4px] hover:opacity-90 transition-opacity duration-200;
+    @apply bg-brand-sage text-brand-white px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:opacity-90 transition-opacity duration-200 text-sm sm:text-base;
   }
 
   .section {
-    @apply py-16 md:py-24;
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
   }
 
   .subtle-shadow {
@@ -63,7 +68,18 @@
   }
 
   .ghost-card {
-    @apply bg-brand-white rounded-[4px] p-8 subtle-shadow;
+    @apply bg-brand-white rounded-[4px] p-4 sm:p-6 md:p-8 subtle-shadow;
+  }
+  
+  .mobile-menu {
+    @apply fixed inset-0 bg-brand-white z-50 transition-transform duration-300 ease-in-out;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .hover\:scale-105, .hover\:translate-y-\[-4px\] {
+    transform: none !important;
   }
 }
 
@@ -85,5 +101,16 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile touch optimizations */
+@media (max-width: 640px) {
+  button, a, [role="button"] {
+    @apply p-2 min-h-[44px] min-w-[44px];
+  }
+  
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
   }
 }

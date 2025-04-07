@@ -11,7 +11,7 @@ const CtaSection = () => {
   return (
     <section
       ref={sectionRef}
-      className='py-24 md:py-32 relative overflow-hidden'
+      className='py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden'
     >
       {/* Background gradient */}
       <div className='absolute inset-0 bg-gradient-to-br from-brand-forest to-brand-black'></div>
@@ -27,23 +27,26 @@ const CtaSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, ease: [0.04, 0.62, 0.23, 0.98] }}
-          className='max-w-4xl mx-auto text-center'
+          className='max-w-4xl mx-auto text-center px-4 sm:px-6'
         >
-          <h2 className='text-white mb-6'>
+          <h2 className='text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight mb-4 sm:mb-6'>
             Ready to elevate your digital presence?
           </h2>
-          <p className='text-white/80 text-xl mb-10 max-w-2xl mx-auto'>
+          <p className='text-white/80 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto'>
             Let&apos;s collaborate to create meaningful digital products that
             solve real problems and engage your audience.
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <Link href='/contact' className='btn-accent'>
+          <div className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto'>
+            <Link
+              href='/contact'
+              className='w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-sage text-brand-forest rounded-md text-sm sm:text-base font-medium transition-all duration-300 hover:bg-brand-sage/90 hover:text-brand-black'
+            >
               Start a project
             </Link>
             <Link
               href='/savvy-hub'
-              className='btn-secondary text-white border-white/30 hover:bg-white/10 hover:border-white hover:text-white'
+              className='w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border border-white/30 text-white rounded-md text-sm sm:text-base font-medium transition-all duration-300 hover:bg-white/10 hover:border-white hover:text-white'
             >
               Explore our insights
             </Link>

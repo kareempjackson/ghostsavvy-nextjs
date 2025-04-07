@@ -14,9 +14,9 @@ const Footer = () => {
       {/* Top border line */}
       <div className='w-full h-px bg-brand-white/10'></div>
 
-      <div className='max-w-7xl mx-auto px-6 pb-20 pt-28 relative z-10'>
+      <div className='container-custom pb-12 sm:pb-16 md:pb-20 pt-16 sm:pt-20 md:pt-28 relative z-10'>
         {/* Main content sections */}
-        <div className='grid grid-cols-1 md:grid-cols-12 gap-20'>
+        <div className='grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-16 md:gap-20'>
           {/* Logo column - moderately sized */}
           <div className='col-span-1 md:col-span-4'>
             <Link href='/'>
@@ -25,10 +25,10 @@ const Footer = () => {
                 transition={{ duration: 0.5, ease: entryEasing }}
                 src='/images/ghost savvy-02.png'
                 alt='Ghost Savvy Studios'
-                className='h-40 w-auto'
+                className='h-28 sm:h-32 md:h-40 w-auto'
               />
             </Link>
-            <p className='text-brand-white/60 mt-6 text-sm leading-relaxed max-w-xs'>
+            <p className='text-brand-white/60 mt-4 sm:mt-6 text-sm leading-relaxed max-w-xs'>
               We design and develop digital products that solve real-world
               problems while maintaining your brand&apos;s anonymity.
             </p>
@@ -36,13 +36,13 @@ const Footer = () => {
 
           {/* Links section */}
           <div className='col-span-1 md:col-span-8'>
-            <div className='grid grid-cols-1 sm:grid-cols-3 gap-14'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10 md:gap-14'>
               {/* Navigation Links */}
               <div>
-                <h3 className='text-sm mb-8 font-medium text-brand-white tracking-wider uppercase'>
+                <h3 className='text-xs sm:text-sm mb-4 sm:mb-6 md:mb-8 font-medium text-brand-white tracking-wider uppercase'>
                   Navigation
                 </h3>
-                <ul className='space-y-4'>
+                <ul className='space-y-3 sm:space-y-4'>
                   {[
                     { name: "About", href: "/about" },
                     { name: "Contact", href: "/contact" },
@@ -61,10 +61,10 @@ const Footer = () => {
 
               {/* Product Links */}
               <div>
-                <h3 className='text-sm mb-8 font-medium text-brand-white tracking-wider uppercase'>
+                <h3 className='text-xs sm:text-sm mb-4 sm:mb-6 md:mb-8 font-medium text-brand-white tracking-wider uppercase'>
                   Products
                 </h3>
-                <ul className='space-y-4'>
+                <ul className='space-y-3 sm:space-y-4'>
                   {[
                     { name: "Savvy Hub", href: "/savvy-hub" },
                     { name: "Savvy Impact", href: "/savvy-impact" },
@@ -82,11 +82,11 @@ const Footer = () => {
               </div>
 
               {/* Social Links */}
-              <div>
-                <h3 className='text-sm mb-8 font-medium text-brand-white tracking-wider uppercase'>
+              <div className='col-span-2 sm:col-span-1 mt-6 sm:mt-0'>
+                <h3 className='text-xs sm:text-sm mb-4 sm:mb-6 md:mb-8 font-medium text-brand-white tracking-wider uppercase'>
                   Connect
                 </h3>
-                <ul className='space-y-4'>
+                <ul className='space-y-3 sm:space-y-4'>
                   {[
                     { name: "Instagram", href: "https://instagram.com" },
                     { name: "Twitter", href: "https://twitter.com" },
@@ -111,10 +111,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom section with location and copyright */}
-        <div className='mt-20 pt-12 border-t border-brand-white/5 grid grid-cols-1 md:grid-cols-12 gap-10'>
+        <div className='mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-10 md:pt-12 border-t border-brand-white/5 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10'>
           {/* Location */}
           <div className='col-span-1 md:col-span-4'>
-            <h3 className='text-sm mb-6 font-medium text-brand-white tracking-wider uppercase'>
+            <h3 className='text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6 font-medium text-brand-white tracking-wider uppercase'>
               New York
             </h3>
             <address className='not-italic text-brand-white/60 text-sm leading-[1.5]'>
@@ -126,9 +126,9 @@ const Footer = () => {
             </address>
           </div>
 
-          {/* Copyright centered */}
-          <div className='col-span-1 md:col-span-8 flex flex-col items-center md:items-end justify-end'>
-            <div className='text-right'>
+          {/* Copyright centered on mobile, right-aligned on desktop */}
+          <div className='col-span-1 md:col-span-8 flex flex-col items-start md:items-end justify-end mt-8 md:mt-0'>
+            <div className='text-left md:text-right'>
               <p className='text-brand-white/40 text-sm mb-4 leading-[1.5]'>
                 © {currentYear} Ghost Savvy Studios. All rights reserved.
               </p>

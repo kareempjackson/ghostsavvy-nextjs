@@ -58,7 +58,7 @@ const ApproachQuote = ({ quote, ctaText, ctaLink }: ApproachQuoteProps) => {
   return (
     <motion.section
       ref={sectionRef}
-      className='relative w-full min-h-screen flex items-center justify-center'
+      className='relative w-full min-h-[80vh] sm:min-h-screen flex items-center justify-center py-16 sm:py-0'
       style={{ backgroundColor: backgroundColor as unknown as string }}
     >
       <motion.div
@@ -66,11 +66,11 @@ const ApproachQuote = ({ quote, ctaText, ctaLink }: ApproachQuoteProps) => {
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true, amount: 0.3 }}
-        className='max-w-4xl mx-auto px-6 text-center'
+        className='max-w-4xl mx-auto px-4 sm:px-6 text-center'
       >
         <motion.blockquote
           variants={itemVariants}
-          className='text-3xl md:text-4xl lg:text-5xl font-display leading-tight mb-16'
+          className='text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display leading-tight mb-10 sm:mb-16'
           style={{ color: textColor as unknown as string }}
         >
           &ldquo;{quote}&rdquo;
@@ -79,7 +79,7 @@ const ApproachQuote = ({ quote, ctaText, ctaLink }: ApproachQuoteProps) => {
         <motion.div variants={itemVariants}>
           <Link
             href={ctaLink}
-            className='inline-block px-8 py-3 bg-transparent border-2 border-[#00ff9d] hover:bg-[#00ff9d]/10 rounded-full transition-colors duration-300 font-display tracking-wider'
+            className='inline-block px-6 sm:px-8 py-2 sm:py-3 bg-transparent border-2 border-[#00ff9d] hover:bg-[#00ff9d]/10 rounded-full transition-colors duration-300 font-display tracking-wider text-sm sm:text-base'
             style={{ color: textColor as unknown as string }}
           >
             {ctaText}
@@ -89,7 +89,7 @@ const ApproachQuote = ({ quote, ctaText, ctaLink }: ApproachQuoteProps) => {
 
         {/* Subtle decorative elements */}
         <motion.div
-          className='absolute top-1/4 left-[15%] w-20 h-20 rounded-full opacity-10 bg-[#00ff9d]'
+          className='absolute top-1/4 left-[10%] sm:left-[15%] w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 rounded-full opacity-10 bg-[#00ff9d]'
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.1, 0.15, 0.1],
@@ -102,7 +102,7 @@ const ApproachQuote = ({ quote, ctaText, ctaLink }: ApproachQuoteProps) => {
         />
 
         <motion.div
-          className='absolute bottom-1/4 right-[15%] w-16 h-16 rounded-full opacity-10 bg-[#00ff9d]'
+          className='absolute bottom-1/4 right-[10%] sm:right-[15%] w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 rounded-full opacity-10 bg-[#00ff9d]'
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.1, 0.2, 0.1],

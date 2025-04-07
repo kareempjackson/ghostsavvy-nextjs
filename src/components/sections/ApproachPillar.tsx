@@ -60,6 +60,19 @@ const ApproachPillar = ({ section, onSectionChange }: ApproachPillarProps) => {
   const [progress, setProgress] = useState(0); // 0 to 3 (0 = before section, 3 = after section)
   const currentSection =
     SECTIONS[Math.min(Math.floor(progress), 2)] || SECTIONS[0];
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile viewport on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", checkMobile);
+    checkMobile();
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Handle scroll events to track progress and fix section
   useEffect(() => {
@@ -145,12 +158,14 @@ const ApproachPillar = ({ section, onSectionChange }: ApproachPillarProps) => {
         }}
       >
         <div className='relative z-10 h-full container mx-auto'>
-          <div className='absolute top-8 left-8 flex flex-col space-y-2'>
+          <div
+            className={`absolute ${isMobile ? "top-4 left-4 right-4 flex justify-between" : "top-8 left-8 flex flex-col space-y-2"}`}
+          >
             {SECTIONS.map((s, idx) => (
               <button
                 key={s.id}
                 onClick={() => handleSectionClick(idx)}
-                className={`text-left text-sm font-light transition-colors duration-300 ${
+                className={`text-left ${isMobile ? "text-xs" : "text-sm"} font-light transition-colors duration-300 ${
                   Math.floor(progress) === idx
                     ? "text-white"
                     : "text-white/60 hover:text-white/80"
@@ -170,9 +185,9 @@ const ApproachPillar = ({ section, onSectionChange }: ApproachPillarProps) => {
               transition={{ duration: 0.5 }}
               className='flex h-full items-center'
             >
-              <div className='max-w-[800px] mx-auto px-8 mt-0'>
+              <div className='max-w-[800px] mx-auto px-4 sm:px-8 mt-0'>
                 <motion.h2
-                  className='text-5xl md:text-6xl lg:text-7xl font-display mb-20 text-white leading-tight'
+                  className='text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-display mb-10 sm:mb-16 md:mb-20 text-white leading-tight'
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -180,13 +195,13 @@ const ApproachPillar = ({ section, onSectionChange }: ApproachPillarProps) => {
                   {currentSection.headline}
                 </motion.h2>
 
-                <motion.div className='mb-20'>
+                <motion.div className='mb-10 sm:mb-16 md:mb-20'>
                   <Link
                     href={currentSection.cta.link}
-                    className='inline-flex items-center space-x-4 text-white hover:text-[#00ff9d] transition-colors duration-300 text-lg group'
+                    className='inline-flex items-center space-x-2 sm:space-x-4 text-white hover:text-[#00ff9d] transition-colors duration-300 text-base sm:text-lg group'
                   >
                     <span>{currentSection.cta.text}</span>
-                    <span className='text-2xl transform group-hover:translate-x-1 transition-transform'>
+                    <span className='text-xl sm:text-2xl transform group-hover:translate-x-1 transition-transform'>
                       →
                     </span>
                   </Link>
@@ -195,7 +210,9 @@ const ApproachPillar = ({ section, onSectionChange }: ApproachPillarProps) => {
             </motion.div>
           </AnimatePresence>
 
-          <div className='absolute bottom-8 left-8 flex items-center space-x-3 text-white/60'>
+          <div
+            className={`${isMobile ? "hidden sm:flex" : "flex"} absolute bottom-8 left-8 items-center space-x-3 text-white/60`}
+          >
             <div className='w-6 h-6 rounded-full border border-white/60 flex items-center justify-center text-sm'>
               {Math.min(Math.floor(progress) + 1, 3)}
             </div>
@@ -203,7 +220,7 @@ const ApproachPillar = ({ section, onSectionChange }: ApproachPillarProps) => {
             <div className='text-sm'>3</div>
           </div>
 
-          <div className='absolute bottom-8 right-8 text-white/60 text-sm'>
+          <div className='absolute bottom-8 right-8 text-white/60 text-xs sm:text-sm'>
             &ldquo;Built to perform. Engineered to adapt.&rdquo;
           </div>
         </div>

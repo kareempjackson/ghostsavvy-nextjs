@@ -43,11 +43,11 @@ const ProjectCard = ({
   const getHeight = () => {
     switch (size) {
       case "small":
-        return "h-[300px] md:h-[350px]";
+        return "h-[250px] sm:h-[300px] md:h-[350px]";
       case "large":
-        return "h-[500px] md:h-[600px]";
+        return "h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px]";
       default:
-        return "h-[400px] md:h-[450px]";
+        return "h-[320px] sm:h-[360px] md:h-[400px] lg:h-[450px]";
     }
   };
 
@@ -66,7 +66,7 @@ const ProjectCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className={`${getSpan()} relative overflow-hidden rounded-2xl shadow-xl shadow-black/10 ${getHeight()}`}
+      className={`${getSpan()} relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl shadow-black/10 ${getHeight()}`}
       style={{ y, opacity, scale }}
       whileHover={{ scale: 1.03, zIndex: 10 }}
       transition={{ duration: 0.4 }}
@@ -99,13 +99,13 @@ const ProjectCard = ({
           <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300'></div>
 
           {/* Content */}
-          <div className='absolute bottom-0 left-0 w-full p-6 md:p-8 transition-transform duration-300 group-hover:translate-y-[-10px]'>
+          <div className='absolute bottom-0 left-0 w-full p-4 sm:p-6 md:p-8 transition-transform duration-300 group-hover:translate-y-[-10px]'>
             {/* Tags */}
-            <div className='flex flex-wrap gap-2 mb-3'>
-              {project.tags.map((tag: string) => (
+            <div className='flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3'>
+              {project.tags.slice(0, 3).map((tag: string) => (
                 <span
                   key={tag}
-                  className='bg-white/10 backdrop-blur-md text-white text-xs py-1 px-3 rounded-full'
+                  className='bg-white/10 backdrop-blur-md text-white text-[10px] sm:text-xs py-1 px-2 sm:px-3 rounded-full'
                 >
                   #{tag}
                 </span>
@@ -116,20 +116,22 @@ const ProjectCard = ({
             <h3
               className={`font-display ${
                 size === "large"
-                  ? "text-3xl md:text-4xl"
-                  : "text-2xl md:text-3xl"
-              } text-white mb-2`}
+                  ? "text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+                  : "text-lg sm:text-xl md:text-2xl lg:text-3xl"
+              } text-white mb-1 sm:mb-2 leading-tight`}
             >
               {project.title}
             </h3>
 
             {/* Hook */}
-            <p className='text-white/80 mb-4 text-lg'>{project.hook}</p>
+            <p className='text-white/80 mb-3 sm:mb-4 text-sm sm:text-base md:text-lg line-clamp-2'>
+              {project.hook}
+            </p>
 
             {/* View link */}
-            <div className='inline-flex items-center text-[#00ff9d] font-medium group/btn'>
+            <div className='inline-flex items-center text-[#00ff9d] text-sm sm:text-base font-medium group/btn'>
               <span>View Case Study</span>
-              <span className='ml-2 transition-transform duration-300 transform group-hover/btn:translate-x-2'>
+              <span className='ml-1 sm:ml-2 transition-transform duration-300 transform group-hover/btn:translate-x-2'>
                 →
               </span>
             </div>
@@ -201,7 +203,7 @@ const StoriesOfImpact = () => {
   // Loading state while fetching projects
   if (isLoading) {
     return (
-      <section className='py-24 bg-black'>
+      <section className='py-16 sm:py-20 md:py-24 bg-black'>
         <div className='container mx-auto px-4 text-center text-white'>
           <p>Loading featured projects...</p>
         </div>
@@ -212,7 +214,7 @@ const StoriesOfImpact = () => {
   return (
     <section
       ref={sectionRef}
-      className='relative py-24 bg-black overflow-hidden'
+      className='relative py-16 sm:py-20 md:py-24 bg-black overflow-hidden'
     >
       {/* Background elements */}
       <motion.div
@@ -224,11 +226,11 @@ const StoriesOfImpact = () => {
         }}
       />
 
-      <div className='container mx-auto px-4'>
+      <div className='container-custom'>
         {/* Section header */}
         <motion.div
           style={{ y: titleY, opacity: titleOpacity }}
-          className='text-center mb-16'
+          className='text-center mb-8 sm:mb-12 md:mb-16'
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -236,10 +238,10 @@ const StoriesOfImpact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className='text-4xl md:text-5xl font-display font-medium text-white mb-4'>
+            <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-medium text-white mb-3 sm:mb-4'>
               Stories of Impact
             </h2>
-            <p className='text-lg text-white/80 max-w-2xl mx-auto'>
+            <p className='text-base sm:text-lg text-white/80 max-w-2xl mx-auto px-4'>
               We don&apos;t just build digital products—we create meaningful
               solutions that make a difference.
             </p>
@@ -248,7 +250,7 @@ const StoriesOfImpact = () => {
 
         {/* Masonry grid */}
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 auto-rows-auto'
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 auto-rows-auto'
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -265,7 +267,7 @@ const StoriesOfImpact = () => {
 
         {/* CTA */}
         <motion.div
-          className='text-center mt-16 mb-16'
+          className='text-center mt-10 sm:mt-12 md:mt-16 mb-8 sm:mb-12 md:mb-16'
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -273,11 +275,11 @@ const StoriesOfImpact = () => {
         >
           <Link
             href='/impact'
-            className='inline-flex items-center px-8 py-4 bg-[#00ff9d] text-black rounded-full hover:bg-[#00ff9d]/90 transition-all duration-300 shadow-lg shadow-[#00ff9d]/20 hover:shadow-xl hover:shadow-[#00ff9d]/30 font-medium group'
+            className='inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#00ff9d] text-black rounded-full hover:bg-[#00ff9d]/90 transition-all duration-300 shadow-lg shadow-[#00ff9d]/20 hover:shadow-xl hover:shadow-[#00ff9d]/30 font-medium group text-sm sm:text-base'
           >
             <span>Explore All Projects</span>
             <svg
-              className='w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform'
+              className='w-3 h-3 sm:w-4 sm:h-4 ml-2 transform group-hover:translate-x-1 transition-transform'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -296,7 +298,7 @@ const StoriesOfImpact = () => {
       {/* Bottom blur effect for transition */}
       <motion.div
         ref={bottomRef}
-        className='absolute bottom-0 left-0 right-0 h-32 pointer-events-none'
+        className='absolute bottom-0 left-0 right-0 h-24 sm:h-32 pointer-events-none'
         style={{
           background: "linear-gradient(to top, black, transparent)",
           filter: `blur(${bottomBlur}px)`,
