@@ -294,9 +294,9 @@ const GhostLoader = ({
                     key={i}
                     className='absolute h-[1px] bg-cyan-400 w-full'
                     style={{
-                      top: `${Math.random() * 100}%`,
+                      top: `${8.66 + i * 11.2}%`,
                       left: 0,
-                      height: `${Math.random() * 2 + 1}px`,
+                      height: `${1.1 + i * 0.15}px`,
                     }}
                     animate={{
                       scaleX: [0, 1, 0],
@@ -304,10 +304,10 @@ const GhostLoader = ({
                       opacity: [0, 0.9, 0],
                     }}
                     transition={{
-                      duration: Math.random() * 0.3 + 0.2,
+                      duration: 0.2 + i * 0.03,
                       delay: i * 0.1,
                       repeat: Infinity,
-                      repeatDelay: Math.random() * 3 + 1,
+                      repeatDelay: 1 + i * 0.3,
                     }}
                   />
                 ))}
