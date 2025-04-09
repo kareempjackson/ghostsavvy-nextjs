@@ -6,6 +6,10 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Script from "next/script";
+import { I18nProvider } from "@/components/i18n/I18nProvider";
+
+// Site URL for canonical links
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ghostsavvy.com";
 
 // Load Aloevera Display as our main font
 const aloeveraDisplay = localFont({
@@ -49,9 +53,6 @@ const aloeveraDisplay = localFont({
   variable: "--font-aloevera",
   display: "swap",
 });
-
-// Site URL for canonical links
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ghostsavvy.com";
 
 export const metadata: Metadata = {
   title: {
@@ -136,9 +137,8 @@ export const metadata: Metadata = {
       },
     ],
   },
-  manifest: `${siteUrl}/manifest.json`,
+  manifest: "/manifest.json",
   verification: {
-    // Add your verification tokens here when available
     google: "google-site-verification=YOUR_VERIFICATION_ID",
   },
   category: "technology",
@@ -173,11 +173,13 @@ export default function RootLayout({
       <body className='font-display antialiased text-rendering-optimizeLegibility'>
         <GhostLoader />
         <MouseFollower />
-        <Header />
-        <main className='min-h-screen'>{children}</main>
-        <Footer />
+        <I18nProvider>
+          <Header />
+          <main className='min-h-screen'>{children}</main>
+          <Footer />
+        </I18nProvider>
 
-        {/* JSON-LD structured data for the organization */}
+        {/* Organization schema */}
         <Script
           id='organization-schema'
           type='application/ld+json'
@@ -204,7 +206,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Fast click for mobile devices */}
+        {/* Fast click for mobile */}
         <Script
           id='fast-click'
           strategy='afterInteractive'

@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const LabHeroSection = () => {
@@ -14,10 +13,10 @@ const LabHeroSection = () => {
       ref={sectionRef}
       className='bg-gradient-to-b from-[#111] to-[#1a1a1a] py-24 md:py-32 overflow-hidden relative'
     >
-      {/* Subtle background pattern */}
+      {/* Subtle background pattern - removed problematic grid pattern */}
       <div className='absolute inset-0 opacity-10 pointer-events-none'>
         <div className='absolute top-0 right-0 w-full h-full'>
-          <div className="w-full h-full bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-20"></div>
+          <div className='w-full h-full bg-repeat opacity-20'></div>
         </div>
       </div>
 
@@ -70,14 +69,15 @@ const LabHeroSection = () => {
               }}
               className='hidden lg:block'
             >
-              <div className='relative aspect-[4/3] overflow-hidden'>
-                <Image
-                  src='/images/hero-lab.jpg'
-                  alt='Ghost Savvy Labs Innovation'
-                  fill
-                  className='object-cover'
-                  priority
-                />
+              <div className='relative aspect-[4/3] overflow-hidden bg-gray-900'>
+                {/* Fallback content since the image is missing */}
+                <div className='absolute inset-0 flex flex-col items-center justify-center text-white p-8 text-center'>
+                  <span className='text-3xl font-bold mb-4'>Savvy Lab</span>
+                  <p className='mb-8'>
+                    Innovating at the edge of what&apos;s possible
+                  </p>
+                  <div className='w-full max-w-md h-px bg-white/20'></div>
+                </div>
                 <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent'></div>
 
                 <div className='absolute bottom-0 left-0 w-full p-8'>

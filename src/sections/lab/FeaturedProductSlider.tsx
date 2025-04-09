@@ -1,66 +1,138 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { client, urlFor } from "@/sanity/lib/client";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+// Interface for Lab Product items from Sanity
+interface LabProduct {
+  _id: string;
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  highlight?: string;
+  previewImage?: SanityImageSource;
+  link: string;
+  featuredHome?: boolean;
+  featured?: boolean;
+  slug?: { current: string };
+  fixedLink?: string;
+}
+
+interface CategoryWithProducts {
+  id: string;
+  title: string;
+  description: string;
+  products: LabProduct[];
+}
 
 const FeaturedProductSlider = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const [categories, setCategories] = useState<CategoryWithProducts[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const featuredCategories = [
-    {
-      id: "everyone",
-      title: "For Everyone",
-      description: "User-friendly products designed for everyday use",
-      products: [
-        {
-          id: "vynl",
-          name: "Vynl",
+  // Category descriptions
+  const categoryDescriptions = {
+    everyone: "User-friendly products designed for everyday use",
+    creators: "Tools that empower artists, designers, and content creators",
+    developers:
+      "Powerful APIs and toolkits for building innovative applications",
+  };
+
+  // Fetch data from Sanity
+  useEffect(() => {
+    const fetchFeaturedProducts = async () => {
+      try {
+        // Fetch featured products
+        console.log("Fetching featured products...");
+        const query = `*[_type == "labProduct" && featured == true] | order(sortOrder asc) {
+          _id,
+          id,
+          name,
+          description,
+          category,
+          highlight,
+          previewImage,
+          link,
+          featuredHome,
+          featured,
+          slug,
+          "fixedLink": coalesce(link, "/savvy-lab/" + slug.current)
+        }`;
+
+        const products: LabProduct[] = await client.fetch(query);
+        console.log("Fetched featured products:", products);
+
+        // Group products by category
+        const groupedProducts: { [key: string]: LabProduct[] } = {};
+
+        products.forEach((product) => {
+          if (!groupedProducts[product.category]) {
+            groupedProducts[product.category] = [];
+          }
+          groupedProducts[product.category].push(product);
+        });
+
+        // Transform into categories array for display
+        const categoriesArray: CategoryWithProducts[] = Object.keys(
+          groupedProducts
+        ).map((categoryId) => ({
+          id: categoryId,
+          title: `For ${categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}`,
           description:
-            "Discover music tailored to your unique tastes with our AI-powered platform.",
-          image: "/images/products/vynl-featured.jpg",
-          stats: "10M+ Monthly Active Users",
-          link: "/savvy-lab/vynl",
-        },
-      ],
-    },
-    {
-      id: "creators",
-      title: "For Creators",
-      description:
-        "Tools that empower artists, designers, and content creators",
-      products: [
-        {
-          id: "licid",
-          name: "Licid",
-          description:
-            "Protect your creative work with our decentralized licensing platform.",
-          image: "/images/products/licid-featured.jpg",
-          stats: "400k+ Protected Assets",
-          link: "/savvy-lab/licid",
-        },
-      ],
-    },
-    {
-      id: "developers",
-      title: "For Developers",
-      description:
-        "Powerful APIs and toolkits for building innovative applications",
-      products: [
-        {
-          id: "procur",
-          name: "Procur",
-          description:
-            "Accelerate your development workflow with our robust toolkit and APIs.",
-          image: "/images/products/procur-featured.jpg",
-          stats: "95+ Open Source Integrations",
-          link: "/savvy-lab/procur",
-        },
-      ],
-    },
-  ];
+            categoryDescriptions[
+              categoryId as keyof typeof categoryDescriptions
+            ] || `Products designed for ${categoryId}`,
+          products: groupedProducts[categoryId],
+        }));
+
+        setCategories(categoriesArray);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching featured products:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchFeaturedProducts();
+  }, []);
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <section className='py-28 bg-[#F9F9F9]'>
+        <div className='container mx-auto px-6 text-center'>
+          <p>Loading featured products...</p>
+        </div>
+      </section>
+    );
+  }
+
+  // No products state
+  if (categories.length === 0) {
+    return (
+      <section className='py-28 bg-[#F9F9F9]'>
+        <div className='container mx-auto px-6'>
+          <div className='mb-20'>
+            <span className='inline-block text-[#3F4697] font-medium mb-4'>
+              FEATURED PRODUCTS
+            </span>
+            <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6 max-w-2xl'>
+              Our Most Advanced Solutions
+            </h2>
+            <p>
+              No featured products available at the moment. Check back soon!
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section ref={sectionRef} className='py-28 bg-[#F9F9F9]'>
@@ -80,7 +152,7 @@ const FeaturedProductSlider = () => {
         </motion.div>
 
         <div className='space-y-32'>
-          {featuredCategories.map((category, index) => (
+          {categories.map((category, index) => (
             <div key={category.id} className='relative'>
               {/* Section Divider */}
               {index > 0 && (
@@ -104,10 +176,10 @@ const FeaturedProductSlider = () => {
                 </p>
               </motion.div>
 
-              {/* Featured Product */}
+              {/* Featured Products */}
               {category.products.map((product) => (
                 <motion.div
-                  key={product.id}
+                  key={product._id}
                   initial={{ opacity: 0, y: 30 }}
                   animate={
                     isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
@@ -117,13 +189,21 @@ const FeaturedProductSlider = () => {
                   <div className='grid grid-cols-1 lg:grid-cols-5 gap-12 items-center'>
                     {/* Image Section (3/5 width) */}
                     <div className='lg:col-span-3 relative'>
-                      <div className='relative aspect-[16/9] overflow-hidden'>
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className='object-cover'
-                        />
+                      <div className='relative aspect-[16/9] overflow-hidden bg-gray-100'>
+                        {product.previewImage ? (
+                          <Image
+                            src={urlFor(product.previewImage).url()}
+                            alt={product.name}
+                            fill
+                            className='object-cover'
+                          />
+                        ) : (
+                          <div className='flex items-center justify-center h-full'>
+                            <span className='text-gray-400'>
+                              No preview image
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -139,15 +219,20 @@ const FeaturedProductSlider = () => {
                       </div>
 
                       {/* Stats */}
-                      <div className='flex items-center mb-8'>
-                        <div className='w-1 h-16 bg-[#CFF39E] mr-4'></div>
-                        <span className='text-2xl font-semibold text-[#3F4697]'>
-                          {product.stats}
-                        </span>
-                      </div>
+                      {product.highlight && (
+                        <div className='flex items-center mb-8'>
+                          <div className='w-1 h-16 bg-[#CFF39E] mr-4'></div>
+                          <span className='text-2xl font-semibold text-[#3F4697]'>
+                            {product.highlight}
+                          </span>
+                        </div>
+                      )}
 
                       <Link
-                        href={product.link}
+                        href={
+                          product.fixedLink ||
+                          `/savvy-lab/${product.slug?.current || product.id}`
+                        }
                         className='inline-flex items-center text-[#3F4697] font-medium group'
                       >
                         <span className='border-b border-[#3F4697] pb-1 group-hover:border-b-2 transition-all'>

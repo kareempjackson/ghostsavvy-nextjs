@@ -9,6 +9,8 @@ import podcast from "./podcast";
 import blogPost from "./blogPost";
 import caseStudy from "./caseStudy";
 import event from "./event";
+import siteSettings from "./siteSettings";
+import homePage from "./homePage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -22,5 +24,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blogPost,
     caseStudy,
     event,
+    siteSettings,
+    homePage,
   ],
 };

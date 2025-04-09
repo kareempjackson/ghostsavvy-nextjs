@@ -3,12 +3,24 @@ import imageUrlBuilder from "@sanity/image-url";
 import { apiVersion, dataset, projectId } from "../env";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
+// For client-side fetching (read-only)
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false, // set to true for production
+  useCdn: true, // set to true for production
 });
+
+// For authenticated operations (when a token is needed)
+export const getClient = (token?: string) => {
+  return createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn: false,
+    token,
+  });
+};
 
 // Helper function to build image URLs from Sanity image references
 const builder = imageUrlBuilder(client);

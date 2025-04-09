@@ -1,14 +1,35 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { client, urlFor } from "@/sanity/lib/client";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+// Interface for Lab Product items from Sanity
+interface LabProduct {
+  _id: string;
+  id: string;
+  name: string;
+  description: string;
+  status: string;
+  icon?: SanityImageSource;
+  highlight?: string;
+  link: string;
+  category: string;
+  slug: {
+    current: string;
+  };
+  fixedLink?: string;
+}
 
 const LabProductsGrid = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const [activeCategory, setActiveCategory] = useState("all");
+  const [labProducts, setLabProducts] = useState<LabProduct[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const categoryTabs = [
     { id: "all", label: "All Products" },
@@ -17,74 +38,69 @@ const LabProductsGrid = () => {
     { id: "developers", label: "For Developers" },
   ];
 
-  const products = [
-    {
-      id: "vynl",
-      name: "Vynl",
-      description:
-        "A music discovery platform powered by advanced AI algorithms",
-      image: "/images/products/vynl-product.jpg",
-      category: "everyone",
-      link: "/savvy-lab/vynl",
-      logoSrc: "/images/logos/vynl_logo.svg",
-      highlight: "10M+ Monthly Active Users",
-    },
-    {
-      id: "licid",
-      name: "Licid",
-      description: "Decentralized licensing platform for digital creators",
-      image: "/images/products/licid-product.jpg",
-      category: "creators",
-      link: "/savvy-lab/licid",
-      logoSrc: "/images/logos/licid_logo_white.svg",
-      highlight: "400k+ Protected Assets",
-    },
-    {
-      id: "undr",
-      name: "Undr",
-      description: "Immersive audio experience for spatial storytelling",
-      image: "/images/products/undr-product.jpg",
-      category: "everyone",
-      link: "/savvy-lab/undr",
-      logoSrc: "/images/logos/undr_logo_white.png",
-      highlight: "8.5M Downloads",
-    },
-    {
-      id: "mishmosh",
-      name: "Mishmosh",
-      description: "Visual collaboration tool for creative teams",
-      image: "/images/products/mishmosh-product.jpg",
-      category: "creators",
-      link: "/savvy-lab/mishmosh",
-      logoSrc: "/images/logos/mishmosh_logo.svg",
-      highlight: "Used by 3,000+ Teams",
-    },
-    {
-      id: "elee",
-      name: "Elee",
-      description: "AR platform for interactive learning experiences",
-      image: "/images/products/elee-product.jpg",
-      category: "developers",
-      link: "/savvy-lab/elee",
-      logoSrc: "/images/logos/Elee full white.svg",
-      highlight: "2M+ Learners Globally",
-    },
-    {
-      id: "procur",
-      name: "Procur",
-      description: "Developer toolkit for rapid prototyping and deployment",
-      image: "/images/products/procur-product.jpg",
-      category: "developers",
-      link: "/savvy-lab/procur",
-      logoSrc: "/images/logos/procur_logo.png",
-      highlight: "95+ Open Source Integrations",
-    },
-  ];
+  // Fetch data from Sanity
+  useEffect(() => {
+    const fetchLabProducts = async () => {
+      try {
+        console.log("Fetching lab products...");
+        const query = `*[_type == "labProduct"] | order(sortOrder asc) {
+          _id,
+          id,
+          name,
+          description,
+          status,
+          icon,
+          highlight,
+          link,
+          category,
+          slug,
+          "fixedLink": coalesce(link, "/savvy-lab/" + slug.current)
+        }`;
+
+        const data = await client.fetch(query);
+        console.log("Fetched lab products:", data);
+        setLabProducts(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching lab products:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchLabProducts();
+  }, []);
 
   const filteredProducts =
     activeCategory === "all"
-      ? products
-      : products.filter((product) => product.category === activeCategory);
+      ? labProducts
+      : labProducts.filter((product) => product.category === activeCategory);
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <section id='our-products' className='py-24 bg-white'>
+        <div className='container mx-auto px-6 text-center'>
+          <p>Loading products...</p>
+        </div>
+      </section>
+    );
+  }
+
+  // No products state
+  if (labProducts.length === 0) {
+    return (
+      <section id='our-products' className='py-24 bg-white'>
+        <div className='container mx-auto px-6 text-center'>
+          <h2 className='text-4xl font-bold text-gray-900 mb-6'>
+            Our Product Suite
+          </h2>
+          <p className='text-xl text-gray-600'>
+            No products available at the moment. Check back soon!
+          </p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id='our-products' ref={sectionRef} className='py-24 bg-white'>
@@ -132,31 +148,33 @@ const LabProductsGrid = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16'>
           {filteredProducts.map((product, index) => (
             <motion.div
-              key={product.id}
+              key={product._id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
               className='group'
             >
-              <Link href={product.link} className='block'>
-                <div className='relative h-64 mb-6 overflow-hidden'>
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className='object-cover transition-transform duration-700 group-hover:scale-105'
-                  />
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent'></div>
-                  <div className='absolute top-0 left-0 p-4'>
-                    <div className='h-10 w-10 relative'>
+              <Link
+                href={
+                  product.fixedLink ||
+                  product.link ||
+                  `/savvy-lab/${product.slug?.current || product.id}`
+                }
+                className='block'
+              >
+                <div className='relative h-64 mb-6 overflow-hidden bg-gray-100'>
+                  {product.icon && (
+                    <div className='absolute inset-0 flex items-center justify-center'>
                       <Image
-                        src={product.logoSrc}
-                        alt={`${product.name} logo`}
-                        fill
+                        src={urlFor(product.icon).url()}
+                        alt={product.name}
+                        width={100}
+                        height={100}
                         className='object-contain'
                       />
                     </div>
-                  </div>
+                  )}
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent'></div>
                 </div>
 
                 <div className='space-y-3'>
@@ -164,9 +182,11 @@ const LabProductsGrid = () => {
                     <h3 className='text-xl font-bold text-gray-900 group-hover:text-[#3F4697] transition-colors'>
                       {product.name}
                     </h3>
-                    <span className='text-sm font-medium text-[#3F4697] px-3 py-1 bg-[#F4EBE0] inline-block'>
-                      {product.highlight}
-                    </span>
+                    {product.highlight && (
+                      <span className='text-sm font-medium text-[#3F4697] px-3 py-1 bg-[#F4EBE0] inline-block'>
+                        {product.highlight}
+                      </span>
+                    )}
                   </div>
                   <p className='text-gray-600'>{product.description}</p>
                   <div className='inline-flex items-center text-[#3F4697] font-medium'>

@@ -95,6 +95,13 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+      name: "featuredHome",
+      title: "Featured on Home Page",
+      type: "boolean",
+      description: "Whether this product should be featured on the home page",
+      initialValue: false,
+    }),
+    defineField({
       name: "category",
       title: "Category",
       type: "string",

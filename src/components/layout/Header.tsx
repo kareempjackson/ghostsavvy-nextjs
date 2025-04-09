@@ -93,19 +93,9 @@ const Header = () => {
       image: "/images/about-preview.jpg",
     },
     {
-      name: "Savvy Ventures",
-      path: "/savvy-ventures",
-      image: "/images/about-preview.jpg",
-    },
-    {
       name: "About",
       path: "/about",
       image: "/images/about-preview.jpg",
-    },
-    {
-      name: "Start a Project",
-      path: "/start-project",
-      image: "/images/contact-preview.jpg",
     },
     {
       name: "Contact",

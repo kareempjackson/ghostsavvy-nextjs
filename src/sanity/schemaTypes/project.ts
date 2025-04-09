@@ -85,6 +85,13 @@ export default defineType({
       description: "Whether this project should be featured on the homepage",
       initialValue: false,
     }),
+    defineField({
+      name: "featuredHome",
+      title: "Featured on Home Page",
+      type: "boolean",
+      description: "Whether this project should be featured on the home page",
+      initialValue: false,
+    }),
   ],
   preview: {
     select: {

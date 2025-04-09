@@ -1,0 +1,23 @@
+{
+  "common": {
+    "menu": "Menu",
+    "close": "Close",
+    "read_more": "Read More",
+    "learn_more": "Learn More",
+    "get_started": "Get Started",
+    "contact_us": "Contact Us"
+  },
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "work": "Work",
+    "impact": "Impact",
+    "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "© {{year}} Ghost Savvy Studios. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+} 

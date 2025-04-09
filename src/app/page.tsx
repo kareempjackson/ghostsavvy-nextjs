@@ -1,8 +1,8 @@
 import HeroSection from "@/sections/HeroSection";
 import PurposeSection from "@/sections/PurposeSection";
 import ApproachSection from "@/sections/ApproachSection";
-import StoriesOfImpact from "@/sections/StoriesOfImpact";
-import SavvyHubSection from "@/sections/SavvyHubSection";
+import ImpactSection from "@/sections/ImpactSection";
+import HubSection from "@/sections/HubSection";
 import CtaSection from "@/sections/CtaSection";
 import SEO from "@/components/SEO";
 
@@ -18,8 +18,8 @@ export default function Home() {
       <HeroSection />
       <PurposeSection />
       <ApproachSection />
-      <StoriesOfImpact />
-      <SavvyHubSection />
+      <ImpactSection isHomePage={true} />
+      <HubSection isHomePage={true} />
       <CtaSection />
     </>
   );

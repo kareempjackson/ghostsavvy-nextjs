@@ -2,7 +2,70 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
+
+const ExperimentIcon = () => (
+  <svg
+    width='32'
+    height='32'
+    viewBox='0 0 24 24'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className='text-[#3F4697]'
+  >
+    <path
+      d='M9 3H15M10 14.5L5 19.5M14 14.5L19 19.5M8.5 7.5C8.5 7.5 11 9.5 12 9.5C13 9.5 15.5 7.5 15.5 7.5M7 3.5H17M16.5 14.5V7C16.5 4.79086 14.7091 3 12.5 3C10.2909 3 8.5 4.79086 8.5 7V14.5C8.5 16.7091 10.2909 18.5 12.5 18.5C14.7091 18.5 16.5 16.7091 16.5 14.5Z'
+      stroke='currentColor'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+);
+
+const ResearchIcon = () => (
+  <svg
+    width='32'
+    height='32'
+    viewBox='0 0 24 24'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className='text-[#3F4697]'
+  >
+    <path
+      d='M15.5 15.5L19 19M5 11C5 14.3137 7.68629 17 11 17C14.3137 17 17 14.3137 17 11C17 7.68629 14.3137 5 11 5C7.68629 5 5 7.68629 5 11Z'
+      stroke='currentColor'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+    <path
+      d='M12 8V14M9 11H15'
+      stroke='currentColor'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+);
+
+const CollaborationIcon = () => (
+  <svg
+    width='32'
+    height='32'
+    viewBox='0 0 24 24'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className='text-[#3F4697]'
+  >
+    <path
+      d='M16.5 16L12 21L7.5 16M18 9C18 12.3137 15.3137 15 12 15C8.68629 15 6 12.3137 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9Z'
+      stroke='currentColor'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+);
 
 const LabPhilosophySection = () => {
   const sectionRef = useRef(null);
@@ -14,21 +77,21 @@ const LabPhilosophySection = () => {
       title: "Experimentation",
       description:
         "We treat every challenge as an opportunity to test new ideas and approaches, taking calculated risks that lead to breakthroughs.",
-      icon: "/images/icons/experiment-icon.svg",
+      Icon: ExperimentIcon,
     },
     {
       id: "research",
       title: "Deep Research",
       description:
         "Our teams dive deep into emerging technologies, studying trends and developing proprietary insights that drive our innovation.",
-      icon: "/images/icons/research-icon.svg",
+      Icon: ResearchIcon,
     },
     {
       id: "collaboration",
       title: "Open Collaboration",
       description:
         "We believe in the power of diverse perspectives, bringing together experts from different fields to create better solutions.",
-      icon: "/images/icons/collaboration-icon.svg",
+      Icon: CollaborationIcon,
     },
   ];
 
@@ -98,13 +161,7 @@ const LabPhilosophySection = () => {
                 >
                   <div className='flex-shrink-0'>
                     <div className='w-12 h-12 flex items-center justify-center'>
-                      <Image
-                        src={pillar.icon}
-                        alt={pillar.title}
-                        width={32}
-                        height={32}
-                        className='text-[#3F4697]'
-                      />
+                      <pillar.Icon />
                     </div>
                   </div>
                   <div>
@@ -126,13 +183,8 @@ const LabPhilosophySection = () => {
             className='relative'
           >
             <div className='sticky top-24'>
-              <div className='relative aspect-[4/5] overflow-hidden'>
-                <Image
-                  src='/images/lab-philosophy.jpg'
-                  alt='Ghost Savvy Studios Lab Philosophy'
-                  fill
-                  className='object-cover'
-                />
+              <div className='relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900'>
+                {/* Fallback content for missing image */}
                 <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent'></div>
 
                 {/* Quote overlay */}

@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "hubContent",
-  title: "Savvy Hub Content",
+  title: "Hub Content",
   type: "document",
   fields: [
     defineField({
@@ -37,14 +37,13 @@ export default defineType({
           { title: "Interview", value: "Interview" },
           { title: "Workshop", value: "Workshop" },
           { title: "Video", value: "Video" },
-          { title: "Case Study", value: "Case Study" },
         ],
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "image",
-      title: "Image",
+      title: "Main Image",
       type: "image",
       options: {
         hotspot: true,
@@ -58,11 +57,23 @@ export default defineType({
       description: "Optional: Add a video URL if this content has a video",
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description:
+        "The URL-friendly identifier for this content (used in the URL)",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "link",
       title: "Content Link",
       type: "string",
       description:
-        "The URL path to the full content (e.g., /savvy-hub/articles/my-article)",
+        "The URL path to the full content (e.g., /hub/articles/my-article)",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -97,7 +108,14 @@ export default defineType({
       title: "Featured Content",
       type: "boolean",
       description:
-        "Whether this content should be featured in the main Savvy Hub section",
+        "Whether this content should be featured in the main Hub section",
+      initialValue: false,
+    }),
+    defineField({
+      name: "featuredHome",
+      title: "Featured on Home Page",
+      type: "boolean",
+      description: "Whether this content should be featured on the home page",
       initialValue: false,
     }),
     defineField({
@@ -108,6 +126,13 @@ export default defineType({
         "Position in the featured content carousel (lower numbers appear first)",
       hidden: ({ document }) => !document?.featured,
       initialValue: 1,
+    }),
+    defineField({
+      name: "readTime",
+      title: "Reading Time",
+      description: "Estimated reading time in minutes (for articles)",
+      type: "number",
+      hidden: ({ document }) => document?.category !== "Article",
     }),
     defineField({
       name: "fullContent",
@@ -131,6 +156,20 @@ export default defineType({
               { title: "Code", value: "code" },
               { title: "Underline", value: "underline" },
               { title: "Strike", value: "strike-through" },
+            ],
+            annotations: [
+              {
+                name: "link",
+                type: "object",
+                title: "Link",
+                fields: [
+                  {
+                    name: "href",
+                    type: "url",
+                    title: "URL",
+                  },
+                ],
+              },
             ],
           },
         },
@@ -215,7 +254,7 @@ export default defineType({
       ],
     }),
     defineField({
-      name: "video",
+      name: "videoDetails",
       title: "Video Details",
       type: "object",
       hidden: ({ document }) => document?.category !== "Video",
@@ -227,15 +266,19 @@ export default defineType({
       ],
     }),
     defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      description: "The URL-friendly identifier for this content",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-      validation: (Rule) => Rule.required(),
+      name: "seo",
+      title: "SEO & Social Sharing",
+      type: "object",
+      fields: [
+        { name: "metaTitle", type: "string", title: "Meta Title" },
+        { name: "metaDescription", type: "text", title: "Meta Description" },
+        {
+          name: "socialImage",
+          type: "image",
+          title: "Social Sharing Image",
+          options: { hotspot: true },
+        },
+      ],
     }),
   ],
   preview: {
