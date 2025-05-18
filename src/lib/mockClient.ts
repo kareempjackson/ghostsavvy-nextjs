@@ -2,7 +2,7 @@
  * Mock utility functions to replace Sanity client
  */
 
-import { featuredProjects } from "@/data/projectData";
+import { hardcodedProjects } from "@/data/projectData";
 import { hubContent } from "@/data/hubContentData";
 import { labProducts } from "@/data/labProductsData";
 
@@ -20,7 +20,7 @@ export async function mockFetch(query: string) {
 
   // Determine what data to return based on the query
   if (query.includes('_type == "project"')) {
-    return featuredProjects.map((project) => ({
+    return hardcodedProjects.map((project) => ({
       _id: project.id,
       ...project,
       // Add Sanity-specific fields if needed

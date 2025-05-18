@@ -1,4 +1,13 @@
-"use client";
+export const metadata = {
+  title: "Sanity Studio",
+  description: "Content management system for GhostSavvy",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export default function StudioLayout({
   children,

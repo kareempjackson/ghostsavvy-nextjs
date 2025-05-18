@@ -7,13 +7,12 @@
  * https://github.com/sanity-io/next-sanity
  */
 
+"use client";
+
 import { NextStudio } from "next-sanity/studio";
 import config from "../../../../sanity.config";
 
-export const dynamic = "force-static";
-
-export { metadata, viewport } from "next-sanity/studio";
-
+// This component uses Client Components and won't be pre-rendered at build time
 export default function StudioPage() {
   return <NextStudio config={config} />;
 }
