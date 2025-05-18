@@ -7,12 +7,11 @@
  * https://github.com/sanity-io/next-sanity
  */
 
-"use client";
+export const dynamic = "force-dynamic";
 
-import { NextStudio } from "next-sanity/studio";
-import config from "../../../../sanity.config";
-
-// This component uses Client Components and won't be pre-rendered at build time
-export default function StudioPage() {
-  return <NextStudio config={config} />;
+export default async function StudioPage() {
+  // Dynamic import of studio components only when this page renders
+  // This prevents build-time errors when Sanity packages aren't fully resolved
+  const { default: Studio } = await import("../../../components/Studio");
+  return <Studio />;
 }
