@@ -1,25 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { client, urlFor } from "@/sanity/lib/client";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-
-// Interface for Project items from Sanity
-interface Project {
-  _id: string;
-  id: string;
-  title: string;
-  hook: string;
-  description: string;
-  tags: string[];
-  image: SanityImageSource;
-  video?: string;
-  link: string;
-  size?: "small" | "medium" | "large";
-}
+import { hardcodedProjects, Project } from "@/data/projectData";
 
 interface ImpactSectionProps {
   isHomePage?: boolean;
@@ -90,7 +75,7 @@ const ProjectCard = ({
           ) : (
             project.image && (
               <Image
-                src={urlFor(project.image).url()}
+                src={project.image}
                 alt={project.title}
                 fill
                 className='object-cover transition-transform duration-700 group-hover:scale-105'
@@ -149,58 +134,21 @@ const ProjectCard = ({
 const ImpactSection = ({ isHomePage = false }: ImpactSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Fetch data from Sanity
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        // Different query based on whether we're on the home page or not
-        const query = isHomePage
-          ? `*[_type == "project" && featuredHome == true] | order(_createdAt desc)[0...5] {
-              _id,
-              id,
-              title,
-              hook,
-              description,
-              tags,
-              image,
-              video,
-              link,
-              size
-            }`
-          : `*[_type == "project" && featured == true] | order(_createdAt desc)[0...5] {
-              _id,
-              id,
-              title,
-              hook,
-              description,
-              tags,
-              image,
-              video,
-              link,
-              size
-            }`;
-
-        const data = await client.fetch(query);
-        setProjects(data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-        setIsLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, [isHomePage]);
+  const [projects] = useState<Project[]>(() => {
+    const filtered = hardcodedProjects.filter((p) =>
+      isHomePage ? p.featuredHome : p.featured
+    );
+    return filtered.slice(0, 5).map((project) => ({
+      ...project,
+      link: project.link || `/projects/${project.id}`,
+    }));
+  });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  // For bottom transition effect
   const { scrollYProgress: bottomScrollProgress } = useScroll({
     target: bottomRef,
     offset: ["start end", "end start"],
@@ -214,20 +162,8 @@ const ImpactSection = ({ isHomePage = false }: ImpactSectionProps) => {
   );
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
-  // Transition effect for bottom of section
   const bottomBlur = useTransform(bottomScrollProgress, [0.7, 1], [0, 15]);
   const bottomScale = useTransform(bottomScrollProgress, [0.7, 1], [1, 1.05]);
-
-  // Loading state while fetching projects
-  if (isLoading) {
-    return (
-      <section className='py-16 sm:py-20 md:py-24 bg-black'>
-        <div className='container mx-auto px-4 text-center text-white'>
-          <p>Loading featured projects...</p>
-        </div>
-      </section>
-    );
-  }
 
   // Empty state when no projects are available
   if (projects.length === 0) {
@@ -306,7 +242,7 @@ const ImpactSection = ({ isHomePage = false }: ImpactSectionProps) => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
           {projects.map((project, index) => (
             <ProjectCard
-              key={project._id}
+              key={project.id}
               project={project}
               size={project.size || (index === 0 ? "large" : "medium")}
             />

@@ -161,9 +161,9 @@ export default defineType({
       of: [
         {
           type: "reference",
-          to: [{ type: "project" }],
+          to: [{ type: "savvyProject" }],
           options: {
-            filter: "featured == true",
+            filter: "isFeatured == true",
           },
         },
       ],

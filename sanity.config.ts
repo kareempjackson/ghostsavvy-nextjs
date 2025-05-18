@@ -13,6 +13,7 @@ import { codeInput } from "@sanity/code-input";
 import { apiVersion, dataset, projectId } from "./src/sanity/env";
 import { schema } from "./src/sanity/schemaTypes";
 import { structure } from "./src/sanity/structure";
+import { myTheme } from "./src/sanity/theme";
 
 export default defineConfig({
   basePath: "/studio",
@@ -20,11 +21,20 @@ export default defineConfig({
   dataset,
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema,
+  theme: myTheme,
   plugins: [
-    structureTool({ structure }),
+    structureTool({
+      structure,
+      title: "Ghost Savvy Content Studio",
+    }),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     codeInput(),
   ],
+  studio: {
+    components: {
+      // Add a custom navbar or other components here if needed
+    },
+  },
 });

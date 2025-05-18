@@ -154,8 +154,8 @@ const FeaturedProductCard = ({ product }: { product: ProductCard }) => {
                 product.status === "Launched"
                   ? "border-brand-lime text-brand-lime"
                   : product.status === "Beta"
-                  ? "border-brand-indigo text-brand-indigo"
-                  : "border-brand-white/30 text-brand-white/70"
+                    ? "border-brand-indigo text-brand-indigo"
+                    : "border-brand-white/30 text-brand-white/70"
               }
             `}
             >
@@ -218,15 +218,15 @@ const ProductCard = ({ product }: { product: ProductCard }) => {
     product.size === "small"
       ? "pb-[30px]"
       : product.size === "medium"
-      ? "pb-[40px]"
-      : "pb-[50px]";
+        ? "pb-[40px]"
+        : "pb-[50px]";
 
   const imageHeight =
     product.size === "small"
       ? "h-[180px]"
       : product.size === "medium"
-      ? "h-[220px]"
-      : "h-[280px]";
+        ? "h-[220px]"
+        : "h-[280px]";
 
   return (
     <motion.div
@@ -262,8 +262,8 @@ const ProductCard = ({ product }: { product: ProductCard }) => {
               product.status === "Launched"
                 ? "border-green-500 text-green-600"
                 : product.status === "Beta"
-                ? "border-brand-indigo text-brand-indigo"
-                : "border-amber-400 text-amber-600"
+                  ? "border-brand-indigo text-brand-indigo"
+                  : "border-amber-400 text-amber-600"
             }
           `}
           >

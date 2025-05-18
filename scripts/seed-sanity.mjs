@@ -37,130 +37,6 @@ const createSlug = (text) => ({
     .replace(/[^\w-]+/g, ""),
 });
 
-const generateLabProducts = () => [
-  {
-    _type: "labProduct",
-    id: "cmdctr",
-    name: "CMD CTR",
-    tagline: "Command Center for Modern Development",
-    description:
-      "A powerful development environment with integrated tools for code organization, testing, and deployment.",
-    status: "Beta",
-    category: "developers",
-    highlight: "Boosts developer productivity by 40%",
-    link: "/savvy-lab/cmdctr",
-    featured: true,
-    featuredHome: true,
-    slug: createSlug("cmdctr"),
-    sortOrder: 1,
-  },
-  {
-    _type: "labProduct",
-    id: "vynl",
-    name: "Vynl",
-    tagline: "Music Discovery Reimagined",
-    description:
-      "AI-powered music discovery platform that analyzes your taste and introduces you to new artists.",
-    status: "Live",
-    category: "everyone",
-    highlight: "10M+ Monthly Active Users",
-    link: "/savvy-lab/vynl",
-    featured: true,
-    slug: createSlug("vynl"),
-    sortOrder: 2,
-  },
-  {
-    _type: "labProduct",
-    id: "trekker",
-    name: "Trekker",
-    tagline: "Personalized Adventure Planning",
-    description:
-      "Smart travel planning assistant that creates custom itineraries based on your preferences and travel style.",
-    status: "Live",
-    category: "everyone",
-    highlight: "5M+ Trips Planned",
-    link: "/savvy-lab/trekker",
-    featured: false,
-    slug: createSlug("trekker"),
-    sortOrder: 3,
-  },
-  {
-    _type: "labProduct",
-    id: "procur",
-    name: "Procur",
-    tagline: "Developer Toolkit for Rapid Prototyping",
-    description:
-      "Developer toolkit that streamlines the process of prototyping and deploying applications.",
-    status: "Beta",
-    category: "developers",
-    highlight: "95+ Open Source Integrations",
-    link: "/savvy-lab/procur",
-    featured: true,
-    slug: createSlug("procur"),
-    sortOrder: 4,
-  },
-  {
-    _type: "labProduct",
-    id: "ghostkit",
-    name: "GhostKit",
-    tagline: "Design System Starter Kit",
-    description:
-      "Comprehensive design system starter kit for teams building modern web and mobile applications.",
-    status: "Live",
-    category: "creators",
-    highlight: "Used by 15,000+ Designers",
-    link: "/savvy-lab/ghostkit",
-    featured: false,
-    slug: createSlug("ghostkit"),
-    sortOrder: 5,
-  },
-  {
-    _type: "labProduct",
-    id: "ghyst",
-    name: "Ghyst",
-    tagline: "AI Content Creation Assistant",
-    description:
-      "AI assistant for content creators that helps brainstorm ideas, outline content, and optimize for engagement.",
-    status: "Beta",
-    category: "creators",
-    highlight: "Creates content in 50+ tones",
-    link: "/savvy-lab/ghyst",
-    featured: false,
-    slug: createSlug("ghyst"),
-    sortOrder: 6,
-  },
-  {
-    _type: "labProduct",
-    id: "onbrd",
-    name: "Onbrd",
-    tagline: "User Onboarding Automation",
-    description:
-      "Complete user onboarding solution that helps product teams create, test, and optimize onboarding experiences.",
-    status: "Live",
-    category: "developers",
-    highlight: "Increases activation by 35%",
-    link: "/savvy-lab/onbrd",
-    featured: false,
-    slug: createSlug("onbrd"),
-    sortOrder: 7,
-  },
-  {
-    _type: "labProduct",
-    id: "undr",
-    name: "Undr",
-    tagline: "Immersive Audio Experience",
-    description:
-      "Spatial audio platform for creating immersive soundscapes and interactive storytelling experiences.",
-    status: "Beta",
-    category: "everyone",
-    highlight: "8.5M Downloads",
-    link: "/savvy-lab/undr",
-    featured: true,
-    slug: createSlug("undr"),
-    sortOrder: 8,
-  },
-];
-
 // Generate insights without team member references
 const generateInsights = () => [
   {
@@ -248,38 +124,17 @@ async function seedDocuments(documents, documentType) {
   return results;
 }
 
-// Main seeding function - simplified to just seed lab products
-async function seedLabProducts() {
-  console.log("Starting to seed Savvy Lab products...");
+// Main seeding function
+async function seedSanity() {
+  console.log("Starting Sanity seeding process...");
 
-  try {
-    const labProducts = await seedDocuments(
-      generateLabProducts(),
-      "lab products"
-    );
+  // Seed Insights (Blog Posts)
+  await seedDocuments(generateInsights(), "blogPost");
 
-    console.log("Lab products seeding completed!");
-    return { labProducts };
-  } catch (error) {
-    console.error("Lab products seeding failed:", error);
-    throw error;
-  }
+  console.log("Sanity seeding completed!");
 }
 
-// Main seeding function for insights
-async function seedInsights() {
-  console.log("Starting to seed insights...");
-
-  try {
-    const insights = await seedDocuments(generateInsights(), "insights");
-
-    console.log("Insights seeding completed!");
-    return { insights };
-  } catch (error) {
-    console.error("Insights seeding failed:", error);
-    throw error;
-  }
-}
+seedSanity();
 
 // Using a different check for ES modules
 const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
@@ -298,7 +153,7 @@ if (isMainModule) {
   const functionToRun = process.argv[2] || "all";
 
   if (functionToRun === "lab-products" || functionToRun === "all") {
-    seedLabProducts()
+    seedSanity()
       .then((result) => {
         console.log("Lab products seeding completed!", result);
 
@@ -315,7 +170,7 @@ if (isMainModule) {
   }
 
   if (functionToRun === "insights" || functionToRun === "all") {
-    seedInsights()
+    seedSanity()
       .then((result) => {
         console.log("Insights seeding completed!", result);
         process.exit(0);
@@ -329,4 +184,4 @@ if (isMainModule) {
   console.log("Not running as main module");
 }
 
-export { seedLabProducts, seedInsights };
+export { seedSanity };

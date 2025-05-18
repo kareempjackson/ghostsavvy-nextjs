@@ -4,28 +4,30 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { client, urlFor } from "@/sanity/lib/client";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-
-// Interface for Lab Product items from Sanity
-interface LabProduct {
-  _id: string;
-  id: string;
-  name: string;
-  tagline: string;
-  description: string;
-  status: string;
-  icon: SanityImageSource;
-  previewImage: SanityImageSource;
-  link: string;
-  category: string;
-}
+import { client } from "@/lib/mockClient";
+import { LabProduct as LabProductType } from "@/data/labProductsData";
 
 interface LabSectionProps {
   isHomePage?: boolean;
 }
 
-const ProductCard = ({ product }: { product: LabProduct }) => {
+// Define type for raw data from API
+interface LabProductApiResponse {
+  _id: string;
+  id?: string;
+  name?: string;
+  tagline?: string;
+  description?: string;
+  status?: string;
+  icon?: string;
+  previewImage?: string;
+  link?: string;
+  category?: string;
+  [key: string]: unknown;
+}
+
+// Product card component for displaying lab products
+const ProductCard = ({ product }: { product: LabProductType }) => {
   return (
     <motion.div
       className='bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg h-full'
@@ -36,7 +38,7 @@ const ProductCard = ({ product }: { product: LabProduct }) => {
         <div className='relative aspect-video w-full overflow-hidden'>
           {product.previewImage && (
             <Image
-              src={urlFor(product.previewImage).url()}
+              src={product.previewImage}
               alt={product.name}
               fill
               className='object-cover transition-transform duration-500 group-hover:scale-105'
@@ -54,7 +56,7 @@ const ProductCard = ({ product }: { product: LabProduct }) => {
             {product.icon && (
               <div className='w-8 h-8 mr-3 relative'>
                 <Image
-                  src={urlFor(product.icon).url()}
+                  src={product.icon}
                   alt=''
                   fill
                   className='object-contain'
@@ -96,42 +98,36 @@ const ProductCard = ({ product }: { product: LabProduct }) => {
 
 const LabSection = ({ isHomePage = false }: LabSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [labProducts, setLabProducts] = useState<LabProduct[]>([]);
+  const [labProducts, setLabProducts] = useState<LabProductType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch data from Sanity
+  // Fetch data from mock client
   useEffect(() => {
     const fetchLabProducts = async () => {
       try {
         // Different query based on whether we're on the home page or not
         const query = isHomePage
-          ? `*[_type == "labProduct" && featuredHome == true] | order(_createdAt desc)[0...6] {
-              _id,
-              id,
-              name,
-              tagline,
-              description,
-              status,
-              icon,
-              previewImage,
-              link,
-              category
-            }`
-          : `*[_type == "labProduct" && featured == true] | order(_createdAt desc)[0...6] {
-              _id,
-              id,
-              name,
-              tagline,
-              description,
-              status,
-              icon,
-              previewImage,
-              link,
-              category
-            }`;
+          ? `*[_type == "labProduct" && featuredHome == true] | order(_createdAt desc)[0...6]`
+          : `*[_type == "labProduct" && featured == true] | order(_createdAt desc)[0...6]`;
 
         const data = await client.fetch(query);
-        setLabProducts(data);
+
+        // Ensure all products have required fields and convert to LabProductType
+        const validProducts = data.map((product: LabProductApiResponse) => ({
+          id: product.id || product._id || "",
+          name: product.name || "Unnamed Product",
+          tagline: product.tagline || "",
+          description: product.description || "",
+          status: product.status || "Coming Soon",
+          icon: product.icon || "/images/placeholder-icon.svg",
+          previewImage: product.previewImage || "/images/placeholder.jpg",
+          link:
+            product.link ||
+            `/savvy-lab/${product.id || product._id || "product"}`,
+          category: product.category || "Other",
+        })) as LabProductType[];
+
+        setLabProducts(validProducts);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching lab products:", error);
@@ -251,22 +247,22 @@ const LabSection = ({ isHomePage = false }: LabSectionProps) => {
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-50px" }}
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'
+          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'
         >
           {labProducts.map((product) => (
-            <motion.div key={product._id} variants={itemVariants}>
+            <motion.div key={product.id} variants={itemVariants}>
               <ProductCard product={product} />
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Bottom CTA */}
+        {/* Bottom call to action */}
         <motion.div
-          className='flex justify-center mt-12 sm:mt-16'
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className='mt-12 sm:mt-16 flex justify-center'
         >
           <Link
             href='/lab'

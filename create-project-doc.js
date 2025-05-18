@@ -2,8 +2,11 @@
  * Simple script to create a test project document in Sanity
  */
 
-const { createClient } = require("@sanity/client");
-require("dotenv").config({ path: ".env.local" });
+import { createClient } from "@sanity/client";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config({ path: ".env.local" });
 
 // Sanity client configuration
 const client = createClient({
@@ -14,31 +17,39 @@ const client = createClient({
   useCdn: false,
 });
 
-// Simple project document
+// Simple savvy project document
 const document = {
-  _type: "project",
-  title: "Test Project",
-  description: "This is a test project for Stories of Impact.",
+  _type: "savvyProject",
+  title: "Test Savvy Project",
+  subtitle: "An amazing test project for Savvy Lab",
+  description:
+    "This is a test project for Savvy Lab to showcase our capabilities.",
   slug: {
     _type: "slug",
-    current: "test-project",
+    current: "test-savvy-project",
   },
-  status: "Completed",
-  clientName: "Test Client",
-  industry: "Technology",
-  services: ["Design", "Development", "Strategy"],
-  featured: true,
-  featuredPosition: 1,
+  tags: ["Design", "Development", "AI"],
+  isFeatured: true,
+  features: [
+    {
+      title: "Amazing Feature 1",
+      description: "This feature will blow your mind with its capabilities.",
+    },
+    {
+      title: "Incredible Feature 2",
+      description: "Nobody else has a feature like this one.",
+    },
+  ],
 };
 
 // Create document
 async function createDocument() {
   try {
-    console.log("Creating test project document...");
+    console.log("Creating test savvy project document...");
     const result = await client.create(document);
-    console.log("Project document created successfully:", result._id);
+    console.log("Savvy Project document created successfully:", result._id);
   } catch (error) {
-    console.error("Failed to create project document:", error.message);
+    console.error("Failed to create savvy project document:", error.message);
   }
 }
 

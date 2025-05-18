@@ -2,20 +2,93 @@ import type { StructureResolver } from "sanity/structure";
 import {
   FiHome,
   FiUsers,
-  FiBox,
-  FiActivity,
   FiSettings,
   FiMessageSquare,
+  FiLayers,
+  FiFile,
+  FiStar,
+  FiTarget,
 } from "react-icons/fi";
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("Content")
+    .title("Content Management")
     .items([
+      // Singleton for home page - moved to top for easier access
+      S.listItem()
+        .title("Home Page")
+        .icon(FiHome)
+        .child(S.document().schemaType("homePage").documentId("homePage")),
+
+      S.divider(),
+
+      // Impact Projects - moved up for prominence
+      S.listItem()
+        .title("Savvy Impact")
+        .icon(FiTarget)
+        .child(
+          S.list()
+            .title("Savvy Impact")
+            .items([
+              S.listItem()
+                .title("All Impact Projects")
+                .icon(FiFile)
+                .child(
+                  S.documentList()
+                    .title("All Impact Projects")
+                    .filter('_type == "impactProject"')
+                ),
+              S.listItem()
+                .title("Featured Projects")
+                .icon(FiStar)
+                .child(
+                  S.documentList()
+                    .title("Featured Impact Projects")
+                    .filter('_type == "impactProject" && isFeatured == true')
+                ),
+              S.listItem()
+                .title("Highlight Projects")
+                .child(
+                  S.documentList()
+                    .title("Highlight Impact Projects")
+                    .filter('_type == "impactProject" && isHighlight == true')
+                ),
+            ])
+        ),
+
+      // Savvy Lab Projects
+      S.listItem()
+        .title("Savvy Lab")
+        .icon(FiLayers)
+        .child(
+          S.list()
+            .title("Savvy Lab")
+            .items([
+              S.listItem()
+                .title("All Projects")
+                .icon(FiFile)
+                .child(
+                  S.documentList()
+                    .title("All Projects")
+                    .filter('_type == "savvyProject"')
+                ),
+              S.listItem()
+                .title("Featured Projects")
+                .icon(FiStar)
+                .child(
+                  S.documentList()
+                    .title("Featured Projects")
+                    .filter('_type == "savvyProject" && isFeatured == true')
+                ),
+            ])
+        ),
+
+      S.divider(),
+
       // Hub Content Group
       S.listItem()
-        .title("Hub")
+        .title("Hub Content")
         .icon(FiMessageSquare)
         .child(
           S.list()
@@ -51,6 +124,7 @@ export const structure: StructureResolver = (S) =>
                 ),
               S.listItem()
                 .title("Featured Content")
+                .icon(FiStar)
                 .child(
                   S.documentList()
                     .title("Featured Content")
@@ -62,68 +136,7 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
 
-      // Impact Group
-      S.listItem()
-        .title("Impact")
-        .icon(FiActivity)
-        .child(
-          S.list()
-            .title("Impact")
-            .items([
-              S.listItem()
-                .title("All Projects")
-                .child(
-                  S.documentList()
-                    .title("All Projects")
-                    .filter('_type == "project"')
-                ),
-              S.listItem()
-                .title("Case Studies")
-                .child(
-                  S.documentList()
-                    .title("Case Studies")
-                    .filter('_type == "caseStudy"')
-                ),
-              S.listItem()
-                .title("Featured Projects")
-                .child(
-                  S.documentList()
-                    .title("Featured Projects")
-                    .filter('_type == "project" && featured == true')
-                    .defaultOrdering([
-                      { field: "featuredPosition", direction: "asc" },
-                    ])
-                ),
-            ])
-        ),
-
-      // Lab Group
-      S.listItem()
-        .title("Lab")
-        .icon(FiBox)
-        .child(
-          S.list()
-            .title("Lab")
-            .items([
-              S.listItem()
-                .title("All Products")
-                .child(
-                  S.documentList()
-                    .title("Lab Products")
-                    .filter('_type == "labProduct"')
-                ),
-              S.listItem()
-                .title("Featured Products")
-                .child(
-                  S.documentList()
-                    .title("Featured Products")
-                    .filter('_type == "labProduct" && featured == true')
-                    .defaultOrdering([
-                      { field: "featuredPosition", direction: "asc" },
-                    ])
-                ),
-            ])
-        ),
+      S.divider(),
 
       // Team Members
       S.listItem()
@@ -133,20 +146,11 @@ export const structure: StructureResolver = (S) =>
           S.documentList().title("Team Members").filter('_type == "teamMember"')
         ),
 
-      // All other document types (for management)
-      S.divider(),
-
       // Settings
       S.listItem()
-        .title("Settings")
+        .title("Site Settings")
         .icon(FiSettings)
         .child(
           S.document().schemaType("siteSettings").documentId("siteSettings")
         ),
-
-      // Singleton for home page
-      S.listItem()
-        .title("Home Page")
-        .icon(FiHome)
-        .child(S.document().schemaType("homePage").documentId("homePage")),
     ]);

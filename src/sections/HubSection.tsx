@@ -4,17 +4,16 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { client, urlFor, formatDate } from "@/sanity/lib/client";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { client, formatDate } from "@/lib/mockClient";
 
-// Interface for HubContent items from Sanity
+// Interface for HubContent items
 interface HubContentItem {
   _id: string;
   id: string;
   title: string;
   description: string;
   category: string;
-  image: SanityImageSource;
+  image: string;
   video?: string;
   link: string;
   ctaText: string;
@@ -32,41 +31,26 @@ const HubSection = ({ isHomePage = false }: HubSectionProps) => {
   const [hubContent, setHubContent] = useState<HubContentItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch data from Sanity
+  // Fetch data from mock client
   useEffect(() => {
     const fetchHubContent = async () => {
       try {
         // Different query based on whether we're on the home page or not
         const query = isHomePage
-          ? `*[_type == "hubContent" && featuredHome == true] | order(date desc)[0...5] {
-              _id,
-              id,
-              title,
-              description,
-              category,
-              image,
-              video,
-              link,
-              ctaText,
-              date,
-              size
-            }`
-          : `*[_type == "hubContent" && featured == true] | order(date desc)[0...5] {
-              _id,
-              id,
-              title,
-              description,
-              category,
-              image,
-              video,
-              link,
-              ctaText,
-              date,
-              size
-            }`;
+          ? `*[_type == "hubContent" && featuredHome == true] | order(date desc)[0...5]`
+          : `*[_type == "hubContent" && featured == true] | order(date desc)[0...5]`;
 
         const data = await client.fetch(query);
-        setHubContent(data);
+
+        // Ensure all content items have required fields
+        const validContent = data.map((item: any) => ({
+          ...item,
+          // Ensure link and ctaText are always strings
+          link: item.link || `/hub/${item.id}`,
+          ctaText: item.ctaText || "Read More",
+        }));
+
+        setHubContent(validContent);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching hub content:", error);
@@ -143,7 +127,7 @@ const HubSection = ({ isHomePage = false }: HubSectionProps) => {
             ) : (
               item.image && (
                 <Image
-                  src={urlFor(item.image).url()}
+                  src={item.image}
                   alt={item.title}
                   fill
                   className='object-cover transition-transform duration-700 group-hover:scale-105'

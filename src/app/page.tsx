@@ -6,6 +6,12 @@ import HubSection from "@/sections/HubSection";
 import CtaSection from "@/sections/CtaSection";
 import SEO from "@/components/SEO";
 
+export const metadata = {
+  title: "Ghost Savvy Studios | Premium Digital Product Studio",
+  description:
+    "Premium digital product studio building exceptional experiences as ghost partners for agencies and startups.",
+};
+
 export default function Home() {
   return (
     <>

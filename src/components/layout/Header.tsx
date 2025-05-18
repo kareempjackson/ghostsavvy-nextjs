@@ -54,7 +54,7 @@ const MenuLink = ({
   );
 };
 
-const Header = () => {
+const Header = ({ customLogo }: { customLogo?: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -83,8 +83,8 @@ const Header = () => {
       video: "/videos/impact-preview.mp4",
     },
     {
-      name: "Savvy Lab",
-      path: "/savvy-lab",
+      name: "Savvy Services",
+      path: "/savvy-services",
       image: "/images/lab-preview.jpg",
     },
     {
@@ -192,7 +192,7 @@ const Header = () => {
           <div className='flex items-center justify-between'>
             {/* Logo */}
             <div className='flex-shrink-0 -ml-4 sm:-ml-6 md:-ml-8'>
-              <Link href='/' className='relative z-40'>
+              <Link href='/' className='relative z-40 logo'>
                 <div
                   className={`relative transition-all duration-500 ${
                     isScrolled
@@ -201,7 +201,7 @@ const Header = () => {
                   }`}
                 >
                   <Image
-                    src='/images/ghost savvy-02.png'
+                    src={customLogo || "/images/ghost savvy-02.png"}
                     alt='Ghost Savvy Studios'
                     fill
                     className='object-contain object-left'

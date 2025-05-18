@@ -1,6 +1,6 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
-import { apiVersion, dataset, projectId } from "../env";
+import { apiVersion, dataset, projectId } from "@/sanity/env";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 // For client-side fetching (read-only)
