@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply text-brand-forest bg-brand-white;
+    @apply text-brand-deep bg-brand-ivory;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
     overflow-x: hidden;
   }
@@ -38,7 +38,7 @@
   }
 
   a {
-    @apply text-brand-forest hover:text-brand-sage transition-colors duration-200;
+    @apply text-brand-indigo hover:text-brand-lime transition-colors duration-200;
   }
 }
 
@@ -48,15 +48,15 @@
   }
 
   .btn-primary {
-    @apply bg-brand-forest text-brand-white px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-black transition-colors duration-200 text-sm sm:text-base;
+    @apply bg-brand-indigo text-brand-ivory px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-deep transition-colors duration-200 text-sm sm:text-base;
   }
 
   .btn-secondary {
-    @apply bg-transparent border border-brand-forest text-brand-forest px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-forest hover:text-brand-white transition-colors duration-200 text-sm sm:text-base;
+    @apply bg-transparent border border-brand-indigo text-brand-indigo px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-indigo hover:text-brand-ivory transition-colors duration-200 text-sm sm:text-base;
   }
 
   .btn-accent {
-    @apply bg-brand-sage text-brand-white px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:opacity-90 transition-opacity duration-200 text-sm sm:text-base;
+    @apply bg-brand-lime text-brand-deep px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:opacity-90 transition-opacity duration-200 text-sm sm:text-base;
   }
 
   .section {
@@ -68,11 +68,11 @@
   }
 
   .ghost-card {
-    @apply bg-brand-white rounded-[4px] p-4 sm:p-6 md:p-8 subtle-shadow;
+    @apply bg-brand-ivory rounded-[4px] p-4 sm:p-6 md:p-8 subtle-shadow;
   }
   
   .mobile-menu {
-    @apply fixed inset-0 bg-brand-white z-50 transition-transform duration-300 ease-in-out;
+    @apply fixed inset-0 bg-brand-ivory z-50 transition-transform duration-300 ease-in-out;
   }
 }
 
@@ -201,4 +201,21 @@
   & [data-ui="Tab"][data-selected="true"] {
     font-weight: 500 !important;
   }
+}
+
+/* Example global styles using new brand colors */
+
+/* Text and backgrounds */
+.text-brand-deep { color: theme('colors.brand.deep'); }
+.bg-brand-deep { background-color: theme('colors.brand.deep'); }
+.text-brand-indigo { color: theme('colors.brand.indigo'); }
+.bg-brand-indigo { background-color: theme('colors.brand.indigo'); }
+.text-brand-lime { color: theme('colors.brand.lime'); }
+.bg-brand-lime { background-color: theme('colors.brand.lime'); }
+.text-brand-ivory { color: theme('colors.brand.ivory'); }
+.bg-brand-ivory { background-color: theme('colors.brand.ivory'); }
+
+/* Example for text links */
+.link {
+  @apply text-brand-indigo hover:text-brand-lime transition-colors duration-200;
 }

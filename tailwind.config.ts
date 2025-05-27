@@ -11,12 +11,12 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          forest: "#1A3C34",
-          sage: "#739E82",
+          deep: "#233531", // Deep Green/Charcoal
+          indigo: "#3F4697", // Indigo/Blue
+          lime: "#CFF39E", // Lime/Sage
+          ivory: "#F4EBE0", // Ivory/Light
           black: "#141414",
           white: "#FAFAFA",
-          ivory: "#F5F3EF",
-          light: "#F5F3EF", // Alias for ivory for backward compatibility
         },
       },
       fontFamily: {
