@@ -14,12 +14,12 @@ const CtaSection = () => {
       className='py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden'
     >
       {/* Background gradient */}
-      <div className='absolute inset-0 bg-gradient-to-br from-brand-forest to-brand-black'></div>
+      <div className='absolute inset-0 bg-gradient-to-br from-brand-deep to-brand-black'></div>
 
       {/* Abstract shapes */}
       <div className='absolute inset-0 overflow-hidden opacity-10'>
-        <div className='absolute top-0 right-0 w-1/2 h-1/2 bg-brand-sage rounded-full blur-3xl -translate-y-1/4 translate-x-1/4'></div>
-        <div className='absolute bottom-0 left-0 w-1/2 h-1/2 bg-brand-sage rounded-full blur-3xl translate-y-1/4 -translate-x-1/4'></div>
+        <div className='absolute top-0 right-0 w-1/2 h-1/2 bg-brand-lime rounded-full blur-3xl -translate-y-1/4 translate-x-1/4'></div>
+        <div className='absolute bottom-0 left-0 w-1/2 h-1/2 bg-brand-lime rounded-full blur-3xl translate-y-1/4 -translate-x-1/4'></div>
       </div>
 
       <div className='container-custom relative z-10'>
@@ -40,7 +40,7 @@ const CtaSection = () => {
           <div className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto'>
             <Link
               href='/contact'
-              className='w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-sage text-brand-forest rounded-md text-sm sm:text-base font-medium transition-all duration-300 hover:bg-brand-sage/90 hover:text-brand-black'
+              className='w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-lime text-brand-deep rounded-md text-sm sm:text-base font-medium transition-all duration-300 hover:bg-brand-lime/90 hover:text-brand-black'
             >
               Start a project
             </Link>

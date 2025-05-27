@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function FinalCTASection() {
   return (
-    <section className='bg-brand-forest text-brand-white py-20 md:py-32'>
+    <section className='bg-brand-deep text-brand-white py-20 md:py-32'>
       <div className='container mx-auto px-5vw'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

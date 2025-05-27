@@ -26,7 +26,7 @@ const Footer = () => {
                 href='https://twitter.com/ghostsavvy'
                 target='_blank'
                 rel='noreferrer'
-                className='text-brand-white/60 hover:text-brand-sage transition-colors'
+                className='text-brand-white/60 hover:text-brand-lime transition-colors'
                 aria-label='Twitter'
               >
                 <svg
@@ -43,7 +43,7 @@ const Footer = () => {
                 href='https://github.com/ghostsavvy'
                 target='_blank'
                 rel='noreferrer'
-                className='text-brand-white/60 hover:text-brand-sage transition-colors'
+                className='text-brand-white/60 hover:text-brand-lime transition-colors'
                 aria-label='GitHub'
               >
                 <svg
@@ -60,7 +60,7 @@ const Footer = () => {
                 href='https://linkedin.com/company/ghostsavvy'
                 target='_blank'
                 rel='noreferrer'
-                className='text-brand-white/60 hover:text-brand-sage transition-colors'
+                className='text-brand-white/60 hover:text-brand-lime transition-colors'
                 aria-label='LinkedIn'
               >
                 <svg
@@ -84,31 +84,31 @@ const Footer = () => {
             <nav className='flex flex-col space-y-3'>
               <Link
                 href='/about'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 About Us
               </Link>
               <Link
                 href='/careers'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Careers
               </Link>
               <Link
                 href='/start-project'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Start a Project
               </Link>
               <Link
                 href='/contact'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Contact
               </Link>
               <Link
                 href='/blog'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Blog
               </Link>
@@ -122,25 +122,25 @@ const Footer = () => {
             <nav className='flex flex-col space-y-3'>
               <Link
                 href='/products#featured'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Featured Products
               </Link>
               <Link
                 href='/products#community'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Community Tools
               </Link>
               <Link
                 href='/products#enterprise'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Enterprise Solutions
               </Link>
               <Link
                 href='/products#upcoming'
-                className='text-brand-white/70 hover:text-brand-sage transition-colors'
+                className='text-brand-white/70 hover:text-brand-lime transition-colors'
               >
                 Coming Soon
               </Link>
@@ -160,12 +160,12 @@ const Footer = () => {
               <input
                 type='email'
                 placeholder='Your email address'
-                className='px-4 py-2 bg-brand-white/10 rounded-[4px] text-brand-white border border-brand-white/20 focus:outline-none focus:border-brand-sage'
+                className='px-4 py-2 bg-brand-white/10 rounded-[4px] text-brand-white border border-brand-white/20 focus:outline-none focus:border-brand-lime'
                 required
               />
               <button
                 type='submit'
-                className='px-4 py-2 bg-brand-sage hover:bg-brand-sage/90 rounded-[4px] text-brand-white font-medium transition-colors w-full text-sm'
+                className='px-4 py-2 bg-brand-lime hover:bg-brand-lime/90 rounded-[4px] text-brand-white font-medium transition-colors w-full text-sm'
               >
                 Subscribe
               </button>
@@ -183,13 +183,13 @@ const Footer = () => {
             <nav className='flex space-x-6'>
               <Link
                 href='/privacy'
-                className='text-brand-white/50 text-sm hover:text-brand-sage transition-colors'
+                className='text-brand-white/50 text-sm hover:text-brand-lime transition-colors'
               >
                 Privacy Policy
               </Link>
               <Link
                 href='/terms'
-                className='text-brand-white/50 text-sm hover:text-brand-sage transition-colors'
+                className='text-brand-white/50 text-sm hover:text-brand-lime transition-colors'
               >
                 Terms of Service
               </Link>

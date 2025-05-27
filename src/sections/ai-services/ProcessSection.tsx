@@ -45,7 +45,7 @@ const fadeInUp = {
 
 export default function ProcessSection() {
   return (
-    <section className='bg-brand-ivory text-brand-forest py-20 md:py-24'>
+    <section className='bg-brand-ivory text-brand-deep py-20 md:py-24'>
       <div className='container mx-auto px-5vw'>
         {/* Section title */}
         <motion.div
@@ -56,7 +56,7 @@ export default function ProcessSection() {
           className='text-center mb-16'
         >
           <h2 className='text-4xl md:text-5xl font-bold mb-4'>Our Process</h2>
-          <p className='text-lg text-brand-forest/70 max-w-2xl mx-auto'>
+          <p className='text-lg text-brand-deep/70 max-w-2xl mx-auto'>
             A methodical approach to creating AI solutions that deliver real
             value
           </p>
@@ -87,13 +87,13 @@ export default function ProcessSection() {
                   <h3 className='text-xl md:text-2xl font-semibold mb-2'>
                     {step.title}
                   </h3>
-                  <p className='text-brand-forest/70'>{step.description}</p>
+                  <p className='text-brand-deep/70'>{step.description}</p>
                 </div>
               </div>
 
               {/* Connector line (except for last item) */}
               {index < processSteps.length - 1 && (
-                <div className='w-[1px] h-12 md:h-16 bg-brand-forest/10 ml-6 md:ml-8 mt-4'></div>
+                <div className='w-[1px] h-12 md:h-16 bg-brand-deep/10 ml-6 md:ml-8 mt-4'></div>
               )}
             </motion.div>
           ))}
@@ -105,13 +105,13 @@ export default function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className='mt-16 md:mt-20 bg-brand-forest/5 rounded-[4px] p-6 md:p-8 text-center'
+          className='mt-16 md:mt-20 bg-brand-deep/5 rounded-[4px] p-6 md:p-8 text-center'
         >
-          <p className='text-brand-forest/70 mb-4'>
+          <p className='text-brand-deep/70 mb-4'>
             Diagram: AI agent + tools + API connections
           </p>
-          <div className='h-[200px] md:h-[300px] flex items-center justify-center border border-brand-forest/10 rounded-md'>
-            <p className='text-brand-forest/50'>
+          <div className='h-[200px] md:h-[300px] flex items-center justify-center border border-brand-deep/10 rounded-md'>
+            <p className='text-brand-deep/50'>
               Agent Architecture Visualization
             </p>
           </div>

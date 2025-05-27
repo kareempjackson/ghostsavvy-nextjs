@@ -52,7 +52,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className='bg-brand-ivory text-brand-forest py-20 md:py-24'>
+    <section className='bg-brand-ivory text-brand-deep py-20 md:py-24'>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -65,7 +65,7 @@ export default function FAQSection() {
           <h2 className='text-4xl md:text-5xl font-bold mb-4'>
             Frequently Asked Questions
           </h2>
-          <p className='text-lg text-brand-forest/70 max-w-2xl mx-auto'>
+          <p className='text-lg text-brand-deep/70 max-w-2xl mx-auto'>
             Everything you need to know about our AI services
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function FAQSection() {
               variants={fadeInUp}
               custom={index}
               className={`
-                border-b border-brand-forest/10 py-6
+                border-b border-brand-deep/10 py-6
                 ${index === 0 ? "border-t" : ""}
               `}
             >
@@ -117,7 +117,7 @@ export default function FAQSection() {
                   ${activeIndex === index ? "max-h-96" : "max-h-0"}
                 `}
               >
-                <p className='text-brand-forest/70 pt-2 pb-1'>{item.answer}</p>
+                <p className='text-brand-deep/70 pt-2 pb-1'>{item.answer}</p>
               </div>
             </motion.div>
           ))}
@@ -131,9 +131,9 @@ export default function FAQSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className='text-center mt-16'
         >
-          <p className='text-brand-forest/70'>
+          <p className='text-brand-deep/70'>
             Have more questions?{" "}
-            <a href='/contact' className='text-brand-sage font-semibold'>
+            <a href='/contact' className='text-brand-lime font-semibold'>
               Get in touch
             </a>{" "}
             and we&apos;ll be happy to help.

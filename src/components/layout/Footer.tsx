@@ -50,7 +50,7 @@ const Footer = () => {
                   ].map((item) => (
                     <li key={item.name}>
                       <Link href={item.href}>
-                        <span className='text-brand-white/60 hover:text-brand-sage transition-colors duration-300 text-sm leading-[1.5]'>
+                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-[1.5]'>
                           {item.name}
                         </span>
                       </Link>
@@ -72,7 +72,7 @@ const Footer = () => {
                   ].map((item) => (
                     <li key={item.name}>
                       <Link href={item.href}>
-                        <span className='text-brand-white/60 hover:text-brand-sage transition-colors duration-300 text-sm leading-[1.5]'>
+                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-[1.5]'>
                           {item.name}
                         </span>
                       </Link>
@@ -98,7 +98,7 @@ const Footer = () => {
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        <span className='text-brand-white/60 hover:text-brand-sage transition-colors duration-300 text-sm leading-[1.5]'>
+                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-[1.5]'>
                           {item.name}
                         </span>
                       </a>
@@ -135,13 +135,13 @@ const Footer = () => {
               <div className='flex space-x-8'>
                 <Link
                   href='/privacy'
-                  className='text-brand-white/60 hover:text-brand-sage transition-colors duration-300 text-sm'
+                  className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm'
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href='/terms'
-                  className='text-brand-white/60 hover:text-brand-sage transition-colors duration-300 text-sm'
+                  className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm'
                 >
                   Terms of Service
                 </Link>

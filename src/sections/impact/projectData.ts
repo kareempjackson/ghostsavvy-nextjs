@@ -22,7 +22,7 @@ export const visionProjects: Project[] = [
     image: "/images/projects/finaccess-global.jpg",
     video: "/videos/projects/finaccess-global-demo.mp4",
     link: "https://example.com/finaccess-global",
-    accentColor: "bg-brand-forest",
+    accentColor: "bg-brand-deep",
   },
   {
     id: "healthcare-connect",
@@ -49,7 +49,7 @@ export const visionProjects: Project[] = [
     image: "/images/projects/healthcare-connect.jpg",
     video: "/videos/projects/healthcare-demo.mp4",
     link: "https://example.com/healthcare-connect",
-    accentColor: "bg-brand-sage",
+    accentColor: "bg-brand-deep",
   },
   {
     id: "eco-marketplace",
@@ -190,7 +190,7 @@ export const engineeringProjects: Project[] = [
     image: "/images/projects/smart-infrastructure.jpg",
     video: "/videos/projects/infrastructure-demo.mp4",
     link: "https://example.com/smart-infrastructure",
-    accentColor: "bg-brand-forest",
+    accentColor: "bg-brand-deep",
   },
   {
     id: "cloud-deployment",
@@ -244,7 +244,7 @@ export const engineeringProjects: Project[] = [
     image: "/images/projects/ai-analytics.jpg",
     video: "/videos/projects/analytics-demo.mp4",
     link: "https://example.com/ai-analytics",
-    accentColor: "bg-brand-forest",
+    accentColor: "bg-brand-deep",
   },
   {
     id: "quantum-analytics",

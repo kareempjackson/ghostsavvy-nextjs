@@ -61,7 +61,7 @@ export default function ProjectModal({
         >
           <motion.div
             ref={modalRef}
-            className='bg-brand-forest rounded-[4px] w-full max-w-5xl max-h-[90vh] overflow-auto'
+            className='bg-brand-deep rounded-[4px] w-full max-w-5xl max-h-[90vh] overflow-auto'
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
@@ -75,7 +75,7 @@ export default function ProjectModal({
                 fill
                 className='object-cover'
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-brand-forest to-transparent'></div>
+              <div className='absolute inset-0 bg-gradient-to-t from-brand-deep to-transparent'></div>
 
               {/* Close button */}
               <button

@@ -82,7 +82,7 @@ const SelectedWorkSection = () => {
           </motion.h2>
           <motion.p
             variants={textVariants}
-            className='text-brand-forest/70 max-w-xl'
+            className='text-brand-deep/70 max-w-xl'
           >
             We&apos;ve collaborated with forward-thinking clients to create
             digital products that solve real problems and deliver measurable
@@ -100,7 +100,7 @@ const SelectedWorkSection = () => {
             <motion.div key={index} variants={itemVariants} className='group'>
               <Link href={project.slug} className='block'>
                 <div className='relative aspect-[4/3] mb-5 overflow-hidden rounded-xl subtle-shadow'>
-                  <div className='absolute inset-0 bg-brand-forest opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10'></div>
+                  <div className='absolute inset-0 bg-brand-deep opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10'></div>
                   <Image
                     src={project.imageUrl}
                     alt={project.title}
@@ -113,7 +113,7 @@ const SelectedWorkSection = () => {
                     {project.category}
                   </p>
                   <h3 className='mb-2'>{project.title}</h3>
-                  <p className='text-brand-forest/70 text-base'>
+                  <p className='text-brand-deep/70 text-base'>
                     {project.description}
                   </p>
                 </div>

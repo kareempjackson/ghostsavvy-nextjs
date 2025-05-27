@@ -56,7 +56,7 @@ const FooterSection = () => {
   ];
 
   return (
-    <footer className='border-t border-brand-forest/10 bg-brand-ivory'>
+    <footer className='border-t border-brand-deep/10 bg-brand-ivory'>
       <div className='container mx-auto px-8 py-24'>
         <div className='max-w-7xl mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-7 gap-20'>
@@ -81,7 +81,7 @@ const FooterSection = () => {
                   />
                 </Link>
 
-                <p className='text-sm text-brand-forest/70 max-w-lg mb-8 leading-[1.5]'>
+                <p className='text-sm text-brand-deep/70 max-w-lg mb-8 leading-[1.5]'>
                   We build exceptional digital products as ghost partners for
                   agencies and startups, prioritizing discretion and quality.
                 </p>
@@ -101,7 +101,7 @@ const FooterSection = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className='text-brand-forest/70 hover:text-brand-sage transition-colors text-base leading-[1.5]'
+                    className='text-brand-deep/70 hover:text-brand-lime transition-colors text-base leading-[1.5]'
                   >
                     {link.name}
                   </Link>
@@ -125,7 +125,7 @@ const FooterSection = () => {
                       href={link.href}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='text-brand-forest/70 hover:text-brand-sage transition-colors p-2 hover:bg-brand-black/5 rounded-[4px]'
+                      className='text-brand-deep/70 hover:text-brand-lime transition-colors p-2 hover:bg-brand-black/5 rounded-[4px]'
                       aria-label={link.name}
                     >
                       {link.icon}
@@ -133,7 +133,7 @@ const FooterSection = () => {
                   ))}
                 </div>
 
-                <p className='text-xs text-brand-forest/60 mt-auto pt-8 hidden lg:block italic'>
+                <p className='text-xs text-brand-deep/60 mt-auto pt-8 hidden lg:block italic'>
                   Built in silence.
                   <br />
                   Designed for scale.
@@ -143,22 +143,22 @@ const FooterSection = () => {
           </div>
 
           {/* Bottom copyright */}
-          <div className='mt-20 pt-8 border-t border-brand-forest/5 flex flex-col md:flex-row justify-between items-center'>
+          <div className='mt-20 pt-8 border-t border-brand-deep/5 flex flex-col md:flex-row justify-between items-center'>
             <div className='flex flex-col md:flex-row md:items-center gap-2 md:gap-6'>
-              <p className='text-xs text-brand-forest/60 leading-[1.5]'>
+              <p className='text-xs text-brand-deep/60 leading-[1.5]'>
                 &copy; {new Date().getFullYear()} Ghost Savvy Studios
               </p>
 
               <div className='flex space-x-6 mt-2 md:mt-0'>
                 <Link
                   href='/terms'
-                  className='text-xs text-brand-forest/60 hover:text-brand-sage transition-colors'
+                  className='text-xs text-brand-deep/60 hover:text-brand-lime transition-colors'
                 >
                   Terms of Service
                 </Link>
                 <Link
                   href='/privacy'
-                  className='text-xs text-brand-forest/60 hover:text-brand-sage transition-colors'
+                  className='text-xs text-brand-deep/60 hover:text-brand-lime transition-colors'
                 >
                   Privacy Policy
                 </Link>
@@ -166,7 +166,7 @@ const FooterSection = () => {
             </div>
 
             <div className='flex items-center mt-4 md:mt-0'>
-              <select className='bg-transparent text-xs text-brand-forest/60 focus:outline-none'>
+              <select className='bg-transparent text-xs text-brand-deep/60 focus:outline-none'>
                 <option value='en'>English (US)</option>
                 <option value='fr'>Français</option>
                 <option value='es'>Español</option>

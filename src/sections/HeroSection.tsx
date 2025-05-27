@@ -153,7 +153,7 @@ const HeroSection = () => {
               <div className='absolute inset-0 bg-brand-sage rounded-[4px] blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300'></div>
               <Link
                 href='/work'
-                className='relative w-full sm:w-auto px-5 sm:px-6 py-3 bg-brand-sage text-brand-forest rounded-[4px] transition-all duration-300 text-sm inline-flex items-center justify-center group-hover:bg-brand-sage/90 group-hover:translate-y-[-2px] group-hover:text-brand-forest/90 font-medium'
+                className='relative w-full sm:w-auto px-5 sm:px-6 py-3 bg-brand-lime text-brand-deep rounded-[4px] transition-all duration-300 text-sm inline-flex items-center justify-center group-hover:bg-brand-lime/90 group-hover:translate-y-[-2px] group-hover:text-brand-deep/90 font-medium'
               >
                 Explore Our Work
                 <svg

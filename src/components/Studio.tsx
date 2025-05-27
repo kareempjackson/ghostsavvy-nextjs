@@ -42,7 +42,7 @@ export default function Studio() {
         <p className='text-gray-700'>{error}</p>
         <button
           onClick={() => window.location.reload()}
-          className='mt-4 px-4 py-2 bg-brand-sage text-brand-forest rounded-md'
+          className='mt-4 px-4 py-2 bg-brand-lime text-brand-deep rounded-md'
         >
           Try Again
         </button>
@@ -53,7 +53,7 @@ export default function Studio() {
   if (!StudioComponent) {
     return (
       <div className='flex min-h-screen flex-col items-center justify-center'>
-        <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-sage'></div>
+        <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-lime'></div>
         <p className='mt-4 text-gray-600'>Loading Studio...</p>
       </div>
     );

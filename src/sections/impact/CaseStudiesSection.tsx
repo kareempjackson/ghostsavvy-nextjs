@@ -44,7 +44,7 @@ export default function CaseStudiesSection() {
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   return (
-    <div ref={containerRef} className='py-28 bg-brand-forest overflow-hidden'>
+    <div ref={containerRef} className='py-28 bg-brand-deep overflow-hidden'>
       <div className='container mx-auto px-6'>
         <motion.div
           initial={{ opacity: 0, y: 40 }}

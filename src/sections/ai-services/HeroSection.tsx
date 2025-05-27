@@ -29,7 +29,7 @@ export default function HeroSection({ scrollProgress }: HeroSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className='mb-8 inline-block py-1 px-4 bg-brand-forest/20 backdrop-blur-sm rounded-full text-sm font-medium text-brand-sage'
+          className='mb-8 inline-block py-1 px-4 bg-brand-deep/20 backdrop-blur-sm rounded-full text-sm font-medium text-brand-lime'
         >
           Productized AI Service
         </motion.div>
@@ -78,7 +78,7 @@ export default function HeroSection({ scrollProgress }: HeroSectionProps) {
           className='mt-16 relative w-full max-w-3xl h-[300px] md:h-[400px]'
         >
           {/* Replace with actual image once available */}
-          <div className='w-full h-full flex items-center justify-center border border-brand-white/10 rounded-md bg-gradient-to-b from-brand-forest/20 to-transparent'>
+          <div className='w-full h-full flex items-center justify-center border border-brand-white/10 rounded-md bg-gradient-to-b from-brand-deep/20 to-transparent'>
             <p className='text-brand-white/50'>AI Agent Visualization</p>
           </div>
         </motion.div>

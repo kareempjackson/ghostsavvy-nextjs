@@ -142,7 +142,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
   }, [slug]);
 
   return (
-    <main className='min-h-screen bg-brand-white text-brand-forest'>
+    <main className='min-h-screen bg-brand-white text-brand-deep'>
       {/* Reading Progress Bar */}
       <div
         className={`fixed top-0 left-0 right-0 h-1 bg-brand-ivory z-50 ${
@@ -150,7 +150,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
         } transition-opacity duration-300`}
       >
         <motion.div
-          className='h-full bg-brand-sage'
+          className='h-full bg-brand-lime'
           style={{ width: progressWidth }}
         />
       </div>
@@ -163,7 +163,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
           style={{ opacity: headerOpacity, scale: headerScale }}
         >
           {/* Overlay Gradient */}
-          <div className='absolute inset-0 bg-gradient-to-b from-brand-forest/90 via-brand-forest/70 to-brand-forest/40 z-10'></div>
+          <div className='absolute inset-0 bg-gradient-to-b from-brand-deep/90 via-brand-deep/70 to-brand-deep/40 z-10'></div>
 
           {/* Background Image */}
           <div
@@ -293,7 +293,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
             <div className='hidden lg:block lg:col-span-1'>
               <div className='sticky top-[120px] flex flex-col space-y-6'>
                 <button
-                  className='w-12 h-12 rounded-[4px] bg-brand-ivory flex items-center justify-center hover:bg-brand-sage/20 transition-colors duration-300'
+                  className='w-12 h-12 rounded-[4px] bg-brand-ivory flex items-center justify-center hover:bg-brand-lime/20 transition-colors duration-300'
                   aria-label='Share on Twitter'
                 >
                   <svg
@@ -312,7 +312,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                   </svg>
                 </button>
                 <button
-                  className='w-12 h-12 rounded-[4px] bg-brand-ivory flex items-center justify-center hover:bg-brand-sage/20 transition-colors duration-300'
+                  className='w-12 h-12 rounded-[4px] bg-brand-ivory flex items-center justify-center hover:bg-brand-lime/20 transition-colors duration-300'
                   aria-label='Share on LinkedIn'
                 >
                   <svg
@@ -350,7 +350,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                   </svg>
                 </button>
                 <button
-                  className='w-12 h-12 rounded-[4px] bg-brand-ivory flex items-center justify-center hover:bg-brand-sage/20 transition-colors duration-300'
+                  className='w-12 h-12 rounded-[4px] bg-brand-ivory flex items-center justify-center hover:bg-brand-lime/20 transition-colors duration-300'
                   aria-label='Copy link'
                 >
                   <svg
@@ -386,15 +386,15 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: entryEasing }}
                   className='prose prose-lg max-w-none
-                    prose-headings:font-normal prose-headings:text-brand-forest prose-headings:tracking-[-0.5px]
+                    prose-headings:font-normal prose-headings:text-brand-deep prose-headings:tracking-[-0.5px]
                     prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:leading-[1.3] prose-h2:mb-6 prose-h2:mt-20
-                    prose-p:text-brand-forest/80 prose-p:text-base md:prose-p:text-lg prose-p:leading-[1.8]
+                    prose-p:text-brand-deep/80 prose-p:text-base md:prose-p:text-lg prose-p:leading-[1.8]
                     prose-p:mb-8 prose-p:tracking-normal
-                    prose-a:text-brand-sage prose-a:no-underline hover:prose-a:text-brand-sage/80
-                    prose-ul:text-brand-forest/80 prose-ul:mt-6 prose-ul:mb-12 prose-ul:pl-8
-                    prose-ol:text-brand-forest/80 prose-ol:mt-6 prose-ol:mb-12 prose-ol:pl-8
+                    prose-a:text-brand-lime prose-a:no-underline hover:prose-a:text-brand-lime/80
+                    prose-ul:text-brand-deep/80 prose-ul:mt-6 prose-ul:mb-12 prose-ul:pl-8
+                    prose-ol:text-brand-deep/80 prose-ol:mt-6 prose-ol:mb-12 prose-ol:pl-8
                     prose-li:text-base md:prose-li:text-lg prose-li:mb-4 prose-li:leading-[1.7]
-                    prose-strong:text-brand-forest prose-strong:font-medium
+                    prose-strong:text-brand-deep prose-strong:font-medium
                     [&>p:first-of-type]:text-xl [&>p:first-of-type]:leading-[1.7] [&>p:first-of-type]:mb-10
                     [&>h2+p]:mt-6 [&>p+p]:mt-8'
                   dangerouslySetInnerHTML={{ __html: post.content }}
@@ -402,15 +402,15 @@ const BlogPost = ({ slug }: BlogPostProps) => {
               </div>
 
               {/* Tags */}
-              <div className='mt-24 pt-10 border-t border-brand-forest/10 max-w-3xl mx-auto'>
-                <h4 className='text-sm uppercase text-brand-forest/60 tracking-wider mb-6 font-medium'>
+              <div className='mt-24 pt-10 border-t border-brand-deep/10 max-w-3xl mx-auto'>
+                <h4 className='text-sm uppercase text-brand-deep/60 tracking-wider mb-6 font-medium'>
                   Tags
                 </h4>
                 <div className='flex flex-wrap gap-3'>
                   {post.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className='px-4 py-2 bg-brand-ivory hover:bg-brand-sage/20 text-brand-forest rounded-[4px] text-sm transition-colors duration-300 cursor-pointer'
+                      className='px-4 py-2 bg-brand-ivory hover:bg-brand-lime/20 text-brand-deep rounded-[4px] text-sm transition-colors duration-300 cursor-pointer'
                     >
                       {tag}
                     </span>
@@ -419,19 +419,19 @@ const BlogPost = ({ slug }: BlogPostProps) => {
               </div>
 
               {/* Author bio */}
-              <div className='mt-24 pt-10 border-t border-brand-forest/10 max-w-3xl mx-auto'>
+              <div className='mt-24 pt-10 border-t border-brand-deep/10 max-w-3xl mx-auto'>
                 <div className='flex flex-col md:flex-row md:items-start gap-8'>
-                  <div className='w-20 h-20 rounded-[4px] bg-brand-sage/10 flex items-center justify-center overflow-hidden shrink-0 border border-brand-sage/20'>
-                    <span className='text-brand-forest text-xl'>SM</span>
+                  <div className='w-20 h-20 rounded-[4px] bg-brand-lime/10 flex items-center justify-center overflow-hidden shrink-0 border border-brand-lime/20'>
+                    <span className='text-brand-deep text-xl'>SM</span>
                   </div>
                   <div>
-                    <h4 className='text-2xl text-brand-forest mb-3 tracking-[-0.5px] leading-[1.2]'>
+                    <h4 className='text-2xl text-brand-deep mb-3 tracking-[-0.5px] leading-[1.2]'>
                       {post.author.name}
                     </h4>
-                    <p className='text-sm text-brand-sage mb-6'>
+                    <p className='text-sm text-brand-lime mb-6'>
                       {post.author.role}
                     </p>
-                    <p className='text-brand-forest/80 leading-[1.6] mb-6'>
+                    <p className='text-brand-deep/80 leading-[1.6] mb-6'>
                       Design strategist passionate about creating products that
                       combine aesthetic excellence with functional innovation.
                       With a background in both design and psychology, Sarah
@@ -441,7 +441,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                     <div className='flex mt-6 space-x-4'>
                       <a
                         href='#'
-                        className='text-brand-forest/60 hover:text-brand-sage transition-colors duration-300'
+                        className='text-brand-deep/60 hover:text-brand-lime transition-colors duration-300'
                       >
                         <svg
                           className='w-5 h-5'
@@ -453,7 +453,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                       </a>
                       <a
                         href='#'
-                        className='text-brand-forest/60 hover:text-brand-sage transition-colors duration-300'
+                        className='text-brand-deep/60 hover:text-brand-lime transition-colors duration-300'
                       >
                         <svg
                           className='w-5 h-5'
@@ -472,9 +472,9 @@ const BlogPost = ({ slug }: BlogPostProps) => {
             {/* Related content sidebar */}
             <div className='hidden lg:block lg:col-span-4'>
               <div className='sticky top-[120px]'>
-                <h4 className='text-xl text-brand-forest mb-10 tracking-[-0.5px] relative inline-block'>
+                <h4 className='text-xl text-brand-deep mb-10 tracking-[-0.5px] relative inline-block'>
                   Related Articles
-                  <span className='absolute -bottom-2 left-0 w-8 h-1 bg-brand-sage'></span>
+                  <span className='absolute -bottom-2 left-0 w-8 h-1 bg-brand-lime'></span>
                 </h4>
                 <div className='space-y-10'>
                   {post.relatedPosts.map((relatedPost) => (
@@ -483,24 +483,24 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                       href={`/savvy-hub/blog/${relatedPost.slug}`}
                       className='group block transition-all duration-300 hover:-translate-y-1'
                     >
-                      <span className='text-xs font-medium text-brand-sage mb-3 block'>
+                      <span className='text-xs font-medium text-brand-lime mb-3 block'>
                         {relatedPost.category}
                       </span>
-                      <h5 className='text-lg text-brand-forest group-hover:text-brand-sage transition-colors duration-300 mb-3 tracking-[-0.5px] leading-[1.2]'>
+                      <h5 className='text-lg text-brand-deep group-hover:text-brand-lime transition-colors duration-300 mb-3 tracking-[-0.5px] leading-[1.2]'>
                         {relatedPost.title}
                       </h5>
-                      <span className='text-xs text-brand-forest/60'>
+                      <span className='text-xs text-brand-deep/60'>
                         {relatedPost.date}
                       </span>
                     </Link>
                   ))}
                 </div>
 
-                <div className='bg-brand-ivory p-8 rounded-[4px] mt-16 border border-brand-forest/5'>
-                  <h4 className='text-xl text-brand-forest mb-5 tracking-[-0.5px]'>
+                <div className='bg-brand-ivory p-8 rounded-[4px] mt-16 border border-brand-deep/5'>
+                  <h4 className='text-xl text-brand-deep mb-5 tracking-[-0.5px]'>
                     Subscribe to Our Newsletter
                   </h4>
-                  <p className='text-sm text-brand-forest/70 mb-8 leading-[1.6]'>
+                  <p className='text-sm text-brand-deep/70 mb-8 leading-[1.6]'>
                     Get the latest insights on design, development, and digital
                     product strategy delivered to your inbox.
                   </p>
@@ -508,11 +508,11 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                     <input
                       type='email'
                       placeholder='Your email address'
-                      className='w-full px-4 py-3 border border-brand-forest/10 rounded-[4px] focus:outline-none focus:border-brand-forest bg-brand-white transition-colors duration-300'
+                      className='w-full px-4 py-3 border border-brand-deep/10 rounded-[4px] focus:outline-none focus:border-brand-deep bg-brand-white transition-colors duration-300'
                     />
                     <button
                       type='submit'
-                      className='w-full px-4 py-3 bg-brand-sage text-brand-white rounded-[4px] hover:bg-brand-sage/90 transition-colors font-medium'
+                      className='w-full px-4 py-3 bg-brand-lime text-brand-white rounded-[4px] hover:bg-brand-lime/90 transition-colors font-medium'
                     >
                       Subscribe
                     </button>
@@ -530,9 +530,9 @@ const BlogPost = ({ slug }: BlogPostProps) => {
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
             <Link
               href='/savvy-hub/blog/ethical-ai-product-development'
-              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-forest/5'
+              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-deep/5'
             >
-              <span className='text-sm text-brand-sage mb-4 flex items-center'>
+              <span className='text-sm text-brand-lime mb-4 flex items-center'>
                 <svg className='w-4 h-4 mr-2' viewBox='0 0 24 24' fill='none'>
                   <path
                     d='M19 12H5M5 12L12 19M5 12L12 5'
@@ -544,17 +544,17 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                 </svg>
                 Previous
               </span>
-              <h3 className='text-xl text-brand-forest group-hover:text-brand-sage transition-colors duration-300 mb-4 tracking-[-0.5px] leading-[1.2]'>
+              <h3 className='text-xl text-brand-deep group-hover:text-brand-lime transition-colors duration-300 mb-4 tracking-[-0.5px] leading-[1.2]'>
                 Ethical Considerations in Building AI-Powered Products
               </h3>
-              <span className='text-sm text-brand-forest/60'>Jan 20, 2024</span>
+              <span className='text-sm text-brand-deep/60'>Jan 20, 2024</span>
             </Link>
 
             <Link
               href='/savvy-hub/blog/fintech-technical-architecture'
-              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-forest/5'
+              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-deep/5'
             >
-              <span className='text-sm text-brand-sage mb-4 flex items-center justify-end'>
+              <span className='text-sm text-brand-lime mb-4 flex items-center justify-end'>
                 Next
                 <svg className='w-4 h-4 ml-2' viewBox='0 0 24 24' fill='none'>
                   <path
@@ -566,10 +566,10 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                   />
                 </svg>
               </span>
-              <h3 className='text-xl text-brand-forest group-hover:text-brand-sage transition-colors duration-300 mb-4 tracking-[-0.5px] leading-[1.2]'>
+              <h3 className='text-xl text-brand-deep group-hover:text-brand-lime transition-colors duration-300 mb-4 tracking-[-0.5px] leading-[1.2]'>
                 The Technical Architecture Behind Our Latest Fintech Solution
               </h3>
-              <span className='text-sm text-brand-forest/60'>Feb 28, 2024</span>
+              <span className='text-sm text-brand-deep/60'>Feb 28, 2024</span>
             </Link>
           </div>
         </div>

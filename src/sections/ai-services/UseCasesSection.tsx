@@ -198,7 +198,7 @@ const fadeInUp = {
 
 export default function UseCasesSection() {
   return (
-    <section className='bg-brand-ivory text-brand-forest py-20 md:py-24 relative overflow-hidden'>
+    <section className='bg-brand-ivory text-brand-deep py-20 md:py-24 relative overflow-hidden'>
       {/* Background pattern (subtle) */}
       <div className='absolute inset-0 opacity-5 pointer-events-none'>
         {/* This would be a background pattern/texture if available */}
@@ -216,7 +216,7 @@ export default function UseCasesSection() {
           <h2 className='text-4xl md:text-5xl font-bold mb-4'>
             Built for What You Actually Need
           </h2>
-          <p className='text-lg text-brand-forest/70 max-w-2xl mx-auto'>
+          <p className='text-lg text-brand-deep/70 max-w-2xl mx-auto'>
             AI solutions crafted for specific business challenges and
             opportunities
           </p>
@@ -232,13 +232,13 @@ export default function UseCasesSection() {
               whileInView='visible'
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className='bg-brand-white border border-brand-forest/10 rounded-[4px] p-6 hover:border-brand-forest/30 transition-colors'
+              className='bg-brand-white border border-brand-deep/10 rounded-[4px] p-6 hover:border-brand-deep/30 transition-colors'
             >
               <div className='text-brand-sage mb-4'>{useCase.icon}</div>
               <h3 className='text-lg md:text-xl font-semibold mb-2'>
                 {useCase.title}
               </h3>
-              <p className='text-sm text-brand-forest/70'>
+              <p className='text-sm text-brand-deep/70'>
                 {useCase.description}
               </p>
             </motion.div>
@@ -253,7 +253,7 @@ export default function UseCasesSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className='text-center mt-16'
         >
-          <p className='text-brand-forest/70 mb-6'>
+          <p className='text-brand-deep/70 mb-6'>
             Don&apos;t see your specific use case? We can build custom AI agents
             for any business need.
           </p>

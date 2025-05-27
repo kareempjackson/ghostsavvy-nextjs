@@ -23,7 +23,7 @@ export default function EngineeredSolutions() {
           className='max-w-4xl ml-auto text-right'
         >
           <h2 className='text-5xl md:text-6xl lg:text-7xl text-brand-white font-medium tracking-[-0.02em] leading-[1.1] mb-8'>
-            <span className='text-brand-forest'>Engineered</span> Solutions
+            <span className='text-brand-deep'>Engineered</span> Solutions
           </h2>
           <p className='text-xl md:text-2xl text-brand-white/80 leading-[1.5] mb-16 max-w-3xl ml-auto'>
             We build powerful, scalable solutions that transform challenges into
@@ -74,14 +74,14 @@ export default function EngineeredSolutions() {
                   </div>
                 </div>
                 <div className='p-6'>
-                  <h3 className='text-xl text-brand-black mb-3 group-hover:text-brand-forest transition-colors'>
+                  <h3 className='text-xl text-brand-black mb-3 group-hover:text-brand-deep transition-colors'>
                     {project.title}
                   </h3>
                   <p className='text-brand-black/70 line-clamp-3'>
                     {project.shortDescription}
                   </p>
                   <div className='mt-6 pt-4 border-t border-brand-black/10'>
-                    <span className='inline-flex items-center text-brand-forest'>
+                    <span className='inline-flex items-center text-brand-deep'>
                       View Project
                       <svg
                         className='w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300'

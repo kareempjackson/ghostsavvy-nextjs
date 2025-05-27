@@ -17,7 +17,7 @@
   - Secondary text: 70% opacity
   - Tertiary/disabled text: 50% opacity
   - Subtle background elements: 10% opacity
-  - Dividers: 10% opacity of brand-forest
+  - Dividers: 10% opacity of brand-deep
 
 ## Typography
 
@@ -93,9 +93,9 @@
 
 ### Buttons
 
-- **Primary**: bg-brand-sage text-brand-white
-- **Secondary**: bg-brand-white border border-brand-forest/10 text-brand-forest
-- **Tertiary**: bg-transparent text-brand-forest underline
+- **Primary**: bg-brand-lime text-brand-white
+- **Secondary**: bg-brand-white border border-brand-deep/10 text-brand-deep
+- **Tertiary**: bg-transparent text-brand-deep underline
 - **Hover States**: Subtle opacity or scale changes
 
 ### Cards

@@ -14,7 +14,7 @@ const FooterCTA = () => {
       className='py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden'
     >
       {/* Background gradient */}
-      <div className='absolute inset-0 bg-gradient-to-br from-brand-forest to-brand-black'></div>
+      <div className='absolute inset-0 bg-gradient-to-br from-brand-deep to-brand-black'></div>
 
       {/* Abstract shapes */}
       <div className='absolute inset-0 overflow-hidden opacity-10'>
@@ -46,7 +46,7 @@ const FooterCTA = () => {
               <div className='absolute inset-0 bg-brand-sage rounded-md blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300'></div>
               <Link
                 href='/contact'
-                className='relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-sage text-brand-forest rounded-md text-sm sm:text-base font-medium transition-all duration-300 hover:bg-brand-sage/90 hover:text-brand-black flex items-center justify-center'
+                className='relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-brand-lime text-brand-deep rounded-md text-sm sm:text-base font-medium transition-all duration-300 hover:bg-brand-lime/90 hover:text-brand-black flex items-center justify-center'
               >
                 Contact Ghost Savvy
                 <svg
