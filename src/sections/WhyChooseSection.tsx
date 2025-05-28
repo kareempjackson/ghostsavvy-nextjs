@@ -19,7 +19,7 @@ const Feature = ({ icon, title, description, index }: FeatureProps) => {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7, delay: index * 0.1 }}
       whileHover={{ y: -5, transition: { duration: 0.3 } }}
-      className='relative p-8 md:p-10 bg-white min-w-[280px] md:min-w-[320px] flex-shrink-0 group'
+      className='relative p-8 md:p-10 bg-white min-w-[280px] md:min-w-[320px] shrink-0 group'
     >
       {/* Subtle hover effect */}
       <div
@@ -288,7 +288,7 @@ const WhyChooseSection = () => {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {/* Left padding for aesthetics */}
-            <div className='w-8 md:w-[10%] lg:w-[5%] flex-shrink-0'></div>
+            <div className='w-8 md:w-[10%] lg:w-[5%] shrink-0'></div>
 
             {/* Features */}
             {features.map((feature, index) => (
@@ -303,7 +303,7 @@ const WhyChooseSection = () => {
             ))}
 
             {/* Right padding for aesthetics */}
-            <div className='w-8 md:w-[10%] lg:w-[5%] flex-shrink-0'></div>
+            <div className='w-8 md:w-[10%] lg:w-[5%] shrink-0'></div>
           </div>
 
           {/* Scroll indicator - elegant style */}

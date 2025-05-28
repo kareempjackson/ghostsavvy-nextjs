@@ -205,7 +205,7 @@ const BuildForSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: entryEasing }}
-            className='text-xl text-brand-forest/70 max-w-2xl mx-auto leading-[1.5]'
+            className='text-xl text-brand-forest/70 max-w-2xl mx-auto leading-normal'
           >
             Our products solve problems across different verticals — all powered
             by strategy, engineering, and user-centered design.
@@ -230,7 +230,7 @@ const BuildForSection = () => {
           <h3 className='text-2xl font-display mb-4 tracking-[-0.5px] leading-[1.1]'>
             Our Product Vision
           </h3>
-          <p className='text-brand-white/80 leading-[1.5]'>
+          <p className='text-brand-white/80 leading-normal'>
             Building our own products gives us the freedom to explore new ideas,
             push boundaries, and make a tangible impact. Each product is a
             testament to our commitment to excellence and innovation.

@@ -14,7 +14,7 @@ const CtaSection = () => {
       className='py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden'
     >
       {/* Background gradient */}
-      <div className='absolute inset-0 bg-gradient-to-br from-brand-deep to-brand-black'></div>
+      <div className='absolute inset-0 bg-linear-to-br from-brand-deep to-brand-black'></div>
 
       {/* Abstract shapes */}
       <div className='absolute inset-0 overflow-hidden opacity-10'>

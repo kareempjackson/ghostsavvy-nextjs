@@ -50,7 +50,7 @@ const Footer = () => {
                   ].map((item) => (
                     <li key={item.name}>
                       <Link href={item.href}>
-                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-[1.5]'>
+                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-normal'>
                           {item.name}
                         </span>
                       </Link>
@@ -72,7 +72,7 @@ const Footer = () => {
                   ].map((item) => (
                     <li key={item.name}>
                       <Link href={item.href}>
-                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-[1.5]'>
+                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-normal'>
                           {item.name}
                         </span>
                       </Link>
@@ -98,7 +98,7 @@ const Footer = () => {
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-[1.5]'>
+                        <span className='text-brand-white/60 hover:text-brand-lime transition-colors duration-300 text-sm leading-normal'>
                           {item.name}
                         </span>
                       </a>
@@ -117,7 +117,7 @@ const Footer = () => {
             <h3 className='text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6 font-medium text-brand-white tracking-wider uppercase'>
               New York
             </h3>
-            <address className='not-italic text-brand-white/60 text-sm leading-[1.5]'>
+            <address className='not-italic text-brand-white/60 text-sm leading-normal'>
               123 Design District
               <br />
               Suite 456
@@ -129,7 +129,7 @@ const Footer = () => {
           {/* Copyright centered on mobile, right-aligned on desktop */}
           <div className='col-span-1 md:col-span-8 flex flex-col items-start md:items-end justify-end mt-8 md:mt-0'>
             <div className='text-left md:text-right'>
-              <p className='text-brand-white/40 text-sm mb-4 leading-[1.5]'>
+              <p className='text-brand-white/40 text-sm mb-4 leading-normal'>
                 © {currentYear} Ghost Savvy Studios. All rights reserved.
               </p>
               <div className='flex space-x-8'>

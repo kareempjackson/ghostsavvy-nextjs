@@ -130,7 +130,7 @@ export default async function ProjectDetailPage({
             </div>
 
             <div className='lg:mt-10'>
-              <div className='aspect-[4/3] relative overflow-hidden rounded-lg'>
+              <div className='aspect-4/3 relative overflow-hidden rounded-lg'>
                 <Image
                   src={
                     projectData.heroImageUrl ||
@@ -163,7 +163,7 @@ export default async function ProjectDetailPage({
             {/* Features Grid */}
             <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12'>
               {projectData.features.map((feature: Feature, index: number) => (
-                <div key={index} className='bg-white p-10 rounded-lg shadow-sm'>
+                <div key={index} className='bg-white p-10 rounded-lg shadow-xs'>
                   <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                     {feature.title}
                   </h3>
@@ -239,7 +239,7 @@ export default async function ProjectDetailPage({
               {projectData.gallery.map((image: string, index: number) => (
                 <div
                   key={index}
-                  className='aspect-[4/3] relative overflow-hidden rounded-lg'
+                  className='aspect-4/3 relative overflow-hidden rounded-lg'
                 >
                   <Image
                     src={image}
@@ -277,7 +277,7 @@ export default async function ProjectDetailPage({
                         href={`/savvy-lab/project/${product.slug}`}
                         className='group flex flex-col h-full'
                       >
-                        <div className='aspect-[16/9] mb-6 overflow-hidden rounded-lg'>
+                        <div className='aspect-video mb-6 overflow-hidden rounded-lg'>
                           <div
                             className='w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700'
                             style={{
@@ -316,7 +316,7 @@ export default async function ProjectDetailPage({
         )}
 
       {/* CTA Section */}
-      <section className='py-32 bg-gradient-to-b from-[#111] to-[#1a1a1a] text-white'>
+      <section className='py-32 bg-linear-to-b from-[#111] to-[#1a1a1a] text-white'>
         <div className='px-8 md:px-20'>
           <div className='max-w-5xl mx-auto text-center'>
             <h2 className='text-5xl font-bold mb-6'>

@@ -81,9 +81,9 @@ const HubSection = ({ isHomePage = false }: HubSectionProps) => {
     };
 
     const aspectRatioClasses = {
-      large: "aspect-[16/9]",
-      medium: "aspect-[4/3]",
-      small: "aspect-[1/1]",
+      large: "aspect-video",
+      medium: "aspect-4/3",
+      small: "aspect-square",
     };
 
     const titleSizeClasses = {
@@ -137,7 +137,7 @@ const HubSection = ({ isHomePage = false }: HubSectionProps) => {
 
             {/* Category badge */}
             <div className='absolute top-3 sm:top-4 left-3 sm:left-4'>
-              <span className='bg-black/80 text-white text-[10px] sm:text-xs py-1 px-2 sm:px-3 rounded-full backdrop-blur-sm'>
+              <span className='bg-black/80 text-white text-[10px] sm:text-xs py-1 px-2 sm:px-3 rounded-full backdrop-blur-xs'>
                 {item.category}
               </span>
             </div>

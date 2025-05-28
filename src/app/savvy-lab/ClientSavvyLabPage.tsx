@@ -76,7 +76,7 @@ export default function ClientSavvyLabPage({
       >
         <section
           ref={featuredHeroRef}
-          className='relative w-full min-h-[60vh] md:min-h-[75vh] overflow-hidden'
+          className='relative w-full min-h-[60vh] md:min-h-screen-75 overflow-hidden'
         >
           {/* Video Background */}
           <div className='absolute inset-0 w-full h-full z-0'>
@@ -273,7 +273,7 @@ export default function ClientSavvyLabPage({
                     href={`/savvy-lab/project/${product.slug.current}`}
                     className='block group h-full'
                   >
-                    <div className='relative overflow-hidden rounded-lg aspect-[4/3] mb-5'>
+                    <div className='relative overflow-hidden rounded-lg aspect-4/3 mb-5'>
                       <Image
                         src={product.heroImageUrl}
                         alt={product.title}
@@ -358,7 +358,7 @@ export default function ClientSavvyLabPage({
                         href={`/savvy-lab/project/${product.slug.current}`}
                         className='block group'
                       >
-                        <div className='relative overflow-hidden rounded-lg aspect-[16/9] mb-5'>
+                        <div className='relative overflow-hidden rounded-lg aspect-video mb-5'>
                           <Image
                             src={product.heroImageUrl}
                             alt={product.title}
@@ -446,7 +446,7 @@ export default function ClientSavvyLabPage({
               <ul className='space-y-3'>
                 <li className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0'
+                    className='w-5 h-5 text-green-500 mr-3 mt-1 shrink-0'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -462,7 +462,7 @@ export default function ClientSavvyLabPage({
                 </li>
                 <li className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0'
+                    className='w-5 h-5 text-green-500 mr-3 mt-1 shrink-0'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -478,7 +478,7 @@ export default function ClientSavvyLabPage({
                 </li>
                 <li className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0'
+                    className='w-5 h-5 text-green-500 mr-3 mt-1 shrink-0'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -512,7 +512,7 @@ export default function ClientSavvyLabPage({
               <ul className='space-y-3'>
                 <li className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0'
+                    className='w-5 h-5 text-green-500 mr-3 mt-1 shrink-0'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -528,7 +528,7 @@ export default function ClientSavvyLabPage({
                 </li>
                 <li className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0'
+                    className='w-5 h-5 text-green-500 mr-3 mt-1 shrink-0'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -544,7 +544,7 @@ export default function ClientSavvyLabPage({
                 </li>
                 <li className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0'
+                    className='w-5 h-5 text-green-500 mr-3 mt-1 shrink-0'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -567,12 +567,12 @@ export default function ClientSavvyLabPage({
       {/* CTA Section */}
       <section
         ref={ctaRef}
-        className='relative px-8 md:px-20 py-32 bg-gradient-to-br from-blue-900 to-indigo-800 text-white overflow-hidden'
+        className='relative px-8 md:px-20 py-32 bg-linear-to-br from-blue-900 to-indigo-800 text-white overflow-hidden'
       >
         {/* Background Pattern */}
         <div className='absolute inset-0 z-0 opacity-10'>
-          <div className='absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 filter blur-3xl'></div>
-          <div className='absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400 filter blur-3xl'></div>
+          <div className='absolute -top-24 -right-24 w-96 h-96 rounded-full bg-linear-to-r from-blue-400 to-indigo-400 filter blur-3xl'></div>
+          <div className='absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-linear-to-r from-indigo-400 to-purple-400 filter blur-3xl'></div>
         </div>
 
         <div className='max-w-7xl mx-auto relative z-10'>

@@ -88,10 +88,10 @@ export default function FAQSection() {
               {/* Question */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className='w-full flex justify-between items-center text-left focus:outline-none'
+                className='w-full flex justify-between items-center text-left focus:outline-hidden'
               >
                 <h3 className='text-xl font-semibold'>{item.question}</h3>
-                <span className='ml-4 flex-shrink-0'>
+                <span className='ml-4 shrink-0'>
                   <svg
                     className={`w-6 h-6 transition-transform ${
                       activeIndex === index ? "transform rotate-180" : ""

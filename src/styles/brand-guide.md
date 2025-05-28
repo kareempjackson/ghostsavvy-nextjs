@@ -45,7 +45,7 @@
 - **Headings**: `tracking-[-0.5px]` for tighter, more elegant spacing
 - **Body Text**: Default tracking
 - **Heading Leading**: `leading-[1.1]` to `leading-[1.2]` for headings
-- **Body Leading**: `leading-[1.5]` for maximum readability
+- **Body Leading**: `leading-normal` for maximum readability
 
 ## Spacing System
 
@@ -73,7 +73,7 @@
 ### Shadows
 
 - Use shadows minimally for a clean, premium feel
-- **Subtle Shadows**: shadow-sm - For cards and interactive elements
+- **Subtle Shadows**: shadow-xs - For cards and interactive elements
 - **Focus Shadows**: For interactive elements on hover/focus
 
 ## Animation & Transitions

@@ -70,7 +70,7 @@ const ProjectFeature = ({ project, imageLeft }: ProjectFeatureProps) => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <Link href={project.link || "#"} className='block'>
-          <div className='relative w-full aspect-[4/3] overflow-hidden group cursor-pointer'>
+          <div className='relative w-full aspect-4/3 overflow-hidden group cursor-pointer'>
             {project.video ? (
               <video
                 autoPlay
@@ -95,14 +95,14 @@ const ProjectFeature = ({ project, imageLeft }: ProjectFeatureProps) => {
             )}
 
             {/* Overlay gradient */}
-            <div className='absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-80'></div>
+            <div className='absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-80'></div>
 
             {/* Project tags positioned at bottom */}
             <div className='absolute bottom-6 left-6 flex flex-wrap gap-2'>
               {project.tags.map((tag: string) => (
                 <span
                   key={tag}
-                  className='bg-black/70 backdrop-blur-sm text-white text-xs py-1 px-3 rounded-full'
+                  className='bg-black/70 backdrop-blur-xs text-white text-xs py-1 px-3 rounded-full'
                 >
                   #{tag}
                 </span>

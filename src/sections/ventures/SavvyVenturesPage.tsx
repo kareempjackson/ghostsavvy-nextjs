@@ -286,7 +286,7 @@ const SavvyVenturesPage = () => {
           style={{ opacity: heroOpacity, scale: heroScale }}
           className='absolute inset-0'
         >
-          <div className='absolute inset-0 bg-gradient-to-b from-brand-black/90 to-brand-black/70 z-10'></div>
+          <div className='absolute inset-0 bg-linear-to-b from-brand-black/90 to-brand-black/70 z-10'></div>
           <div
             className='w-full h-full bg-cover bg-center'
             style={{ backgroundImage: `url(/images/placeholder-hero.jpg)` }}
@@ -448,7 +448,7 @@ const SavvyVenturesPage = () => {
       {/* Portfolio Section */}
       <section
         id='portfolio'
-        className='py-32 bg-gradient-to-b from-brand-black to-brand-forest'
+        className='py-32 bg-linear-to-b from-brand-black to-brand-forest'
       >
         <div className='container mx-auto px-6'>
           <div className='text-center mb-16'>
@@ -512,12 +512,12 @@ const SavvyVenturesPage = () => {
               >
                 <Link href={venture.url} className='group block'>
                   <div className='relative overflow-hidden bg-brand-white/5 border border-brand-white/10 group-hover:border-brand-sage/30 rounded-[4px] transition-all duration-500'>
-                    <div className='aspect-[16/9] overflow-hidden'>
+                    <div className='aspect-video overflow-hidden'>
                       <div
                         className='w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700'
                         style={{ backgroundImage: `url(${venture.image})` }}
                       >
-                        <div className='absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent'></div>
+                        <div className='absolute inset-0 bg-linear-to-t from-brand-black/90 to-transparent'></div>
                       </div>
                     </div>
 
@@ -762,7 +762,7 @@ const SavvyVenturesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className='py-32 bg-gradient-to-b from-brand-black to-brand-forest'>
+      <section className='py-32 bg-linear-to-b from-brand-black to-brand-forest'>
         <div className='container mx-auto px-6'>
           <div className='max-w-3xl mx-auto text-center'>
             <motion.div

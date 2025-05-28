@@ -212,7 +212,7 @@ const TestimonialsSection = () => {
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  className={`transition-all duration-300 focus:outline-none ${
+                  className={`transition-all duration-300 focus:outline-hidden ${
                     i === activeIndex
                       ? "w-8 h-1 bg-[#152B24]"
                       : "w-2 h-1 bg-[#152B24]/20 hover:bg-[#152B24]/40"

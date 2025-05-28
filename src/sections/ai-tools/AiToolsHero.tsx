@@ -25,7 +25,7 @@ const AiToolsHero = () => {
       className='relative min-h-[60vh] w-full overflow-hidden bg-brand-forest flex flex-col justify-center'
     >
       {/* Background gradient */}
-      <div className='absolute inset-0 z-0 bg-gradient-to-br from-brand-forest to-brand-black'>
+      <div className='absolute inset-0 z-0 bg-linear-to-br from-brand-forest to-brand-black'>
         {/* Abstract AI-themed pattern overlay */}
         <div className='absolute inset-0 opacity-10'>
           <div className='absolute top-0 right-0 w-1/2 h-1/2 bg-brand-sage rounded-full blur-3xl -translate-y-1/4 translate-x-1/4'></div>
@@ -100,7 +100,7 @@ const AiToolsHero = () => {
       </motion.div>
 
       {/* Neural network visual effect (decorative) */}
-      <div className='absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-brand-black to-transparent z-10'></div>
+      <div className='absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-brand-black to-transparent z-10'></div>
     </section>
   );
 };

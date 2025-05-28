@@ -101,16 +101,16 @@ const ToolCard = ({ tool, onOpenModal }: ToolCardProps) => {
           className='object-cover transition-transform duration-500 group-hover:scale-105'
           priority
         />
-        <div className='absolute top-2 right-2 px-3 py-1 bg-black/70 text-brand-white text-xs font-medium rounded-full backdrop-blur-sm'>
+        <div className='absolute top-2 right-2 px-3 py-1 bg-black/70 text-brand-white text-xs font-medium rounded-full backdrop-blur-xs'>
           {tool.price}
         </div>
       </div>
 
-      <div className='p-5 flex flex-col flex-grow'>
+      <div className='p-5 flex flex-col grow'>
         <h3 className='text-xl font-semibold text-brand-forest mb-2'>
           {tool.name}
         </h3>
-        <p className='text-gray-600 mb-4 flex-grow'>{tool.description}</p>
+        <p className='text-gray-600 mb-4 grow'>{tool.description}</p>
 
         <div className='flex gap-2 mb-4'>
           {tool.categories.map((category: string) => (
@@ -151,7 +151,7 @@ const ToolDetailModal = ({ tool, onClose }: ToolDetailModalProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm'
+      className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs'
       onClick={onClose}
     >
       <motion.div
@@ -188,7 +188,7 @@ const ToolDetailModal = ({ tool, onClose }: ToolDetailModalProps) => {
               />
             </svg>
           </button>
-          <div className='absolute bottom-4 left-4 px-4 py-2 bg-black/70 text-brand-white text-lg font-medium rounded-lg backdrop-blur-sm'>
+          <div className='absolute bottom-4 left-4 px-4 py-2 bg-black/70 text-brand-white text-lg font-medium rounded-lg backdrop-blur-xs'>
             {tool.name}
           </div>
         </div>
@@ -220,7 +220,7 @@ const ToolDetailModal = ({ tool, onClose }: ToolDetailModalProps) => {
             <ul className='space-y-2 text-gray-600'>
               <li className='flex items-start'>
                 <svg
-                  className='w-5 h-5 text-brand-sage mr-2 flex-shrink-0 mt-0.5'
+                  className='w-5 h-5 text-brand-sage mr-2 shrink-0 mt-0.5'
                   fill='none'
                   viewBox='0 0 24 24'
                   stroke='currentColor'
@@ -236,7 +236,7 @@ const ToolDetailModal = ({ tool, onClose }: ToolDetailModalProps) => {
               </li>
               <li className='flex items-start'>
                 <svg
-                  className='w-5 h-5 text-brand-sage mr-2 flex-shrink-0 mt-0.5'
+                  className='w-5 h-5 text-brand-sage mr-2 shrink-0 mt-0.5'
                   fill='none'
                   viewBox='0 0 24 24'
                   stroke='currentColor'
@@ -252,7 +252,7 @@ const ToolDetailModal = ({ tool, onClose }: ToolDetailModalProps) => {
               </li>
               <li className='flex items-start'>
                 <svg
-                  className='w-5 h-5 text-brand-sage mr-2 flex-shrink-0 mt-0.5'
+                  className='w-5 h-5 text-brand-sage mr-2 shrink-0 mt-0.5'
                   fill='none'
                   viewBox='0 0 24 24'
                   stroke='currentColor'

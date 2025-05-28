@@ -115,7 +115,7 @@ export default function PricingSection() {
                 {model.features.map((feature, i) => (
                   <li key={i} className='flex items-start'>
                     <svg
-                      className='w-5 h-5 text-brand-sage flex-shrink-0 mr-2 mt-0.5'
+                      className='w-5 h-5 text-brand-sage shrink-0 mr-2 mt-0.5'
                       fill='none'
                       viewBox='0 0 24 24'
                       stroke='currentColor'

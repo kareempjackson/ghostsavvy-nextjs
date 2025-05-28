@@ -55,7 +55,7 @@ export default function CaseStudiesSection() {
           <h2 className='text-5xl md:text-6xl lg:text-7xl text-brand-white font-medium tracking-[-0.02em] leading-[1.1] mb-8'>
             Featured <span className='text-brand-sage'>Case Studies</span>
           </h2>
-          <p className='text-xl md:text-2xl text-brand-white/80 leading-[1.5] max-w-3xl mx-auto'>
+          <p className='text-xl md:text-2xl text-brand-white/80 leading-normal max-w-3xl mx-auto'>
             Explore in-depth analysis of our most successful projects and the
             transformative impact they&apos;ve had on our clients and their
             users.
@@ -75,10 +75,10 @@ export default function CaseStudiesSection() {
                   delay: index * 0.15,
                   ease: entryEasing,
                 }}
-                className='bg-brand-black/30 backdrop-blur-sm rounded-[4px] overflow-hidden group-hover:shadow-xl transition-shadow duration-300'
+                className='bg-brand-black/30 backdrop-blur-xs rounded-[4px] overflow-hidden group-hover:shadow-xl transition-shadow duration-300'
               >
-                <div className='relative aspect-[3/4] overflow-hidden'>
-                  <div className='absolute inset-0 bg-gradient-to-t from-brand-black to-transparent/30 z-10 opacity-90 group-hover:opacity-80 transition-opacity duration-500'></div>
+                <div className='relative aspect-3/4 overflow-hidden'>
+                  <div className='absolute inset-0 bg-linear-to-t from-brand-black to-transparent/30 z-10 opacity-90 group-hover:opacity-80 transition-opacity duration-500'></div>
                   <Image
                     src={study.image}
                     alt={study.title}
@@ -87,7 +87,7 @@ export default function CaseStudiesSection() {
                     className='object-cover transition-transform duration-1000 group-hover:scale-105'
                   />
                   <div className='absolute bottom-0 left-0 p-8 z-20'>
-                    <span className='inline-block px-3 py-1 bg-brand-white/10 backdrop-blur-sm text-xs rounded-[4px] text-brand-white/90 mb-4'>
+                    <span className='inline-block px-3 py-1 bg-brand-white/10 backdrop-blur-xs text-xs rounded-[4px] text-brand-white/90 mb-4'>
                       {study.category}
                     </span>
                     <h3 className='text-2xl text-brand-white mb-4 group-hover:text-brand-sage transition-colors duration-300'>

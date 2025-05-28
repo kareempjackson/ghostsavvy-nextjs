@@ -22,7 +22,7 @@ const ProductsHeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className='relative min-h-[85vh] w-full overflow-hidden bg-brand-black flex flex-col justify-center items-center'
+      className='relative min-h-screen-85 w-full overflow-hidden bg-brand-black flex flex-col justify-center items-center'
     >
       {/* Background Ghost Logo Watermark - Minimal and refined */}
       <motion.div
@@ -52,7 +52,7 @@ const ProductsHeroSection = () => {
       </motion.div>
 
       {/* Subtle gradient overlay */}
-      <div className='absolute inset-0 bg-gradient-to-b from-brand-black/30 via-brand-black/60 to-brand-black pointer-events-none' />
+      <div className='absolute inset-0 bg-linear-to-b from-brand-black/30 via-brand-black/60 to-brand-black pointer-events-none' />
 
       {/* Hero Content */}
       <motion.div
@@ -73,7 +73,7 @@ const ProductsHeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: entryEasing, delay: 0.4 }}
-            className='text-lg md:text-xl text-brand-white/80 max-w-3xl mx-auto leading-[1.5] mb-16'
+            className='text-lg md:text-xl text-brand-white/80 max-w-3xl mx-auto leading-normal mb-16'
           >
             We don&apos;t just design for clients. We build our own platforms —
             tools, apps, and marketplaces that solve real-world problems across

@@ -211,7 +211,7 @@ export default function PodcastPost({ params }: { params: { slug: string } }) {
         <div className='container mx-auto px-6 py-3'>
           <div className='flex items-center gap-4'>
             <button
-              className='w-10 h-10 flex items-center justify-center bg-[#1A322A] text-white rounded-full flex-shrink-0'
+              className='w-10 h-10 flex items-center justify-center bg-[#1A322A] text-white rounded-full shrink-0'
               onClick={togglePlay}
               aria-label={isPlaying ? "Pause" : "Play"}
             >
@@ -256,7 +256,7 @@ export default function PodcastPost({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            <div className='hidden md:block flex-shrink-0'>
+            <div className='hidden md:block shrink-0'>
               <span className='text-sm font-medium truncate max-w-[200px] inline-block'>
                 {podcast.title}
               </span>
@@ -266,7 +266,7 @@ export default function PodcastPost({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Hero Section */}
-      <section className='relative bg-gradient-to-b from-[#1A322A] to-[#2F3779] pt-10 pb-16'>
+      <section className='relative bg-linear-to-b from-[#1A322A] to-[#2F3779] pt-10 pb-16'>
         <audio
           ref={audioRef}
           src={podcast.audioUrl}
@@ -301,7 +301,7 @@ export default function PodcastPost({ params }: { params: { slug: string } }) {
               Back to Savvy Hub
             </Link>
 
-            <span className='bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full'>
+            <span className='bg-white/20 backdrop-blur-xs text-white text-xs font-medium px-3 py-1 rounded-full'>
               {podcast.category}
             </span>
           </div>
@@ -316,8 +316,8 @@ export default function PodcastPost({ params }: { params: { slug: string } }) {
             >
               <div className='w-64 h-64 md:w-full md:h-auto max-w-xs aspect-square bg-[#F7F3E9]/10 rounded-xl overflow-hidden shadow-lg'>
                 <div className="relative w-full h-full bg-[url('/images/podcast-placeholder-1.jpg')] bg-cover bg-center">
-                  <div className='absolute inset-0 bg-gradient-to-b from-black/30 to-transparent'></div>
-                  <div className='absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#1A322A] text-xs font-medium px-2 py-1 rounded-md'>
+                  <div className='absolute inset-0 bg-linear-to-b from-black/30 to-transparent'></div>
+                  <div className='absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-[#1A322A] text-xs font-medium px-2 py-1 rounded-md'>
                     S{podcast.season} · E{podcast.episodeNumber}
                   </div>
                 </div>
@@ -735,7 +735,7 @@ export default function PodcastPost({ params }: { params: { slug: string } }) {
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
             <Link
               href='/savvy-hub/podcast/psychology-of-user-onboarding'
-              className='group flex flex-col p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300'
+              className='group flex flex-col p-8 bg-white rounded-xl shadow-xs hover:shadow-md transition-shadow duration-300'
             >
               <span className='text-sm text-[#2F3779] mb-2'>Previous</span>
               <h3 className='text-xl font-display font-medium text-[#1A322A] group-hover:text-[#2F3779] transition-colors duration-300 mb-2'>
@@ -750,7 +750,7 @@ export default function PodcastPost({ params }: { params: { slug: string } }) {
 
             <Link
               href='/savvy-hub/podcast/design-systems-that-scale'
-              className='group flex flex-col p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300'
+              className='group flex flex-col p-8 bg-white rounded-xl shadow-xs hover:shadow-md transition-shadow duration-300'
             >
               <span className='text-sm text-[#2F3779] mb-2'>Next</span>
               <h3 className='text-xl font-display font-medium text-[#1A322A] group-hover:text-[#2F3779] transition-colors duration-300 mb-2'>

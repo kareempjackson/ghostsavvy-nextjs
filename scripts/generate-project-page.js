@@ -237,7 +237,7 @@ export default function ProjectDetail() {
               {project.process.map((step, index) => (
                 <div
                   key={index}
-                  className='bg-white rounded-xl shadow-sm overflow-hidden transition-transform duration-300 hover:shadow-md hover:-translate-y-1'
+                  className='bg-white rounded-xl shadow-xs overflow-hidden transition-transform duration-300 hover:shadow-md hover:-translate-y-1'
                 >
                   <div className='h-48 relative'>
                     <Image
@@ -412,7 +412,7 @@ export default function ProjectDetail() {
             {project.team.map((member, index) => (
               <div
                 key={index}
-                className='text-center bg-white p-8 rounded-xl shadow-sm'
+                className='text-center bg-white p-8 rounded-xl shadow-xs'
               >
                 <div className='w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center'>
                   <span className='text-2xl text-gray-500'>

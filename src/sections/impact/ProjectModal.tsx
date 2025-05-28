@@ -52,7 +52,7 @@ export default function ProjectModal({
       {isOpen && (
         <motion.div
           ref={overlayRef}
-          className='fixed inset-0 bg-brand-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-8'
+          className='fixed inset-0 bg-brand-black/80 backdrop-blur-xs z-50 flex items-center justify-center p-4 md:p-8'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -75,11 +75,11 @@ export default function ProjectModal({
                 fill
                 className='object-cover'
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-brand-deep to-transparent'></div>
+              <div className='absolute inset-0 bg-linear-to-t from-brand-deep to-transparent'></div>
 
               {/* Close button */}
               <button
-                className='absolute top-4 right-4 w-10 h-10 rounded-[4px] bg-brand-black/60 backdrop-blur-sm text-brand-white flex items-center justify-center hover:bg-brand-black transition-colors z-10'
+                className='absolute top-4 right-4 w-10 h-10 rounded-[4px] bg-brand-black/60 backdrop-blur-xs text-brand-white flex items-center justify-center hover:bg-brand-black transition-colors z-10'
                 onClick={onClose}
               >
                 <svg
@@ -105,7 +105,7 @@ export default function ProjectModal({
                   {project.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className='inline-block bg-brand-white/10 backdrop-blur-sm text-xs px-3 py-1 rounded-[4px] text-brand-white/90'
+                      className='inline-block bg-brand-white/10 backdrop-blur-xs text-xs px-3 py-1 rounded-[4px] text-brand-white/90'
                     >
                       {tag}
                     </span>
@@ -120,7 +120,7 @@ export default function ProjectModal({
             {/* Content */}
             <div className='p-6 md:p-8'>
               {/* Description */}
-              <p className='text-lg text-brand-white/90 mb-10 leading-[1.5]'>
+              <p className='text-lg text-brand-white/90 mb-10 leading-normal'>
                 {project.longDescription}
               </p>
 
@@ -130,7 +130,7 @@ export default function ProjectModal({
                   <h3 className='text-xl mb-3 text-brand-white flex items-center tracking-[-0.5px]'>
                     <span className='text-brand-sage mr-2'>01.</span> Challenge
                   </h3>
-                  <p className='text-brand-white/70 leading-[1.5]'>
+                  <p className='text-brand-white/70 leading-normal'>
                     {project.challenge}
                   </p>
                 </div>
@@ -138,7 +138,7 @@ export default function ProjectModal({
                   <h3 className='text-xl mb-3 text-brand-white flex items-center tracking-[-0.5px]'>
                     <span className='text-brand-sage mr-2'>02.</span> Approach
                   </h3>
-                  <p className='text-brand-white/70 leading-[1.5]'>
+                  <p className='text-brand-white/70 leading-normal'>
                     {project.approach}
                   </p>
                 </div>
@@ -146,7 +146,7 @@ export default function ProjectModal({
                   <h3 className='text-xl mb-3 text-brand-white flex items-center tracking-[-0.5px]'>
                     <span className='text-brand-sage mr-2'>03.</span> Results
                   </h3>
-                  <p className='text-brand-white/70 leading-[1.5]'>
+                  <p className='text-brand-white/70 leading-normal'>
                     {project.results}
                   </p>
                 </div>
@@ -178,7 +178,7 @@ export default function ProjectModal({
                 <h3 className='text-xl mb-4 text-brand-white tracking-[-0.5px]'>
                   Impact
                 </h3>
-                <p className='text-brand-white/80 leading-[1.5]'>
+                <p className='text-brand-white/80 leading-normal'>
                   {project.impact}
                 </p>
               </div>

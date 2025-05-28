@@ -161,11 +161,11 @@ export default function ImpactCaseStudies() {
               </div>
 
               {/* Content */}
-              <div className='p-6 flex flex-col flex-grow'>
+              <div className='p-6 flex flex-col grow'>
                 <h3 className='text-xl font-bold text-[#3F4697] mb-2'>
                   {study.title}
                 </h3>
-                <p className='text-gray-600 mb-6 flex-grow'>
+                <p className='text-gray-600 mb-6 grow'>
                   {study.description}
                 </p>
 

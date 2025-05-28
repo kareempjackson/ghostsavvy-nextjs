@@ -377,7 +377,7 @@ export default function StartProject() {
 
       {/* Grid overlay */}
       <div className='fixed inset-0 -z-15 opacity-5'>
-        <div className='h-full w-full bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:40px_40px]'></div>
+        <div className='h-full w-full bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-size-[40px_40px]'></div>
       </div>
 
       {/* Primary texture background with subtle noise */}
@@ -420,7 +420,7 @@ export default function StartProject() {
       {/* Animated glow lines */}
       <div className='fixed inset-0 -z-5 opacity-20 overflow-hidden'>
         <motion.div
-          className='absolute h-[1px] w-[40%] bg-gradient-to-r from-transparent via-brand-sage to-transparent'
+          className='absolute h-px w-[40%] bg-linear-to-r from-transparent via-brand-sage to-transparent'
           style={{ top: "30%", left: 0 }}
           animate={{
             x: ["0%", "150%"],
@@ -433,7 +433,7 @@ export default function StartProject() {
           }}
         />
         <motion.div
-          className='absolute h-[1px] w-[60%] bg-gradient-to-r from-transparent via-brand-forest to-transparent'
+          className='absolute h-px w-[60%] bg-linear-to-r from-transparent via-brand-forest to-transparent'
           style={{ top: "60%", right: 0 }}
           animate={{
             x: ["0%", "-120%"],
@@ -449,7 +449,7 @@ export default function StartProject() {
       </div>
 
       {/* Main content */}
-      <div className='flex flex-col flex-grow items-center justify-center w-full px-4 py-16'>
+      <div className='flex flex-col grow items-center justify-center w-full px-4 py-16'>
         <div className='w-full max-w-3xl mx-auto'>
           {/* Progress indicator */}
           {currentStep > 0 && !submitted && (
@@ -490,7 +490,7 @@ export default function StartProject() {
           )}
 
           {/* Form steps */}
-          <div className='bg-black border border-white/10 rounded-2xl p-8 shadow-2xl min-h-[500px] flex flex-col backdrop-blur-sm'>
+          <div className='bg-black border border-white/10 rounded-2xl p-8 shadow-2xl min-h-[500px] flex flex-col backdrop-blur-xs'>
             <AnimatePresence mode='wait'>
               {submitted ? (
                 <motion.div
@@ -819,7 +819,7 @@ export default function StartProject() {
                         name='name'
                         value={formData.name}
                         onChange={handleChange}
-                        className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all text-white'
+                        className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all text-white'
                         placeholder='Enter your full name'
                       />
                     </motion.div>
@@ -842,7 +842,7 @@ export default function StartProject() {
                         name='email'
                         value={formData.email}
                         onChange={handleChange}
-                        className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all text-white'
+                        className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all text-white'
                         placeholder='Enter your email address'
                       />
                     </motion.div>
@@ -868,7 +868,7 @@ export default function StartProject() {
                         name='company'
                         value={formData.company}
                         onChange={handleChange}
-                        className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all text-white'
+                        className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all text-white'
                         placeholder='Your company or organization'
                       />
                     </motion.div>
@@ -1294,7 +1294,7 @@ export default function StartProject() {
                       value={formData.description}
                       onChange={handleChange}
                       rows={8}
-                      className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all resize-none text-white'
+                      className='w-full px-4 py-3 bg-white/5 border border-white/10 rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-sage/30 focus:border-brand-sage transition-all resize-none text-white'
                       placeholder="Describe your project, key features, and what you're looking to achieve..."
                     ></textarea>
                     <div className='text-sm text-gray-500 mt-2 flex justify-between items-center'>
@@ -1311,7 +1311,7 @@ export default function StartProject() {
                           repeat: isStepValid() ? Infinity : 0,
                           repeatDelay: 2,
                         }}
-                        className={`px-2 py-1 rounded text-xs ${isStepValid() ? "text-brand-sage" : "text-gray-400"}`}
+                        className={`px-2 py-1 rounded-sm text-xs ${isStepValid() ? "text-brand-sage" : "text-gray-400"}`}
                       >
                         {isStepValid()
                           ? "✓ Good to go!"

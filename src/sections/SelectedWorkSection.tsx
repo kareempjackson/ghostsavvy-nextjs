@@ -99,7 +99,7 @@ const SelectedWorkSection = () => {
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemVariants} className='group'>
               <Link href={project.slug} className='block'>
-                <div className='relative aspect-[4/3] mb-5 overflow-hidden rounded-xl subtle-shadow'>
+                <div className='relative aspect-4/3 mb-5 overflow-hidden rounded-xl subtle-shadow'>
                   <div className='absolute inset-0 bg-brand-deep opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10'></div>
                   <Image
                     src={project.imageUrl}

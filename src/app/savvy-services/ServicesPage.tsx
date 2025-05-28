@@ -254,7 +254,7 @@ export default function ServicesPage() {
         className='relative min-h-[80vh] flex items-center justify-center overflow-hidden'
       >
         <div className='absolute inset-0 z-0'>
-          <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black z-10' />
+          <div className='absolute inset-0 bg-linear-to-b from-black/80 via-black/70 to-black z-10' />
           <div className='absolute inset-0'>
             <Image
               src='/images/ai-services-bg.jpg'
@@ -307,9 +307,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Products Section */}
-      <section className='py-20 bg-gradient-to-b from-black to-zinc-900'>
+      <section className='py-20 bg-linear-to-b from-black to-zinc-900'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='max-w-screen-xl mx-auto'>
+          <div className='max-w-(--breakpoint-xl) mx-auto'>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -324,10 +324,10 @@ export default function ServicesPage() {
               {categoryData.products.map((product) => (
                 <div key={product.id} className='group'>
                   <div
-                    className={`rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 relative`}
+                    className={`rounded-3xl overflow-hidden bg-linear-to-br from-zinc-900 to-zinc-950 border border-zinc-800 relative`}
                   >
                     <div
-                      className='absolute inset-0 opacity-10 z-0 bg-gradient-to-r'
+                      className='absolute inset-0 opacity-10 z-0 bg-linear-to-r'
                       style={{
                         background: `linear-gradient(to right, ${product.color}22, transparent)`,
                       }}
@@ -344,7 +344,7 @@ export default function ServicesPage() {
                           className='mb-8'
                         >
                           <div className='flex items-center mb-6'>
-                            <div className='w-16 h-16 mr-4 relative flex-shrink-0'>
+                            <div className='w-16 h-16 mr-4 relative shrink-0'>
                               <Image
                                 src={product.icon}
                                 alt={product.name}
@@ -401,7 +401,7 @@ export default function ServicesPage() {
                               {product.highlights.map((highlight, i) => (
                                 <li key={i} className='flex items-start'>
                                   <svg
-                                    className={`w-5 h-5 mr-3 mt-1 flex-shrink-0`}
+                                    className={`w-5 h-5 mr-3 mt-1 shrink-0`}
                                     style={{ color: product.color }}
                                     fill='none'
                                     viewBox='0 0 24 24'
@@ -457,7 +457,7 @@ export default function ServicesPage() {
                               {product.features.map((feature, i) => (
                                 <div
                                   key={i}
-                                  className='p-6 rounded-xl bg-black/30 border border-zinc-800 backdrop-blur-sm'
+                                  className='p-6 rounded-xl bg-black/30 border border-zinc-800 backdrop-blur-xs'
                                 >
                                   <h4 className='text-xl font-semibold mb-2'>
                                     {feature.title}
@@ -507,7 +507,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className='bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800'
             >
-              <div className='w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-6'>
+              <div className='w-12 h-12 bg-linear-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-6'>
                 <svg
                   className='w-6 h-6 text-white'
                   fill='none'
@@ -536,7 +536,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className='bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800'
             >
-              <div className='w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mb-6'>
+              <div className='w-12 h-12 bg-linear-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mb-6'>
                 <svg
                   className='w-6 h-6 text-white'
                   fill='none'
@@ -571,7 +571,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className='bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800'
             >
-              <div className='w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center mb-6'>
+              <div className='w-12 h-12 bg-linear-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center mb-6'>
                 <svg
                   className='w-6 h-6 text-white'
                   fill='none'
@@ -597,9 +597,9 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className='py-20 bg-gradient-to-b from-zinc-900 to-black'>
+      <section className='py-20 bg-linear-to-b from-zinc-900 to-black'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='max-w-5xl mx-auto bg-gradient-to-r from-blue-900 to-indigo-900 rounded-3xl p-12 text-center relative overflow-hidden'>
+          <div className='max-w-5xl mx-auto bg-linear-to-r from-blue-900 to-indigo-900 rounded-3xl p-12 text-center relative overflow-hidden'>
             <div className='absolute inset-0 opacity-30'>
               <div className='absolute -top-20 -right-20 w-80 h-80 rounded-full bg-cyan-500/30 filter blur-3xl'></div>
               <div className='absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-blue-600/30 filter blur-3xl'></div>

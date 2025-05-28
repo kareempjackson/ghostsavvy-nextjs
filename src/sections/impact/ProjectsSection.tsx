@@ -166,7 +166,7 @@ export default function ProjectsSection() {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <Link href={`/savvy-impact/project/${project.id}`}>
-                <div className='relative aspect-[3/4] overflow-hidden'>
+                <div className='relative aspect-3/4 overflow-hidden'>
                   {/* Image with hover effect */}
                   <motion.div
                     animate={{
@@ -190,7 +190,7 @@ export default function ProjectsSection() {
                   </motion.div>
 
                   {/* Overlay gradient */}
-                  <div className='absolute inset-0 bg-gradient-to-t from-brand-black to-transparent/20 opacity-80 group-hover:opacity-70 transition-opacity duration-300' />
+                  <div className='absolute inset-0 bg-linear-to-t from-brand-black to-transparent/20 opacity-80 group-hover:opacity-70 transition-opacity duration-300' />
 
                   {/* Content */}
                   <div className='absolute inset-0 p-6 flex flex-col justify-end'>
@@ -199,7 +199,7 @@ export default function ProjectsSection() {
                       {project.tags.map((tag, idx) => (
                         <span
                           key={idx}
-                          className='text-xs bg-brand-white/10 backdrop-blur-sm text-brand-white/90 px-2 py-1 rounded-full'
+                          className='text-xs bg-brand-white/10 backdrop-blur-xs text-brand-white/90 px-2 py-1 rounded-full'
                         >
                           {tag}
                         </span>

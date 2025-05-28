@@ -41,7 +41,7 @@ export default function FeaturedCaseStudy() {
                 fill
                 className='object-cover'
               />
-              <div className='absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#3F4697]/90 to-transparent lg:hidden'>
+              <div className='absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-[#3F4697]/90 to-transparent lg:hidden'>
                 <h3 className='text-2xl font-bold text-white mb-2'>
                   Healthcare Connect Platform
                 </h3>

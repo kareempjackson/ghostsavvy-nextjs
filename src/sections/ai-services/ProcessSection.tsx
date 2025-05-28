@@ -76,7 +76,7 @@ export default function ProcessSection() {
             >
               <div className='flex flex-col md:flex-row items-start md:items-center gap-6'>
                 {/* Step number */}
-                <div className='flex-shrink-0 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-brand-sage/10 rounded-full'>
+                <div className='shrink-0 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-brand-sage/10 rounded-full'>
                   <span className='text-xl md:text-2xl font-bold text-brand-sage'>
                     {step.number}
                   </span>
@@ -93,7 +93,7 @@ export default function ProcessSection() {
 
               {/* Connector line (except for last item) */}
               {index < processSteps.length - 1 && (
-                <div className='w-[1px] h-12 md:h-16 bg-brand-deep/10 ml-6 md:ml-8 mt-4'></div>
+                <div className='w-px h-12 md:h-16 bg-brand-deep/10 ml-6 md:ml-8 mt-4'></div>
               )}
             </motion.div>
           ))}

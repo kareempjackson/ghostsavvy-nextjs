@@ -37,7 +37,7 @@ export default function LoaderExample() {
           Show Loader Again
         </button>
 
-        <div className='mt-12 bg-white rounded-lg p-8 shadow-sm'>
+        <div className='mt-12 bg-white rounded-lg p-8 shadow-xs'>
           <h2 className='text-2xl font-display mb-4'>Usage Instructions</h2>
           <div className='prose'>
             <p>The GhostLoader component can be used in two ways:</p>

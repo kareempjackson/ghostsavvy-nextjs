@@ -29,7 +29,7 @@ export default function HeroSection({ scrollProgress }: HeroSectionProps) {
             priority
             className='object-cover'
           />
-          <div className='absolute inset-0 bg-gradient-to-b from-[#3F4697]/40 via-transparent to-[#F4EBE0]' />
+          <div className='absolute inset-0 bg-linear-to-b from-[#3F4697]/40 via-transparent to-[#F4EBE0]' />
         </motion.div>
       </div>
 

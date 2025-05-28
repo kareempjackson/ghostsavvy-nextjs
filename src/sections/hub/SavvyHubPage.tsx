@@ -13,7 +13,7 @@ const hubCategories = [
   { id: "technology", name: "Technology", color: "bg-brand-forest" },
   { id: "development", name: "Development", color: "bg-[#3F4697]" },
   { id: "strategy", name: "Strategy", color: "bg-[#739E82]" },
-  { id: "ai", name: "AI", color: "bg-[#141414]" },
+  { id: "ai", name: "AI", color: "bg-brand-black" },
   { id: "business", name: "Business", color: "bg-[#6d4c41]" },
 ];
 
@@ -308,7 +308,7 @@ const SavvyHubPage = () => {
                   href={`/savvy-hub/${post.type}/${post.slug}`}
                   className='group flex flex-col h-full'
                 >
-                  <div className='aspect-[16/9] mb-6 overflow-hidden'>
+                  <div className='aspect-video mb-6 overflow-hidden'>
                     <div
                       className='w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 relative'
                       style={{ backgroundImage: `url(${post.coverImage})` }}
@@ -373,17 +373,17 @@ const SavvyHubPage = () => {
               </p>
             </motion.div>
 
-            <div className='relative aspect-video mb-8 overflow-hidden rounded-sm cursor-pointer group'>
+            <div className='relative aspect-video mb-8 overflow-hidden rounded-xs cursor-pointer group'>
               <Image
                 src={featuredVideo.coverImage}
                 alt={featuredVideo.title}
                 fill
                 className='object-cover group-hover:scale-105 transition-transform duration-700'
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-black/80 to-transparent'></div>
+              <div className='absolute inset-0 bg-linear-to-t from-black/80 to-transparent'></div>
 
               <div className='absolute inset-0 flex items-center justify-center'>
-                <div className='w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300'>
+                <div className='w-20 h-20 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300'>
                   <svg
                     className='w-8 h-8 text-white'
                     viewBox='0 0 24 24'
@@ -449,9 +449,9 @@ const SavvyHubPage = () => {
               >
                 <Link
                   href={`/savvy-hub/podcast/${episode.slug}`}
-                  className='group flex gap-6 bg-[#FAFAFA] p-6 shadow-sm hover:shadow-md transition-all duration-300 rounded-sm h-full'
+                  className='group flex gap-6 bg-[#FAFAFA] p-6 shadow-xs hover:shadow-md transition-all duration-300 rounded-xs h-full'
                 >
-                  <div className='w-32 h-32 flex-shrink-0 overflow-hidden rounded-sm'>
+                  <div className='w-32 h-32 shrink-0 overflow-hidden rounded-xs'>
                     <div
                       className='w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500'
                       style={{ backgroundImage: `url(${episode.coverImage})` }}
@@ -513,7 +513,7 @@ const SavvyHubPage = () => {
               <input
                 type='email'
                 placeholder='Your email address'
-                className='flex-1 px-6 py-4 bg-white border border-gray-200 text-brand-forest rounded-full placeholder:text-brand-forest/40 focus:outline-none focus:border-brand-forest'
+                className='flex-1 px-6 py-4 bg-white border border-gray-200 text-brand-forest rounded-full placeholder:text-brand-forest/40 focus:outline-hidden focus:border-brand-forest'
               />
               <button
                 type='submit'

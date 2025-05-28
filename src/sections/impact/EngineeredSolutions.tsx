@@ -25,7 +25,7 @@ export default function EngineeredSolutions() {
           <h2 className='text-5xl md:text-6xl lg:text-7xl text-brand-white font-medium tracking-[-0.02em] leading-[1.1] mb-8'>
             <span className='text-brand-deep'>Engineered</span> Solutions
           </h2>
-          <p className='text-xl md:text-2xl text-brand-white/80 leading-[1.5] mb-16 max-w-3xl ml-auto'>
+          <p className='text-xl md:text-2xl text-brand-white/80 leading-normal mb-16 max-w-3xl ml-auto'>
             We build powerful, scalable solutions that transform challenges into
             opportunities through innovative engineering and technical
             excellence.
@@ -51,8 +51,8 @@ export default function EngineeredSolutions() {
                 }}
                 className='bg-brand-white rounded-[4px] overflow-hidden group-hover:shadow-lg transition-shadow duration-300'
               >
-                <div className='relative aspect-[4/3] overflow-hidden'>
-                  <div className='absolute inset-0 bg-gradient-to-t from-brand-black/80 to-transparent/30 z-10 opacity-80 group-hover:opacity-90 transition-opacity duration-500'></div>
+                <div className='relative aspect-4/3 overflow-hidden'>
+                  <div className='absolute inset-0 bg-linear-to-t from-brand-black/80 to-transparent/30 z-10 opacity-80 group-hover:opacity-90 transition-opacity duration-500'></div>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -65,7 +65,7 @@ export default function EngineeredSolutions() {
                       {project.tags.slice(0, 2).map((tag, idx) => (
                         <span
                           key={idx}
-                          className='text-xs px-3 py-1 bg-brand-white/10 backdrop-blur-sm text-brand-white/90 rounded-[4px]'
+                          className='text-xs px-3 py-1 bg-brand-white/10 backdrop-blur-xs text-brand-white/90 rounded-[4px]'
                         >
                           {tag}
                         </span>

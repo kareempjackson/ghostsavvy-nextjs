@@ -99,13 +99,13 @@ const EmailCTA = () => {
                 </div>
 
                 <div className='flex flex-col sm:flex-row gap-3'>
-                  <div className='flex-grow'>
+                  <div className='grow'>
                     <input
                       type='email'
                       placeholder='Your email address'
                       className={`w-full px-4 py-3 border ${
                         error ? "border-red-400" : "border-gray-300"
-                      } rounded-md focus:outline-none focus:ring-2 focus:ring-brand-sage/50 focus:border-brand-sage transition-colors`}
+                      } rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-sage/50 focus:border-brand-sage transition-colors`}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -117,7 +117,7 @@ const EmailCTA = () => {
                   <button
                     type='submit'
                     disabled={isSubmitting}
-                    className='px-6 py-3 bg-brand-sage text-brand-forest font-medium rounded-md hover:bg-brand-sage/90 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-sage/50 disabled:opacity-70 disabled:cursor-not-allowed'
+                    className='px-6 py-3 bg-brand-sage text-brand-forest font-medium rounded-md hover:bg-brand-sage/90 transition-colors focus:outline-hidden focus:ring-2 focus:ring-brand-sage/50 disabled:opacity-70 disabled:cursor-not-allowed'
                   >
                     {isSubmitting ? (
                       <span className='flex items-center justify-center'>

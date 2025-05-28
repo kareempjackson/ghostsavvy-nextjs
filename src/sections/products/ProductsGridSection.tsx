@@ -142,7 +142,7 @@ const FeaturedProductCard = ({ product }: { product: ProductCard }) => {
             </blockquote>
           )}
 
-          <p className='text-brand-white/80 mb-6 leading-[1.5]'>
+          <p className='text-brand-white/80 mb-6 leading-normal'>
             {product.description}
           </p>
 
@@ -273,7 +273,7 @@ const ProductCard = ({ product }: { product: ProductCard }) => {
       </div>
 
       {/* Content */}
-      <div className='p-6 flex flex-col flex-grow'>
+      <div className='p-6 flex flex-col grow'>
         <div className='flex items-center mb-3'>
           <span
             className={`inline-block w-2 h-2 rounded-full ${product.accentColor} mr-2`}
@@ -293,7 +293,7 @@ const ProductCard = ({ product }: { product: ProductCard }) => {
           </blockquote>
         )}
 
-        <p className='text-gray-600 mb-4 flex-grow leading-[1.5]'>
+        <p className='text-gray-600 mb-4 grow leading-normal'>
           {product.description}
         </p>
 
@@ -351,13 +351,13 @@ const FilterButton = ({
 // Editorial section divider with decorative elements
 const SectionDivider = ({ label }: { label: string }) => (
   <div className='w-full flex items-center justify-center my-12 px-4'>
-    <div className='h-[1px] bg-brand-forest/10 flex-grow'></div>
+    <div className='h-px bg-brand-forest/10 grow'></div>
     <div className='mx-4 flex items-center'>
       <span className='mx-3 text-sm uppercase tracking-[0.5px] text-brand-forest/60 font-medium'>
         {label}
       </span>
     </div>
-    <div className='h-[1px] bg-brand-forest/10 flex-grow'></div>
+    <div className='h-px bg-brand-forest/10 grow'></div>
   </div>
 );
 
@@ -441,7 +441,7 @@ const ProductsGridSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className='text-xl text-brand-forest/70 max-w-2xl mx-auto leading-[1.5]'
+            className='text-xl text-brand-forest/70 max-w-2xl mx-auto leading-normal'
           >
             Each product is a solution to a real-world problem, crafted with
             strategy, design, and engineering.

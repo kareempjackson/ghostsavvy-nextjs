@@ -160,7 +160,7 @@ const Footer = () => {
               <input
                 type='email'
                 placeholder='Your email address'
-                className='px-4 py-2 bg-brand-white/10 rounded-[4px] text-brand-white border border-brand-white/20 focus:outline-none focus:border-brand-lime'
+                className='px-4 py-2 bg-brand-white/10 rounded-[4px] text-brand-white border border-brand-white/20 focus:outline-hidden focus:border-brand-lime'
                 required
               />
               <button

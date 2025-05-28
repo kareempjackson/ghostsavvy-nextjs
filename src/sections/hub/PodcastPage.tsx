@@ -93,7 +93,7 @@ const PodcastPage = () => {
               <h1 className='text-4xl md:text-5xl lg:text-6xl text-brand-white mb-8 tracking-[-0.5px] leading-[1.1]'>
                 Beneath the Build
               </h1>
-              <p className='text-xl md:text-2xl text-brand-white/90 mb-8 leading-[1.5]'>
+              <p className='text-xl md:text-2xl text-brand-white/90 mb-8 leading-normal'>
                 Dive deep into the stories behind impactful products with
                 industry insiders.
               </p>
@@ -132,7 +132,7 @@ const PodcastPage = () => {
                 placeholder='Search episodes...'
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className='w-full px-6 py-3 bg-brand-ivory border border-brand-forest/10 rounded-[4px] text-brand-forest placeholder:text-brand-forest/40 focus:outline-none focus:border-brand-forest'
+                className='w-full px-6 py-3 bg-brand-ivory border border-brand-forest/10 rounded-[4px] text-brand-forest placeholder:text-brand-forest/40 focus:outline-hidden focus:border-brand-forest'
               />
             </div>
           </div>
@@ -149,8 +149,8 @@ const PodcastPage = () => {
                 href={`/savvy-hub/podcast/${episode.slug}`}
                 className='group'
               >
-                <div className='flex items-center p-8 bg-brand-white rounded-[4px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2'>
-                  <div className='w-32 h-32 flex-shrink-0 overflow-hidden rounded-[4px] bg-gray-100'>
+                <div className='flex items-center p-8 bg-brand-white rounded-[4px] shadow-xs hover:shadow-lg transition-all duration-500 hover:-translate-y-2'>
+                  <div className='w-32 h-32 shrink-0 overflow-hidden rounded-[4px] bg-gray-100'>
                     <div
                       className='w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700'
                       style={{ backgroundImage: `url(${episode.coverImage})` }}
@@ -163,7 +163,7 @@ const PodcastPage = () => {
                     <h3 className='text-2xl text-brand-forest group-hover:text-brand-sage transition-colors duration-300 mb-3 tracking-[-0.5px] leading-[1.2]'>
                       {episode.title}
                     </h3>
-                    <p className='text-brand-forest/60 mb-6 line-clamp-2 text-lg leading-[1.5]'>
+                    <p className='text-brand-forest/60 mb-6 line-clamp-2 text-lg leading-normal'>
                       {episode.excerpt}
                     </p>
                     <div className='flex items-center justify-between'>
@@ -189,7 +189,7 @@ const PodcastPage = () => {
             <h2 className='text-4xl md:text-5xl text-brand-forest mb-8 tracking-[-0.5px] leading-[1.1]'>
               Never Miss an Episode
             </h2>
-            <p className='text-brand-forest/80 text-xl mb-12 leading-[1.5]'>
+            <p className='text-brand-forest/80 text-xl mb-12 leading-normal'>
               Subscribe to our newsletter to receive new episode notifications
               and exclusive content.
             </p>
@@ -197,7 +197,7 @@ const PodcastPage = () => {
               <input
                 type='email'
                 placeholder='Your email address'
-                className='px-8 py-5 bg-brand-ivory border border-brand-forest/10 rounded-[4px] text-brand-forest placeholder:text-brand-forest/40 focus:outline-none focus:border-brand-forest flex-1 text-lg'
+                className='px-8 py-5 bg-brand-ivory border border-brand-forest/10 rounded-[4px] text-brand-forest placeholder:text-brand-forest/40 focus:outline-hidden focus:border-brand-forest flex-1 text-lg'
               />
               <button
                 type='submit'
@@ -206,7 +206,7 @@ const PodcastPage = () => {
                 Subscribe
               </button>
             </form>
-            <p className='text-brand-forest/60 text-sm mt-8 leading-[1.5]'>
+            <p className='text-brand-forest/60 text-sm mt-8 leading-normal'>
               We respect your privacy. Unsubscribe at any time.
             </p>
           </div>

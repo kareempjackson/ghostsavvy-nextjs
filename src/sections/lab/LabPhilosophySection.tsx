@@ -159,7 +159,7 @@ const LabPhilosophySection = () => {
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   className='flex gap-6'
                 >
-                  <div className='flex-shrink-0'>
+                  <div className='shrink-0'>
                     <div className='w-12 h-12 flex items-center justify-center'>
                       <pillar.Icon />
                     </div>
@@ -183,9 +183,9 @@ const LabPhilosophySection = () => {
             className='relative'
           >
             <div className='sticky top-24'>
-              <div className='relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900'>
+              <div className='relative aspect-4/5 overflow-hidden bg-linear-to-br from-gray-800 to-gray-900'>
                 {/* Fallback content for missing image */}
-                <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent'></div>
+                <div className='absolute inset-0 bg-linear-to-t from-black/60 to-transparent'></div>
 
                 {/* Quote overlay */}
                 <div className='absolute bottom-0 left-0 right-0 p-10'>

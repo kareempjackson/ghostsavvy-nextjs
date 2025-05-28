@@ -201,7 +201,7 @@ export default function About() {
           className='absolute inset-0 z-0'
           style={{ opacity: heroOpacity, scale: heroScale }}
         >
-          <div className='absolute inset-0 bg-gradient-to-b from-brand-forest/90 to-brand-forest/80 z-10'></div>
+          <div className='absolute inset-0 bg-linear-to-b from-brand-forest/90 to-brand-forest/80 z-10'></div>
           <div
             className='absolute inset-0 bg-cover bg-center z-0'
             style={{ backgroundImage: "url('/images/about-hero-bg.jpg')" }}
@@ -322,7 +322,7 @@ export default function About() {
               {values.map((value, index) => (
                 <FadeInSection key={value.title} delay={0.2 + index * 0.1}>
                   <div className='flex'>
-                    <div className='flex-shrink-0 mr-6'>
+                    <div className='shrink-0 mr-6'>
                       <div className='w-16 h-16 bg-brand-sage/20 rounded-[4px] flex items-center justify-center text-brand-forest'>
                         {value.icon}
                       </div>
@@ -363,9 +363,9 @@ export default function About() {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
               {teamMembers.map((member, index) => (
                 <FadeInSection key={member.name} delay={0.2 + index * 0.1}>
-                  <div className='bg-brand-white border border-brand-forest/5 p-8 rounded-[4px] shadow-sm'>
+                  <div className='bg-brand-white border border-brand-forest/5 p-8 rounded-[4px] shadow-xs'>
                     <div className='flex items-start'>
-                      <div className='w-24 h-24 mr-6 rounded-[4px] overflow-hidden flex-shrink-0 bg-brand-sage/10'>
+                      <div className='w-24 h-24 mr-6 rounded-[4px] overflow-hidden shrink-0 bg-brand-sage/10'>
                         <Image
                           src={member.image}
                           alt={member.name}

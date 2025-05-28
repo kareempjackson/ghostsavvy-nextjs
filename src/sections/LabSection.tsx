@@ -30,7 +30,7 @@ interface LabProductApiResponse {
 const ProductCard = ({ product }: { product: LabProductType }) => {
   return (
     <motion.div
-      className='bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg h-full'
+      className='bg-white/5 backdrop-blur-xs rounded-xl overflow-hidden shadow-lg h-full'
       whileHover={{ y: -5, scale: 1.02 }}
       transition={{ duration: 0.3 }}
     >
@@ -185,7 +185,7 @@ const LabSection = ({ isHomePage = false }: LabSectionProps) => {
           </p>
           <Link
             href='/lab'
-            className='inline-flex items-center px-6 py-3 bg-[#D6FA9F]/20 text-[#D6FA9F] hover:bg-[#D6FA9F]/30 transition-colors duration-300 rounded-full backdrop-blur-sm'
+            className='inline-flex items-center px-6 py-3 bg-[#D6FA9F]/20 text-[#D6FA9F] hover:bg-[#D6FA9F]/30 transition-colors duration-300 rounded-full backdrop-blur-xs'
           >
             <span className='font-medium text-sm md:text-base'>
               Explore Our Lab
@@ -216,8 +216,8 @@ const LabSection = ({ isHomePage = false }: LabSectionProps) => {
     >
       {/* Background decorative elements */}
       <div className='absolute inset-0 opacity-30'>
-        <div className='absolute right-0 top-0 w-1/3 h-1/3 bg-gradient-to-br from-[#D6FA9F]/20 to-transparent blur-3xl'></div>
-        <div className='absolute left-0 bottom-0 w-1/4 h-1/4 bg-gradient-to-tr from-[#D6FA9F]/10 to-transparent blur-3xl'></div>
+        <div className='absolute right-0 top-0 w-1/3 h-1/3 bg-linear-to-br from-[#D6FA9F]/20 to-transparent blur-3xl'></div>
+        <div className='absolute left-0 bottom-0 w-1/4 h-1/4 bg-linear-to-tr from-[#D6FA9F]/10 to-transparent blur-3xl'></div>
       </div>
 
       <div className='container mx-auto px-4 relative z-10'>
@@ -266,7 +266,7 @@ const LabSection = ({ isHomePage = false }: LabSectionProps) => {
         >
           <Link
             href='/lab'
-            className='inline-flex items-center px-6 py-3 bg-[#D6FA9F]/20 text-[#D6FA9F] hover:bg-[#D6FA9F]/30 transition-colors duration-300 rounded-full backdrop-blur-sm'
+            className='inline-flex items-center px-6 py-3 bg-[#D6FA9F]/20 text-[#D6FA9F] hover:bg-[#D6FA9F]/30 transition-colors duration-300 rounded-full backdrop-blur-xs'
           >
             <span className='font-medium text-sm md:text-base'>
               Explore All Products

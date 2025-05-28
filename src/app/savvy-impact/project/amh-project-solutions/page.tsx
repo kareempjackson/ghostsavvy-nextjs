@@ -8,9 +8,9 @@ import Head from "next/head";
 
 // Load custom fonts based on requirements
 const fontsClasses = {
-  headingsFont: "font-['Montserrat',_sans-serif]",
-  bodyFont: "font-['Lato',_sans-serif]",
-  accentFont: "font-['Architects_Daughter',_cursive]",
+  headingsFont: "font-['Montserrat',sans-serif]",
+  bodyFont: "font-['Lato',sans-serif]",
+  accentFont: "font-['Architects_Daughter',cursive]",
 };
 
 // Define colors based on requirements
@@ -211,10 +211,10 @@ const HorizontalScrollGallery = ({ images }: { images: string[] }) => {
         {images.map((image, index) => (
           <div
             key={index}
-            className='flex-shrink-0 w-[85vw] max-w-3xl h-auto relative'
+            className='shrink-0 w-[85vw] max-w-3xl h-auto relative'
           >
             <div className='bg-transparent overflow-hidden'>
-              <div className='relative aspect-[16/9]'>
+              <div className='relative aspect-video'>
                 <Image
                   src={image}
                   alt={`Desktop screen ${index + 1}`}
@@ -243,14 +243,14 @@ const NextProjectNav = ({
   return (
     <Link href={link} className='block group'>
       <div className='relative overflow-hidden rounded-lg'>
-        <div className='relative aspect-[16/9] w-full'>
+        <div className='relative aspect-video w-full'>
           <Image
             src={image}
             alt={`${title} Project`}
             fill
             className='object-cover transition-transform duration-700 group-hover:scale-105'
           />
-          <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent'></div>
+          <div className='absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent'></div>
         </div>
         <div className='absolute bottom-0 left-0 right-0 p-6 md:p-10'>
           <div className='flex flex-col'>
@@ -393,7 +393,7 @@ export default function AMHProjectCaseStudy() {
         {/* Full Bleed Hero Image */}
         <section className='w-full py-32 mt-16'>
           <motion.div
-            className='relative w-full aspect-[16/9] max-w-[1920px] mx-auto'
+            className='relative w-full aspect-video max-w-[1920px] mx-auto'
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -409,7 +409,7 @@ export default function AMHProjectCaseStudy() {
               className='object-cover'
               priority
             />
-            <div className='absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-black/30 to-transparent'>
+            <div className='absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-linear-to-t from-black/30 to-transparent'>
               <p
                 className={`text-sm text-white/90 ${fontsClasses.bodyFont} max-w-xl`}
               >
@@ -529,7 +529,7 @@ export default function AMHProjectCaseStudy() {
                     }
                     className='flex flex-col'
                   >
-                    <div className='relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg mb-6 group'>
+                    <div className='relative aspect-4/3 rounded-lg overflow-hidden shadow-lg mb-6 group'>
                       <Image
                         src={visual.image}
                         alt={`Design principle ${index + 1}`}
@@ -674,7 +674,7 @@ export default function AMHProjectCaseStudy() {
                     }
                     className='overflow-hidden'
                   >
-                    <div className='relative aspect-[16/9] rounded-lg overflow-hidden shadow-lg'>
+                    <div className='relative aspect-video rounded-lg overflow-hidden shadow-lg'>
                       <Image
                         src={image}
                         alt={index === 0 ? "Color system" : "Typography system"}
@@ -759,7 +759,7 @@ export default function AMHProjectCaseStudy() {
                     }
                   : { opacity: 0, y: 30 }
               }
-              className='relative max-w-6xl mx-auto aspect-[16/9] rounded-lg overflow-hidden shadow-2xl'
+              className='relative max-w-6xl mx-auto aspect-video rounded-lg overflow-hidden shadow-2xl'
             >
               <Image
                 src={assets.mobileImage}
@@ -767,7 +767,7 @@ export default function AMHProjectCaseStudy() {
                 fill
                 className='object-cover'
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent'></div>
+              <div className='absolute inset-0 bg-linear-to-t from-black/50 to-transparent'></div>
               <div className='absolute bottom-0 left-0 right-0 p-10 text-white'>
                 <p className={`text-lg ${fontsClasses.bodyFont}`}>
                   A digital experience designed for tomorrow&apos;s strategic

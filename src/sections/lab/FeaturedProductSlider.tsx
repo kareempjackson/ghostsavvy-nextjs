@@ -189,7 +189,7 @@ const FeaturedProductSlider = () => {
                   <div className='grid grid-cols-1 lg:grid-cols-5 gap-12 items-center'>
                     {/* Image Section (3/5 width) */}
                     <div className='lg:col-span-3 relative'>
-                      <div className='relative aspect-[16/9] overflow-hidden bg-gray-100'>
+                      <div className='relative aspect-video overflow-hidden bg-gray-100'>
                         {product.previewImage ? (
                           <Image
                             src={urlFor(product.previewImage).url()}

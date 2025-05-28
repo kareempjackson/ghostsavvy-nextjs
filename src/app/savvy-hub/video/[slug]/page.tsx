@@ -149,7 +149,7 @@ export default function VideoPost({ params }: { params: { slug: string } }) {
               Back to Savvy Hub
             </Link>
 
-            <span className='bg-brand-white/10 backdrop-blur-sm text-brand-white/90 text-xs font-medium px-4 py-1.5 rounded-[4px]'>
+            <span className='bg-brand-white/10 backdrop-blur-xs text-brand-white/90 text-xs font-medium px-4 py-1.5 rounded-[4px]'>
               {video.category}
             </span>
           </div>
@@ -176,7 +176,7 @@ export default function VideoPost({ params }: { params: { slug: string } }) {
             <span>{video.duration}</span>
             <span className='w-1 h-1 rounded-full bg-brand-white/30'></span>
             <div className='flex items-center'>
-              <div className='w-10 h-10 rounded-[4px] bg-brand-white/10 backdrop-blur-sm flex items-center justify-center mr-3 border border-brand-white/10'>
+              <div className='w-10 h-10 rounded-[4px] bg-brand-white/10 backdrop-blur-xs flex items-center justify-center mr-3 border border-brand-white/10'>
                 <span className='text-brand-white text-sm'>AJ</span>
               </div>
               <span>{video.presenter.name}</span>
@@ -458,7 +458,7 @@ export default function VideoPost({ params }: { params: { slug: string } }) {
                     <input
                       type='email'
                       placeholder='Your email address'
-                      className='w-full px-4 py-3 border border-brand-forest/10 rounded-[4px] focus:outline-none focus:border-brand-forest bg-brand-white transition-colors duration-300'
+                      className='w-full px-4 py-3 border border-brand-forest/10 rounded-[4px] focus:outline-hidden focus:border-brand-forest bg-brand-white transition-colors duration-300'
                     />
                     <button
                       type='submit'
@@ -480,7 +480,7 @@ export default function VideoPost({ params }: { params: { slug: string } }) {
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
             <Link
               href='/savvy-hub/video/anonymous-collaboration'
-              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-forest/5'
+              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-forest/5'
             >
               <span className='text-sm text-brand-sage mb-4 flex items-center'>
                 <svg className='w-4 h-4 mr-2' viewBox='0 0 24 24' fill='none'>
@@ -521,7 +521,7 @@ export default function VideoPost({ params }: { params: { slug: string } }) {
 
             <Link
               href='/savvy-hub/video/prototyping-for-conversion'
-              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-forest/5'
+              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-forest/5'
             >
               <span className='text-sm text-brand-sage mb-4 flex items-center justify-end'>
                 Next

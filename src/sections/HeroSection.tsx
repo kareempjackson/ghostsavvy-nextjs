@@ -20,7 +20,7 @@ const LogoImage = ({
   return (
     <Link
       href={href}
-      className='h-5 sm:h-6 px-3 sm:px-4 flex-shrink-0 flex items-center justify-center group'
+      className='h-5 sm:h-6 px-3 sm:px-4 shrink-0 flex items-center justify-center group'
     >
       <Image
         src={src}
@@ -112,7 +112,7 @@ const HeroSection = () => {
           style={{ opacity: backgroundOpacity }}
         />
         {/* Gradient overlay for smooth transition */}
-        <div className='absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black' />
+        <div className='absolute inset-0 bg-linear-to-b from-black/30 via-black/60 to-black' />
       </motion.div>
 
       {/* Hero Content */}

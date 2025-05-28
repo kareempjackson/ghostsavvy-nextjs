@@ -11,7 +11,7 @@ const LabHeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className='bg-gradient-to-b from-[#111] to-[#1a1a1a] py-24 md:py-32 overflow-hidden relative'
+      className='bg-linear-to-b from-[#111] to-[#1a1a1a] py-24 md:py-32 overflow-hidden relative'
     >
       {/* Subtle background pattern - removed problematic grid pattern */}
       <div className='absolute inset-0 opacity-10 pointer-events-none'>
@@ -69,7 +69,7 @@ const LabHeroSection = () => {
               }}
               className='hidden lg:block'
             >
-              <div className='relative aspect-[4/3] overflow-hidden bg-gray-900'>
+              <div className='relative aspect-4/3 overflow-hidden bg-gray-900'>
                 {/* Fallback content since the image is missing */}
                 <div className='absolute inset-0 flex flex-col items-center justify-center text-white p-8 text-center'>
                   <span className='text-3xl font-bold mb-4'>Savvy Lab</span>
@@ -78,7 +78,7 @@ const LabHeroSection = () => {
                   </p>
                   <div className='w-full max-w-md h-px bg-white/20'></div>
                 </div>
-                <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent'></div>
+                <div className='absolute inset-0 bg-linear-to-t from-black/70 to-transparent'></div>
 
                 <div className='absolute bottom-0 left-0 w-full p-8'>
                   <div className='grid grid-cols-3 gap-4'>

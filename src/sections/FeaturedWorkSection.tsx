@@ -31,14 +31,14 @@ const ProjectCard = ({
       className='group cursor-pointer'
     >
       <Link href={href} className='block'>
-        <div className='relative rounded-lg overflow-hidden mb-6 aspect-[4/3]'>
+        <div className='relative rounded-lg overflow-hidden mb-6 aspect-4/3'>
           <Image
             src={imageSrc}
             alt={title}
             fill
             className='object-cover transition-transform duration-700 group-hover:scale-105'
           />
-          <div className='absolute inset-0 bg-gradient-to-t from-[#1C332D]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+          <div className='absolute inset-0 bg-linear-to-t from-[#1C332D]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
             <div className='absolute bottom-6 left-6'>
               <div className='text-white/90 text-sm font-medium'>
                 View Project

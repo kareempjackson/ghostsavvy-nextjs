@@ -130,7 +130,7 @@ export default function Contact() {
           className='absolute inset-0 z-0'
           style={{ opacity: heroOpacity, scale: heroScale }}
         >
-          <div className='absolute inset-0 bg-gradient-to-b from-brand-forest/90 to-brand-forest z-10'></div>
+          <div className='absolute inset-0 bg-linear-to-b from-brand-forest/90 to-brand-forest z-10'></div>
           <div
             className='absolute inset-0 bg-cover bg-center z-0'
             style={{ backgroundImage: "url('/images/contact-hero-bg.jpg')" }}
@@ -227,7 +227,7 @@ export default function Contact() {
                           formErrors.name
                             ? "border-brand-error"
                             : "border-brand-forest/20"
-                        } rounded-[4px] focus:border-brand-sage focus:outline-none transition-colors`}
+                        } rounded-[4px] focus:border-brand-sage focus:outline-hidden transition-colors`}
                         placeholder='Jane Smith'
                       />
                       {formErrors.name && (
@@ -255,7 +255,7 @@ export default function Contact() {
                           formErrors.email
                             ? "border-brand-error"
                             : "border-brand-forest/20"
-                        } rounded-[4px] focus:border-brand-sage focus:outline-none transition-colors`}
+                        } rounded-[4px] focus:border-brand-sage focus:outline-hidden transition-colors`}
                         placeholder='jane.smith@example.com'
                       />
                       {formErrors.email && (
@@ -278,7 +278,7 @@ export default function Contact() {
                           name='projectType'
                           value={formData.projectType}
                           onChange={handleChange}
-                          className='w-full p-3 bg-brand-white border border-brand-forest/20 rounded-[4px] focus:border-brand-sage focus:outline-none transition-colors appearance-none'
+                          className='w-full p-3 bg-brand-white border border-brand-forest/20 rounded-[4px] focus:border-brand-sage focus:outline-hidden transition-colors appearance-none'
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23152B24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
                             backgroundRepeat: "no-repeat",
@@ -307,7 +307,7 @@ export default function Contact() {
                           name='budget'
                           value={formData.budget}
                           onChange={handleChange}
-                          className='w-full p-3 bg-brand-white border border-brand-forest/20 rounded-[4px] focus:border-brand-sage focus:outline-none transition-colors appearance-none'
+                          className='w-full p-3 bg-brand-white border border-brand-forest/20 rounded-[4px] focus:border-brand-sage focus:outline-hidden transition-colors appearance-none'
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23152B24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
                             backgroundRepeat: "no-repeat",
@@ -337,7 +337,7 @@ export default function Contact() {
                         name='timeline'
                         value={formData.timeline}
                         onChange={handleChange}
-                        className='w-full p-3 bg-brand-white border border-brand-forest/20 rounded-[4px] focus:border-brand-sage focus:outline-none transition-colors appearance-none'
+                        className='w-full p-3 bg-brand-white border border-brand-forest/20 rounded-[4px] focus:border-brand-sage focus:outline-hidden transition-colors appearance-none'
                         style={{
                           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23152B24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
                           backgroundRepeat: "no-repeat",
@@ -371,7 +371,7 @@ export default function Contact() {
                           formErrors.message
                             ? "border-brand-error"
                             : "border-brand-forest/20"
-                        } rounded-[4px] focus:border-brand-sage focus:outline-none transition-colors`}
+                        } rounded-[4px] focus:border-brand-sage focus:outline-hidden transition-colors`}
                         placeholder='Tell us about your project, goals, and specific needs...'
                       ></textarea>
                       {formErrors.message && (
@@ -401,7 +401,7 @@ export default function Contact() {
 
                     <div className='space-y-8'>
                       <div className='flex'>
-                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 flex-shrink-0 text-brand-forest font-medium'>
+                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 shrink-0 text-brand-forest font-medium'>
                           1
                         </div>
                         <div>
@@ -416,7 +416,7 @@ export default function Contact() {
                       </div>
 
                       <div className='flex'>
-                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 flex-shrink-0 text-brand-forest font-medium'>
+                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 shrink-0 text-brand-forest font-medium'>
                           2
                         </div>
                         <div>
@@ -431,7 +431,7 @@ export default function Contact() {
                       </div>
 
                       <div className='flex'>
-                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 flex-shrink-0 text-brand-forest font-medium'>
+                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 shrink-0 text-brand-forest font-medium'>
                           3
                         </div>
                         <div>
@@ -446,7 +446,7 @@ export default function Contact() {
                       </div>
 
                       <div className='flex'>
-                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 flex-shrink-0 text-brand-forest font-medium'>
+                        <div className='w-10 h-10 bg-brand-sage/20 flex items-center justify-center rounded-[4px] mr-4 shrink-0 text-brand-forest font-medium'>
                           4
                         </div>
                         <div>

@@ -186,3 +186,255 @@ Typographic Scale:
 This guide serves as the foundation for all Ghost Savvy Studios products and communications. It is designed to be practical and actionable, providing clear direction while allowing room for the creative innovation that defines our work.
 
 The goal is consistency, not limitation—when in doubt, choose the cleaner, more refined approach that feels confidently minimal rather than decorative.
+
+# Ghost Savvy Studios - Brand Guide & Design System
+
+## 🎨 Brand Colors (Tailwind v4)
+
+Our brand colors are now defined as CSS variables in `src/app/globals.css` for easy customization:
+
+### Primary Brand Colors
+
+```css
+--color-brand-deep: #233531; /* Deep Green/Charcoal */
+--color-brand-indigo: #3f4697; /* Indigo/Blue */
+--color-brand-lime: #cff39e; /* Lime/Sage */
+--color-brand-ivory: #f4ebe0; /* Ivory/Light */
+--color-brand-black: #141414; /* Rich Black */
+--color-brand-white: #fafafa; /* Off White */
+```
+
+### Usage in Components
+
+```jsx
+// Use Tailwind utilities
+<div className="bg-brand-indigo text-brand-ivory">
+  <h1 className="text-brand-lime">Ghost Savvy</h1>
+</div>
+
+// Or use CSS variables directly
+<div style={{ backgroundColor: 'var(--color-brand-indigo)' }}>
+  Content
+</div>
+```
+
+## 🔤 Typography
+
+### Font Stack
+
+- **Display Font**: Aloevera (custom)
+- **Body Font**: Aloevera (custom)
+- **Mono Font**: Aloevera (custom)
+
+### Typography Scale
+
+```css
+h1: text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+h2: text-2xl sm:text-3xl md:text-4xl
+h3: text-xl sm:text-2xl md:text-3xl
+h4: text-lg sm:text-xl md:text-2xl
+h5: text-base sm:text-lg md:text-xl
+h6: text-sm sm:text-base md:text-lg
+p:  text-sm sm:text-base md:text-lg
+```
+
+## 🧩 Component System
+
+### Button Components
+
+```jsx
+// Primary Button
+<button className="btn-primary">Primary Action</button>
+
+// Secondary Button
+<button className="btn-secondary">Secondary Action</button>
+
+// Accent Button
+<button className="btn-accent">Accent Action</button>
+```
+
+### Layout Components
+
+```jsx
+// Container
+<div className="container-custom">Content</div>
+
+// Section
+<section className="section">Content</section>
+
+// Card
+<div className="ghost-card">Card Content</div>
+```
+
+## 🎭 Animation System
+
+### Available Animations
+
+- `fade-in`: Fade in animation
+- `slide-up`: Slide up from bottom
+- `slide-down`: Slide down from top
+- `slide-left`: Slide in from right
+- `slide-right`: Slide in from left
+- `wave`: Wave animation
+- `spin-slow`: Slow spin animation
+
+### Usage
+
+```jsx
+<div className="fade-in">Animated content</div>
+<div className="slide-up">Slides up on load</div>
+```
+
+## 🎨 Reskin Guide
+
+### Quick Color Change
+
+To reskin the entire application, simply update the CSS variables in `src/app/globals.css`:
+
+```css
+@theme {
+  /* Update these colors for instant reskin */
+  --color-brand-deep: #your-color;
+  --color-brand-indigo: #your-color;
+  --color-brand-lime: #your-color;
+  --color-brand-ivory: #your-color;
+  --color-brand-black: #your-color;
+  --color-brand-white: #your-color;
+}
+```
+
+### Advanced Customization
+
+1. **Typography**: Update font variables in the `@theme` block
+2. **Spacing**: Modify custom spacing variables
+3. **Animations**: Adjust animation timing and easing
+4. **Components**: Update utility components like buttons and cards
+
+## 📱 Responsive Design
+
+### Breakpoints
+
+- `sm`: 640px
+- `md`: 768px
+- `lg`: 1024px
+- `xl`: 1280px
+- `2xl`: 1536px
+
+### Mobile-First Approach
+
+All components are designed mobile-first with progressive enhancement:
+
+```jsx
+<div className='text-sm sm:text-base md:text-lg lg:text-xl'>
+  Responsive text
+</div>
+```
+
+## ♿ Accessibility
+
+### Focus States
+
+All interactive elements include proper focus states:
+
+- `focus:outline-hidden focus:ring-3 focus:ring-brand-indigo/50`
+
+### Touch Targets
+
+Mobile touch targets meet minimum 44px requirement:
+
+```css
+@media (max-width: 640px) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+```
+
+## 🛠 Development Guidelines
+
+### CSS Organization
+
+1. **Theme Variables**: Define in `@theme` block
+2. **Base Styles**: Use `@layer base` for global styles
+3. **Components**: Use `@utility` for reusable components
+4. **Utilities**: Use standard Tailwind classes
+
+### Best Practices
+
+1. Use CSS variables for dynamic theming
+2. Prefer utility classes over custom CSS
+3. Use semantic HTML elements
+4. Include proper ARIA labels
+5. Test on multiple devices and screen readers
+
+## 🚀 Performance
+
+### Tailwind v4 Benefits
+
+- **Faster builds**: 3.5x faster full builds
+- **Smaller CSS**: Only includes used styles
+- **Better caching**: Improved incremental builds
+- **Modern CSS**: Uses latest CSS features
+
+### Optimization Tips
+
+1. Use dynamic utilities instead of arbitrary values
+2. Leverage CSS variables for runtime theming
+3. Minimize custom CSS in favor of utilities
+4. Use the Vite plugin for best performance
+
+## 🎯 Brand Voice & Tone
+
+### Voice Characteristics
+
+- **Professional**: Expert knowledge and capability
+- **Approachable**: Friendly and accessible
+- **Innovative**: Cutting-edge solutions
+- **Reliable**: Trustworthy and dependable
+
+### Tone Guidelines
+
+- Use active voice
+- Be concise and clear
+- Avoid jargon when possible
+- Maintain confidence without arrogance
+
+## 📋 Component Checklist
+
+When creating new components:
+
+- [ ] Uses brand colors from CSS variables
+- [ ] Includes proper focus states
+- [ ] Responsive design implemented
+- [ ] Accessibility considerations met
+- [ ] Animation states defined
+- [ ] Touch-friendly on mobile
+- [ ] Consistent with design system
+
+## 🔄 Migration from v3 to v4
+
+### Completed Changes
+
+- ✅ Updated to Tailwind CSS v4.1.8
+- ✅ Migrated configuration to CSS variables
+- ✅ Updated PostCSS configuration
+- ✅ Converted theme to `@theme` block
+- ✅ Added utility components with `@utility`
+- ✅ Improved accessibility features
+- ✅ Optimized for performance
+
+### Breaking Changes Handled
+
+- ✅ Removed deprecated utilities
+- ✅ Updated gradient classes
+- ✅ Fixed border color defaults
+- ✅ Updated focus states to use `outline-hidden`
+- ✅ Improved ring utilities
+
+---
+
+_Last updated: January 2025_
+_Tailwind CSS Version: 4.1.8_

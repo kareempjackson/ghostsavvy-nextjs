@@ -81,7 +81,7 @@ const ProjectCard = ({
           )}
 
           {/* Gradient overlay */}
-          <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300'></div>
+          <div className='absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300'></div>
 
           {/* Content */}
           <div className='absolute bottom-0 left-0 w-full p-4 sm:p-6 md:p-8 transition-transform duration-300 group-hover:translate-y-[-10px]'>

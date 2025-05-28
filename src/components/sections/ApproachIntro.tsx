@@ -67,7 +67,7 @@ const ApproachIntro = ({
   return (
     <section
       ref={sectionRef}
-      className='relative w-full h-[85vh] sm:h-screen overflow-hidden bg-black'
+      className='relative w-full h-screen-85 sm:h-screen overflow-hidden bg-black'
       style={{ marginTop: "-1px" }}
     >
       {/* Background Video */}
@@ -96,7 +96,7 @@ const ApproachIntro = ({
           />
         )}
         {/* Enhanced dark overlay gradient */}
-        <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black'>
+        <div className='absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black'>
           <div className='absolute inset-0 bg-[#00ff9d]/5 mix-blend-overlay' />
         </div>
       </motion.div>

@@ -267,7 +267,7 @@ export default function SavvyImpactPage() {
             href={`/savvy-impact/project/${featuredProject.id}`}
             className='block group'
           >
-            <div className='relative aspect-[16/9] w-full overflow-hidden'>
+            <div className='relative aspect-video w-full overflow-hidden'>
               <motion.div style={{ y }} className='absolute inset-0 z-0'>
                 <Image
                   src={featuredProject.image}
@@ -277,7 +277,7 @@ export default function SavvyImpactPage() {
                   priority
                 />
               </motion.div>
-              <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10'></div>
+              <div className='absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent z-10'></div>
 
               <div className='absolute bottom-0 left-0 right-0 z-20 p-12 md:p-24'>
                 <div className='container mx-auto'>
@@ -374,17 +374,17 @@ export default function SavvyImpactPage() {
                     className='block group h-full'
                   >
                     <div className='h-full flex flex-col bg-white border-b border-gray-200 hover:border-indigo-300 overflow-hidden transition-all duration-500'>
-                      <div className='relative aspect-[4/3] overflow-hidden'>
+                      <div className='relative aspect-4/3 overflow-hidden'>
                         <Image
                           src={project.image}
                           alt={project.title}
                           fill
                           className='object-cover transition-transform duration-1000 group-hover:scale-105'
                         />
-                        <div className='absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+                        <div className='absolute inset-0 bg-linear-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
                       </div>
 
-                      <div className='flex flex-col flex-grow p-6'>
+                      <div className='flex flex-col grow p-6'>
                         <div className='flex justify-between items-start mb-4'>
                           <h3 className='text-xl font-bold mb-2 group-hover:text-indigo-700 transition-colors'>
                             {project.title}
@@ -394,7 +394,7 @@ export default function SavvyImpactPage() {
                           </span>
                         </div>
 
-                        <p className='text-gray-600 mb-6 flex-grow'>
+                        <p className='text-gray-600 mb-6 grow'>
                           {project.subtitle}
                         </p>
 
@@ -430,7 +430,7 @@ export default function SavvyImpactPage() {
       </div>
 
       {/* Simple footer/CTA with gradient background */}
-      <div className='w-full py-32 bg-gradient-to-r from-indigo-700 to-indigo-900 text-white'>
+      <div className='w-full py-32 bg-linear-to-r from-indigo-700 to-indigo-900 text-white'>
         <div className='container mx-auto px-6 text-center'>
           <motion.div
             initial={{ opacity: 0, y: 50 }}

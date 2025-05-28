@@ -1,19 +1,147 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
+@theme {
+  /* Brand Colors - Ready for reskin customization */
+  --color-brand-deep: #233531;
+  --color-brand-indigo: #3f4697;
+  --color-brand-lime: #cff39e;
+  --color-brand-ivory: #f4ebe0;
+  --color-brand-black: #141414;
+  --color-brand-white: #fafafa;
+
+  /* Typography */
+  --font-display: var(--font-aloevera), sans-serif;
+  --font-sans: var(--font-aloevera), sans-serif;
+  --font-mono: var(--font-aloevera), sans-serif;
+
+  /* Custom Spacing */
+  --spacing-5vw: 5vw;
+  --spacing-8vw: 8vw;
+  --spacing-10vw: 10vw;
+
+  /* Custom Border Radius */
+  --radius-4xl: 2rem;
+
+  /* Custom Heights */
+  --height-screen-75: 75vh;
+  --height-screen-85: 85vh;
+
+  /* Custom Container */
+  --container-8xl: 88rem;
+
+  /* Animations */
+  --animate-fade-in: fadeIn 1s ease-in-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+  --animate-slide-down: slideDown 0.5s ease-out forwards;
+  --animate-slide-left: slideLeft 0.5s ease-out forwards;
+  --animate-slide-right: slideRight 0.5s ease-out forwards;
+  --animate-wave: wave 1.5s infinite;
+  --animate-spin-slow: spin 3s linear infinite;
+
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideLeft {
+    0% { transform: translateX(20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideRight {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+}
+
+/* Tailwind v4 Compatibility Layer */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/* Custom Utility Components */
+@utility container-custom {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+@utility btn-primary {
+  @apply bg-brand-indigo text-brand-ivory px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] 
+         hover:bg-brand-deep transition-colors duration-200 text-sm sm:text-base 
+         font-medium focus:outline-hidden focus:ring-3 focus:ring-brand-indigo/50;
+}
+
+@utility btn-secondary {
+  @apply bg-transparent border border-brand-indigo text-brand-indigo px-4 sm:px-6 py-2 sm:py-3 
+         rounded-[4px] hover:bg-brand-indigo hover:text-brand-ivory transition-colors duration-200 
+         text-sm sm:text-base font-medium focus:outline-hidden focus:ring-3 focus:ring-brand-indigo/50;
+}
+
+@utility btn-accent {
+  @apply bg-brand-lime text-brand-deep px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] 
+         hover:opacity-90 transition-opacity duration-200 text-sm sm:text-base 
+         font-medium focus:outline-hidden focus:ring-3 focus:ring-brand-lime/50;
+}
+
+@utility section {
+  @apply py-12 sm:py-16 md:py-20 lg:py-24;
+}
+
+@utility subtle-shadow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+@utility ghost-card {
+  @apply bg-brand-ivory rounded-[4px] p-4 sm:p-6 md:p-8 subtle-shadow 
+         border border-gray-100 hover:shadow-lg transition-shadow duration-300;
+}
+
+@utility mobile-menu {
+  @apply fixed inset-0 bg-brand-ivory z-50 transition-transform duration-300 ease-in-out;
+}
+
+/* Base Styles */
 @layer base {
   html {
     -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
   }
   
   body {
-    @apply text-brand-deep bg-brand-ivory;
+    @apply text-brand-deep bg-brand-ivory antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4 {
+  /* Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
 
@@ -33,189 +161,151 @@
     @apply text-lg sm:text-xl md:text-2xl font-medium;
   }
 
+  h5 {
+    @apply text-base sm:text-lg md:text-xl font-medium;
+  }
+
+  h6 {
+    @apply text-sm sm:text-base md:text-lg font-medium;
+  }
+
   p {
     @apply text-sm sm:text-base md:text-lg leading-relaxed;
   }
 
   a {
-    @apply text-brand-indigo hover:text-brand-lime transition-colors duration-200;
+    @apply text-brand-indigo hover:text-brand-lime transition-colors duration-200 
+           focus:outline-hidden focus:ring-2 focus:ring-brand-indigo/50 rounded-sm;
+  }
+
+  /* Form Elements */
+  input, textarea, select {
+    @apply focus:outline-hidden focus:ring-3 focus:ring-brand-indigo/50 
+           transition-all duration-200;
+  }
+
+  button {
+    @apply focus:outline-hidden transition-all duration-200;
   }
 }
 
-@layer components {
-  .container-custom {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .btn-primary {
-    @apply bg-brand-indigo text-brand-ivory px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-deep transition-colors duration-200 text-sm sm:text-base;
-  }
-
-  .btn-secondary {
-    @apply bg-transparent border border-brand-indigo text-brand-indigo px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:bg-brand-indigo hover:text-brand-ivory transition-colors duration-200 text-sm sm:text-base;
-  }
-
-  .btn-accent {
-    @apply bg-brand-lime text-brand-deep px-4 sm:px-6 py-2 sm:py-3 rounded-[4px] hover:opacity-90 transition-opacity duration-200 text-sm sm:text-base;
-  }
-
-  .section {
-    @apply py-12 sm:py-16 md:py-20 lg:py-24;
-  }
-
-  .subtle-shadow {
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  }
-
-  .ghost-card {
-    @apply bg-brand-ivory rounded-[4px] p-4 sm:p-6 md:p-8 subtle-shadow;
-  }
-  
-  .mobile-menu {
-    @apply fixed inset-0 bg-brand-ivory z-50 transition-transform duration-300 ease-in-out;
-  }
-}
-
-/* Touch device optimizations */
-@media (hover: none) {
-  .hover\:scale-105, .hover\:translate-y-\[-4px\] {
-    transform: none !important;
-  }
-}
-
-/* Custom cursor styles */
-.custom-cursor {
-  cursor: none;
-}
-
-/* For animations */
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Mobile touch optimizations */
+/* Touch Device Optimizations */
 @media (max-width: 640px) {
   button, a, [role="button"] {
-    @apply p-2 min-h-[44px] min-w-[44px];
+    min-height: 44px;
+    min-width: 44px;
   }
   
   input, select, textarea {
-    font-size: 16px !important; /* Prevents zoom on iOS */
+    font-size: 16px; /* Prevents zoom on iOS */
   }
 }
 
-/* Main application styles go here */
-
-/* Sanity Studio custom styles - will only apply within the studio route */
+/* Sanity Studio Customizations */
 .sanity-studio-container {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: auto;
+  @apply bg-brand-ivory;
 }
 
-/* Ghost Savvy Dark Mode for Sanity Studio */
 [data-sanity-route] {
-  /* Custom Ghost Savvy styling for the Sanity Studio */
+  @apply bg-brand-ivory;
+  
   & [data-ui="Container"] {
-    font-family: var(--font-aloevera), sans-serif !important;
+    @apply bg-brand-ivory;
   }
-
-  /* Adjust Z-index of studio components to prevent conflicts with website nav */
+  
   & div[data-ui="Navbar"],
-  & div[data-ui="ToolMenu"] {
-    z-index: 999 !important;
+  & [data-ui="NavbarContainer"] {
+    @apply bg-brand-deep border-brand-indigo/20;
   }
-
-  /* Make click targets larger */
+  
   & button[data-ui="Button"],
-  & a[data-ui="MenuItem"] {
-    padding: 8px 12px !important;
-    margin: 4px !important;
-    font-family: var(--font-aloevera), sans-serif !important;
+  & [data-ui="MenuButton"] {
+    @apply text-brand-ivory hover:bg-brand-indigo/20 
+           focus:ring-2 focus:ring-brand-lime;
   }
-
-  /* Increase text size for better readability */
+  
   & [data-ui="Text"] {
-    font-size: 16px !important;
-    font-family: var(--font-aloevera), sans-serif !important;
+    @apply text-brand-ivory;
   }
-
-  /* Ensure menus are above all other content */
+  
   & div[data-ui="PopoverContainer"] {
-    z-index: 1000 !important;
+    @apply bg-brand-ivory border-brand-indigo/20;
   }
-
-  /* Add more space between navigation items */
+  
   & [data-ui="NavBarSpace"] {
-    height: 24px !important;
+    @apply bg-brand-deep;
   }
-
-  /* Add padding to main content area */
+  
   & [data-ui="Card"] {
-    padding: 20px !important;
-    border-radius: 4px !important;
+    @apply bg-brand-ivory border-brand-indigo/10 
+           hover:border-brand-indigo/20 transition-colors;
   }
-
-  /* Improve header visibility */
+  
   & h2[data-ui="Heading"] {
-    font-size: 24px !important;
-    margin-bottom: 16px !important;
-    font-family: var(--font-aloevera), sans-serif !important;
-    letter-spacing: 0.5px !important;
+    @apply text-brand-deep;
   }
-
-  /* Better form field spacing */
+  
   & [data-ui="FormField"] {
-    margin-bottom: 20px !important;
+    @apply text-brand-deep;
   }
-
-  /* Style buttons for better visibility */
+  
   & button[data-ui="Button"][data-tone="primary"] {
-    padding: 10px 16px !important;
-    font-weight: 500 !important;
-    border-radius: 4px !important;
+    @apply bg-brand-indigo text-brand-ivory 
+           hover:bg-brand-deep focus:ring-brand-lime;
   }
-
-  /* Ghost Savvy specific dark mode overrides */
+  
   & [data-ui="Dialog"] {
-    border-radius: 4px !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+    @apply bg-brand-ivory border-brand-indigo/20;
   }
-
+  
   & [data-ui="TextInput"] {
-    border-radius: 4px !important;
+    @apply bg-brand-ivory border-brand-indigo/20 text-brand-deep;
   }
-
+  
   & [data-ui="Tab"][data-selected="true"] {
-    font-weight: 500 !important;
+    @apply text-brand-indigo border-brand-indigo;
   }
 }
 
-/* Example global styles using new brand colors */
+/* Utility Classes for Brand Colors */
+.text-brand-deep { color: var(--color-brand-deep); }
+.bg-brand-deep { background-color: var(--color-brand-deep); }
+.text-brand-indigo { color: var(--color-brand-indigo); }
+.bg-brand-indigo { background-color: var(--color-brand-indigo); }
+.text-brand-lime { color: var(--color-brand-lime); }
+.bg-brand-lime { background-color: var(--color-brand-lime); }
+.text-brand-ivory { color: var(--color-brand-ivory); }
+.bg-brand-ivory { background-color: var(--color-brand-ivory); }
+.text-brand-black { color: var(--color-brand-black); }
+.bg-brand-black { background-color: var(--color-brand-black); }
+.text-brand-white { color: var(--color-brand-white); }
+.bg-brand-white { background-color: var(--color-brand-white); }
 
-/* Text and backgrounds */
-.text-brand-deep { color: theme('colors.brand.deep'); }
-.bg-brand-deep { background-color: theme('colors.brand.deep'); }
-.text-brand-indigo { color: theme('colors.brand.indigo'); }
-.bg-brand-indigo { background-color: theme('colors.brand.indigo'); }
-.text-brand-lime { color: theme('colors.brand.lime'); }
-.bg-brand-lime { background-color: theme('colors.brand.lime'); }
-.text-brand-ivory { color: theme('colors.brand.ivory'); }
-.bg-brand-ivory { background-color: theme('colors.brand.ivory'); }
+/* Animation Utilities */
+.fade-in {
+  animation: var(--animate-fade-in);
+}
 
-/* Example for text links */
-.link {
-  @apply text-brand-indigo hover:text-brand-lime transition-colors duration-200;
+.slide-up {
+  animation: var(--animate-slide-up);
+}
+
+.slide-down {
+  animation: var(--animate-slide-down);
+}
+
+.slide-left {
+  animation: var(--animate-slide-left);
+}
+
+.slide-right {
+  animation: var(--animate-slide-right);
+}
+
+.wave {
+  animation: var(--animate-wave);
+}
+
+.spin-slow {
+  animation: var(--animate-spin-slow);
 }

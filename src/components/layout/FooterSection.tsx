@@ -81,7 +81,7 @@ const FooterSection = () => {
                   />
                 </Link>
 
-                <p className='text-sm text-brand-deep/70 max-w-lg mb-8 leading-[1.5]'>
+                <p className='text-sm text-brand-deep/70 max-w-lg mb-8 leading-normal'>
                   We build exceptional digital products as ghost partners for
                   agencies and startups, prioritizing discretion and quality.
                 </p>
@@ -101,7 +101,7 @@ const FooterSection = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className='text-brand-deep/70 hover:text-brand-lime transition-colors text-base leading-[1.5]'
+                    className='text-brand-deep/70 hover:text-brand-lime transition-colors text-base leading-normal'
                   >
                     {link.name}
                   </Link>
@@ -145,7 +145,7 @@ const FooterSection = () => {
           {/* Bottom copyright */}
           <div className='mt-20 pt-8 border-t border-brand-deep/5 flex flex-col md:flex-row justify-between items-center'>
             <div className='flex flex-col md:flex-row md:items-center gap-2 md:gap-6'>
-              <p className='text-xs text-brand-deep/60 leading-[1.5]'>
+              <p className='text-xs text-brand-deep/60 leading-normal'>
                 &copy; {new Date().getFullYear()} Ghost Savvy Studios
               </p>
 
@@ -166,7 +166,7 @@ const FooterSection = () => {
             </div>
 
             <div className='flex items-center mt-4 md:mt-0'>
-              <select className='bg-transparent text-xs text-brand-deep/60 focus:outline-none'>
+              <select className='bg-transparent text-xs text-brand-deep/60 focus:outline-hidden'>
                 <option value='en'>English (US)</option>
                 <option value='fr'>Français</option>
                 <option value='es'>Español</option>

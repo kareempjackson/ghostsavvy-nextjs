@@ -34,7 +34,7 @@ export default function MetricsBlock() {
   return (
     <section
       ref={ref}
-      className='py-20 bg-gradient-to-b from-[#F4EBE0] to-white'
+      className='py-20 bg-linear-to-b from-[#F4EBE0] to-white'
     >
       <div className='container mx-auto px-6'>
         <motion.div

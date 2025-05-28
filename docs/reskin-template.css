@@ -1,0 +1,169 @@
+/* 
+ * Ghost Savvy Studios - Reskin Template
+ * Copy and paste any of these color schemes into your src/app/globals.css @theme block
+ */
+
+/* ========================================
+ * CURRENT THEME (Default Ghost Savvy)
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #233531;     // Deep Green/Charcoal
+  --color-brand-indigo: #3f4697;   // Indigo/Blue
+  --color-brand-lime: #cff39e;     // Lime/Sage
+  --color-brand-ivory: #f4ebe0;    // Ivory/Light
+  --color-brand-black: #141414;    // Rich Black
+  --color-brand-white: #fafafa;    // Off White
+}
+*/
+
+/* ========================================
+ * THEME 1: Ocean Breeze
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #0f172a;     // Slate 900
+  --color-brand-indigo: #0ea5e9;   // Sky 500
+  --color-brand-lime: #22d3ee;     // Cyan 400
+  --color-brand-ivory: #f8fafc;    // Slate 50
+  --color-brand-black: #020617;    // Slate 950
+  --color-brand-white: #ffffff;    // Pure White
+}
+*/
+
+/* ========================================
+ * THEME 2: Sunset Glow
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #7c2d12;     // Orange 900
+  --color-brand-indigo: #ea580c;   // Orange 600
+  --color-brand-lime: #fbbf24;     // Amber 400
+  --color-brand-ivory: #fef3c7;    // Amber 100
+  --color-brand-black: #451a03;    // Amber 950
+  --color-brand-white: #fffbeb;    // Amber 50
+}
+*/
+
+/* ========================================
+ * THEME 3: Forest Depths
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #14532d;     // Green 900
+  --color-brand-indigo: #059669;   // Emerald 600
+  --color-brand-lime: #34d399;     // Emerald 400
+  --color-brand-ivory: #ecfdf5;    // Green 50
+  --color-brand-black: #052e16;    // Green 950
+  --color-brand-white: #f0fdf4;    // Green 50
+}
+*/
+
+/* ========================================
+ * THEME 4: Purple Haze
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #581c87;     // Purple 900
+  --color-brand-indigo: #8b5cf6;   // Violet 500
+  --color-brand-lime: #c084fc;     // Purple 400
+  --color-brand-ivory: #faf5ff;    // Purple 50
+  --color-brand-black: #3b0764;    // Purple 950
+  --color-brand-white: #fefcff;    // Purple 25
+}
+*/
+
+/* ========================================
+ * THEME 5: Monochrome Elegance
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #111827;     // Gray 900
+  --color-brand-indigo: #4b5563;   // Gray 600
+  --color-brand-lime: #9ca3af;     // Gray 400
+  --color-brand-ivory: #f9fafb;    // Gray 50
+  --color-brand-black: #030712;    // Gray 950
+  --color-brand-white: #ffffff;    // Pure White
+}
+*/
+
+/* ========================================
+ * THEME 6: Rose Gold
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #881337;     // Rose 900
+  --color-brand-indigo: #e11d48;   // Rose 600
+  --color-brand-lime: #fb7185;     // Rose 400
+  --color-brand-ivory: #fff1f2;    // Rose 50
+  --color-brand-black: #4c0519;    // Rose 950
+  --color-brand-white: #fffbfb;    // Rose 25
+}
+*/
+
+/* ========================================
+ * THEME 7: Tech Blue
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #1e3a8a;     // Blue 900
+  --color-brand-indigo: #3b82f6;   // Blue 500
+  --color-brand-lime: #60a5fa;     // Blue 400
+  --color-brand-ivory: #eff6ff;    // Blue 50
+  --color-brand-black: #172554;    // Blue 950
+  --color-brand-white: #f8fafc;    // Slate 50
+}
+*/
+
+/* ========================================
+ * THEME 8: Warm Earth
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #78350f;     // Amber 900
+  --color-brand-indigo: #d97706;   // Amber 600
+  --color-brand-lime: #fbbf24;     // Amber 400
+  --color-brand-ivory: #fef3c7;    // Amber 100
+  --color-brand-black: #451a03;    // Amber 950
+  --color-brand-white: #fffbeb;    // Amber 50
+}
+*/
+
+/* ========================================
+ * CUSTOM THEME TEMPLATE
+ * ======================================== */
+/*
+@theme {
+  --color-brand-deep: #000000;     // Your deep/dark color
+  --color-brand-indigo: #000000;   // Your primary brand color
+  --color-brand-lime: #000000;     // Your accent/highlight color
+  --color-brand-ivory: #000000;    // Your light background color
+  --color-brand-black: #000000;    // Your darkest color
+  --color-brand-white: #000000;    // Your lightest color
+}
+*/
+
+/* ========================================
+ * RESKIN INSTRUCTIONS
+ * ======================================== */
+
+/*
+1. Choose a theme above or create your own
+2. Copy the @theme block
+3. Paste it into src/app/globals.css, replacing the existing @theme block
+4. Save the file and your entire site will update instantly!
+
+Color Usage Guide:
+- brand-deep: Headers, navigation, dark elements
+- brand-indigo: Primary buttons, links, main brand color
+- brand-lime: Accent color, highlights, call-to-action elements
+- brand-ivory: Light backgrounds, cards, content areas
+- brand-black: Text, borders, dark elements
+- brand-white: Pure backgrounds, light text on dark backgrounds
+
+Tips:
+- Ensure sufficient contrast between text and background colors
+- Test your color scheme in both light and dark environments
+- Consider accessibility guidelines (WCAG 2.1 AA)
+- Use online contrast checkers to verify readability
+*/ 

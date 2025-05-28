@@ -85,7 +85,7 @@ const ProjectCard = ({
           )}
 
           {/* Gradient overlay */}
-          <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300'></div>
+          <div className='absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300'></div>
 
           {/* Content */}
           <div className='absolute bottom-0 left-0 w-full p-4 sm:p-6 md:p-8 transition-transform duration-300 group-hover:translate-y-[-10px]'>
@@ -181,7 +181,7 @@ const ImpactSection = ({ isHomePage = false }: ImpactSectionProps) => {
           </p>
           <Link
             href='/impact'
-            className='inline-flex items-center px-6 py-3 bg-[#00ff9d]/20 text-[#00ff9d] hover:bg-[#00ff9d]/30 transition-colors duration-300 rounded-full backdrop-blur-sm'
+            className='inline-flex items-center px-6 py-3 bg-[#00ff9d]/20 text-[#00ff9d] hover:bg-[#00ff9d]/30 transition-colors duration-300 rounded-full backdrop-blur-xs'
           >
             <span className='font-medium text-sm md:text-base'>
               Explore Impact
@@ -259,7 +259,7 @@ const ImpactSection = ({ isHomePage = false }: ImpactSectionProps) => {
         >
           <Link
             href='/impact'
-            className='inline-flex items-center px-6 py-3 bg-[#00ff9d]/20 text-[#00ff9d] hover:bg-[#00ff9d]/30 transition-colors duration-300 rounded-full backdrop-blur-sm'
+            className='inline-flex items-center px-6 py-3 bg-[#00ff9d]/20 text-[#00ff9d] hover:bg-[#00ff9d]/30 transition-colors duration-300 rounded-full backdrop-blur-xs'
           >
             <span className='font-medium text-sm md:text-base'>
               View All Projects

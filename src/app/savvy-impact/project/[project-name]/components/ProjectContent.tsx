@@ -169,7 +169,7 @@ const GalleryGrid = ({
       {images.map((image, index) => (
         <div
           key={index}
-          className='aspect-[4/3] relative overflow-hidden rounded-lg'
+          className='aspect-4/3 relative overflow-hidden rounded-lg'
         >
           <Image
             src={image}
@@ -411,7 +411,7 @@ export default function ProjectContent({ projectData }: ProjectContentProps) {
                           href={`/savvy-impact/project/${project.slug.current}`}
                           className='group flex flex-col h-full'
                         >
-                          <div className='aspect-[16/9] mb-6 overflow-hidden rounded-lg'>
+                          <div className='aspect-video mb-6 overflow-hidden rounded-lg'>
                             <div
                               className='w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700'
                               style={{
@@ -607,7 +607,7 @@ export default function ProjectContent({ projectData }: ProjectContentProps) {
             </div>
 
             <div className='lg:mt-10'>
-              <div className='aspect-[4/3] relative overflow-hidden rounded-lg'>
+              <div className='aspect-4/3 relative overflow-hidden rounded-lg'>
                 <Image
                   src={
                     projectData.heroImageUrl ||
@@ -661,7 +661,7 @@ export default function ProjectContent({ projectData }: ProjectContentProps) {
                 (feature: ImpactFeature, index: number) => (
                   <div
                     key={index}
-                    className='p-10 rounded-lg shadow-sm'
+                    className='p-10 rounded-lg shadow-xs'
                     style={{
                       backgroundColor:
                         theme.primaryBackground ||
@@ -737,7 +737,7 @@ export default function ProjectContent({ projectData }: ProjectContentProps) {
                 {projectData.gallery.map((image: string, index: number) => (
                   <div
                     key={index}
-                    className='aspect-[4/3] relative overflow-hidden rounded-lg'
+                    className='aspect-4/3 relative overflow-hidden rounded-lg'
                   >
                     <Image
                       src={image}
@@ -772,7 +772,7 @@ export default function ProjectContent({ projectData }: ProjectContentProps) {
                           href={`/savvy-impact/project/${project.slug.current}`}
                           className='group'
                         >
-                          <div className='aspect-[16/9] mb-6 overflow-hidden rounded-lg'>
+                          <div className='aspect-video mb-6 overflow-hidden rounded-lg'>
                             <div
                               className='w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700'
                               style={{

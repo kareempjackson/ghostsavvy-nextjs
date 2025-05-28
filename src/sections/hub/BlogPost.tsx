@@ -156,14 +156,14 @@ const BlogPost = ({ slug }: BlogPostProps) => {
       </div>
 
       {/* Hero Section */}
-      <section ref={heroRef} className='relative h-[75vh] overflow-hidden'>
+      <section ref={heroRef} className='relative h-screen-75 overflow-hidden'>
         {/* Background Image with Parallax */}
         <motion.div
           className='absolute inset-0 z-0'
           style={{ opacity: headerOpacity, scale: headerScale }}
         >
           {/* Overlay Gradient */}
-          <div className='absolute inset-0 bg-gradient-to-b from-brand-deep/90 via-brand-deep/70 to-brand-deep/40 z-10'></div>
+          <div className='absolute inset-0 bg-linear-to-b from-brand-deep/90 via-brand-deep/70 to-brand-deep/40 z-10'></div>
 
           {/* Background Image */}
           <div
@@ -202,7 +202,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
               Back to Savvy Hub
             </Link>
 
-            <span className='bg-brand-white/10 backdrop-blur-sm text-brand-white/90 text-xs font-medium px-4 py-1.5 rounded-[4px]'>
+            <span className='bg-brand-white/10 backdrop-blur-xs text-brand-white/90 text-xs font-medium px-4 py-1.5 rounded-[4px]'>
               {post.category}
             </span>
           </div>
@@ -235,7 +235,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
               transition={{ delay: 0.6, duration: 0.8, ease: entryEasing }}
               className='flex items-center justify-center'
             >
-              <div className='w-12 h-12 rounded-[4px] bg-brand-white/10 backdrop-blur-sm flex items-center justify-center mr-3 border border-brand-white/20'>
+              <div className='w-12 h-12 rounded-[4px] bg-brand-white/10 backdrop-blur-xs flex items-center justify-center mr-3 border border-brand-white/20'>
                 <span className='text-brand-white'>SM</span>
               </div>
               <span className='text-brand-white/70'>
@@ -508,7 +508,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
                     <input
                       type='email'
                       placeholder='Your email address'
-                      className='w-full px-4 py-3 border border-brand-deep/10 rounded-[4px] focus:outline-none focus:border-brand-deep bg-brand-white transition-colors duration-300'
+                      className='w-full px-4 py-3 border border-brand-deep/10 rounded-[4px] focus:outline-hidden focus:border-brand-deep bg-brand-white transition-colors duration-300'
                     />
                     <button
                       type='submit'
@@ -530,7 +530,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
             <Link
               href='/savvy-hub/blog/ethical-ai-product-development'
-              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-deep/5'
+              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-deep/5'
             >
               <span className='text-sm text-brand-lime mb-4 flex items-center'>
                 <svg className='w-4 h-4 mr-2' viewBox='0 0 24 24' fill='none'>
@@ -552,7 +552,7 @@ const BlogPost = ({ slug }: BlogPostProps) => {
 
             <Link
               href='/savvy-hub/blog/fintech-technical-architecture'
-              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-deep/5'
+              className='group flex flex-col p-10 bg-brand-white rounded-[4px] shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-brand-deep/5'
             >
               <span className='text-sm text-brand-lime mb-4 flex items-center justify-end'>
                 Next

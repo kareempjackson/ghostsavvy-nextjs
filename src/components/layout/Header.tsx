@@ -185,13 +185,13 @@ const Header = ({ customLogo }: { customLogo?: string }) => {
         } ${
           isHeaderVisible || isMenuOpen
             ? "translate-y-0 opacity-100"
-            : "translate-y-[-100%] opacity-0"
+            : "-translate-y-full opacity-0"
         }`}
       >
         <div className='container-custom relative'>
           <div className='flex items-center justify-between'>
             {/* Logo */}
-            <div className='flex-shrink-0 -ml-4 sm:-ml-6 md:-ml-8'>
+            <div className='shrink-0 -ml-4 sm:-ml-6 md:-ml-8'>
               <Link href='/' className='relative z-40 logo'>
                 <div
                   className={`relative transition-all duration-500 ${
@@ -238,7 +238,7 @@ const Header = ({ customLogo }: { customLogo?: string }) => {
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='flex items-center space-x-2 sm:space-x-3 focus:outline-none group'
+                className='flex items-center space-x-2 sm:space-x-3 focus:outline-hidden group'
                 aria-label='Toggle menu'
               >
                 <span className='hidden sm:block text-white/70 text-sm font-display tracking-wider group-hover:text-white transition-colors duration-300'>
@@ -251,7 +251,7 @@ const Header = ({ customLogo }: { customLogo?: string }) => {
                         isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }
                       }
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className='absolute w-5 h-[1px] bg-white'
+                      className='absolute w-5 h-px bg-white'
                     />
                     <motion.span
                       animate={{
@@ -259,14 +259,14 @@ const Header = ({ customLogo }: { customLogo?: string }) => {
                         scaleX: isMenuOpen ? 0 : 1,
                       }}
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className='absolute w-5 h-[1px] bg-white'
+                      className='absolute w-5 h-px bg-white'
                     />
                     <motion.span
                       animate={
                         isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }
                       }
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className='absolute w-5 h-[1px] bg-white'
+                      className='absolute w-5 h-px bg-white'
                     />
                   </div>
                 </div>

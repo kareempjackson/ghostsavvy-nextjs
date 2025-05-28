@@ -292,7 +292,7 @@ const GhostLoader = ({
                 {[...Array(8)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className='absolute h-[1px] bg-cyan-400 w-full'
+                    className='absolute h-px bg-cyan-400 w-full'
                     style={{
                       top: `${8.66 + i * 11.2}%`,
                       left: 0,

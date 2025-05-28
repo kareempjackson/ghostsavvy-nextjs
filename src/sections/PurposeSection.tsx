@@ -68,7 +68,7 @@ const PurposeSection = () => {
       />
 
       {/* Gradient overlay for smooth transition */}
-      <div className='absolute inset-0 bg-gradient-to-b from-transparent via-brand-black/50 to-brand-black pointer-events-none' />
+      <div className='absolute inset-0 bg-linear-to-b from-transparent via-brand-black/50 to-brand-black pointer-events-none' />
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}

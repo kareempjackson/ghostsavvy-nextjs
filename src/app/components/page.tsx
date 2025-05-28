@@ -60,7 +60,7 @@ function SectionContent({ section }: { section: string }) {
             ].map((c) => (
               <div key={c.var} className='flex flex-col items-center'>
                 <div
-                  className={`w-16 h-16 rounded-lg mb-2 border border-brand-ivory shadow-sm`}
+                  className={`w-16 h-16 rounded-lg mb-2 border border-brand-ivory shadow-xs`}
                   style={{ background: c.hex }}
                 />
                 <div className='font-semibold text-brand-deep'>{c.name}</div>
@@ -124,7 +124,7 @@ colors: {
             {[4, 8, 16, 24, 32, 40, 64].map((s) => (
               <div key={s} className='flex flex-col items-center'>
                 <div
-                  className='bg-brand-lime rounded w-8'
+                  className='bg-brand-lime rounded-sm w-8'
                   style={{ height: s }}
                 />
                 <div className='text-xs text-brand-deep mt-1'>{s}px</div>
@@ -133,16 +133,16 @@ colors: {
           </div>
           <div className='mb-8'>
             <div className='grid grid-cols-4 gap-4'>
-              <div className='bg-brand-indigo/10 h-12 rounded flex items-center justify-center'>
+              <div className='bg-brand-indigo/10 h-12 rounded-sm flex items-center justify-center'>
                 1
               </div>
-              <div className='bg-brand-indigo/10 h-12 rounded flex items-center justify-center'>
+              <div className='bg-brand-indigo/10 h-12 rounded-sm flex items-center justify-center'>
                 2
               </div>
-              <div className='bg-brand-indigo/10 h-12 rounded flex items-center justify-center'>
+              <div className='bg-brand-indigo/10 h-12 rounded-sm flex items-center justify-center'>
                 3
               </div>
-              <div className='bg-brand-indigo/10 h-12 rounded flex items-center justify-center'>
+              <div className='bg-brand-indigo/10 h-12 rounded-sm flex items-center justify-center'>
                 4
               </div>
             </div>
@@ -156,29 +156,29 @@ colors: {
         <div>
           <h2 className='text-2xl font-bold text-brand-deep mb-4'>Buttons</h2>
           <div className='flex flex-wrap gap-4 mb-8'>
-            <button className='px-6 py-2 bg-brand-indigo text-brand-ivory rounded font-semibold shadow hover:bg-brand-indigo/90'>
+            <button className='px-6 py-2 bg-brand-indigo text-brand-ivory rounded-sm font-semibold shadow-sm hover:bg-brand-indigo/90'>
               Primary
             </button>
-            <button className='px-6 py-2 bg-brand-deep text-brand-ivory rounded font-semibold shadow hover:bg-brand-deep/90'>
+            <button className='px-6 py-2 bg-brand-deep text-brand-ivory rounded-sm font-semibold shadow-sm hover:bg-brand-deep/90'>
               Secondary
             </button>
-            <button className='px-6 py-2 border border-brand-indigo text-brand-indigo rounded font-semibold hover:bg-brand-indigo/10'>
+            <button className='px-6 py-2 border border-brand-indigo text-brand-indigo rounded-sm font-semibold hover:bg-brand-indigo/10'>
               Ghost
             </button>
             <button
-              className='px-6 py-2 bg-brand-indigo text-brand-ivory rounded font-semibold opacity-50 cursor-not-allowed'
+              className='px-6 py-2 bg-brand-indigo text-brand-ivory rounded-sm font-semibold opacity-50 cursor-not-allowed'
               disabled
             >
               Disabled
             </button>
-            <button className='px-6 py-2 bg-brand-indigo text-brand-ivory rounded font-semibold flex items-center gap-2'>
+            <button className='px-6 py-2 bg-brand-indigo text-brand-ivory rounded-sm font-semibold flex items-center gap-2'>
               <span className='animate-spin inline-block w-4 h-4 border-2 border-t-transparent border-brand-ivory rounded-full'></span>
               Loading
             </button>
           </div>
-          <CodeBlock>{`<button className="px-6 py-2 bg-brand-indigo text-brand-ivory rounded font-semibold">Primary</button>
-<button className="px-6 py-2 bg-brand-deep text-brand-ivory rounded font-semibold">Secondary</button>
-<button className="px-6 py-2 border border-brand-indigo text-brand-indigo rounded font-semibold">Ghost</button>`}</CodeBlock>
+          <CodeBlock>{`<button className="px-6 py-2 bg-brand-indigo text-brand-ivory rounded-sm font-semibold">Primary</button>
+<button className="px-6 py-2 bg-brand-deep text-brand-ivory rounded-sm font-semibold">Secondary</button>
+<button className="px-6 py-2 border border-brand-indigo text-brand-indigo rounded-sm font-semibold">Ghost</button>`}</CodeBlock>
         </div>
       );
     case "inputs":
@@ -189,10 +189,10 @@ colors: {
           </h2>
           <div className='space-y-4 mb-8'>
             <input
-              className='w-full px-4 py-2 border border-brand-indigo rounded focus:ring-2 focus:ring-brand-indigo outline-none bg-brand-ivory text-brand-deep'
+              className='w-full px-4 py-2 border border-brand-indigo rounded-sm focus:ring-2 focus:ring-brand-indigo outline-hidden bg-brand-ivory text-brand-deep'
               placeholder='Text input'
             />
-            <select className='w-full px-4 py-2 border border-brand-indigo rounded focus:ring-2 focus:ring-brand-indigo outline-none bg-brand-ivory text-brand-deep'>
+            <select className='w-full px-4 py-2 border border-brand-indigo rounded-sm focus:ring-2 focus:ring-brand-indigo outline-hidden bg-brand-ivory text-brand-deep'>
               <option>Option 1</option>
               <option>Option 2</option>
             </select>
@@ -209,8 +209,8 @@ colors: {
             </label>
             <input type='range' className='accent-brand-indigo w-full' />
           </div>
-          <CodeBlock>{`<input className="px-4 py-2 border border-brand-indigo rounded bg-brand-ivory text-brand-deep" placeholder="Text input" />
-<select className="px-4 py-2 border border-brand-indigo rounded bg-brand-ivory text-brand-deep">
+          <CodeBlock>{`<input className="px-4 py-2 border border-brand-indigo rounded-sm bg-brand-ivory text-brand-deep" placeholder="Text input" />
+<select className="px-4 py-2 border border-brand-indigo rounded-sm bg-brand-ivory text-brand-deep">
   <option>Option 1</option>
 </select>
 <input type="checkbox" className="accent-brand-indigo" />`}</CodeBlock>
@@ -223,16 +223,16 @@ colors: {
             Cards & Surfaces
           </h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8'>
-            <div className='bg-brand-ivory rounded-xl shadow p-6 border border-brand-lime/40'>
+            <div className='bg-brand-ivory rounded-xl shadow-sm p-6 border border-brand-lime/40'>
               <h3 className='font-bold text-brand-deep mb-2'>Card Title</h3>
               <p className='text-brand-deep/80 mb-4'>
                 This is a card. Use for content blocks, tool previews, etc.
               </p>
-              <button className='px-4 py-2 bg-brand-indigo text-brand-ivory rounded font-semibold'>
+              <button className='px-4 py-2 bg-brand-indigo text-brand-ivory rounded-sm font-semibold'>
                 Action
               </button>
             </div>
-            <div className='bg-brand-lime/20 rounded-xl shadow p-6 border border-brand-lime/40'>
+            <div className='bg-brand-lime/20 rounded-xl shadow-sm p-6 border border-brand-lime/40'>
               <h3 className='font-bold text-brand-deep mb-2'>
                 Surface Example
               </h3>
@@ -241,7 +241,7 @@ colors: {
               </p>
             </div>
           </div>
-          <CodeBlock>{`<div className="bg-brand-ivory rounded-xl shadow p-6 border border-brand-lime/40">...</div>`}</CodeBlock>
+          <CodeBlock>{`<div className="bg-brand-ivory rounded-xl shadow-sm p-6 border border-brand-lime/40">...</div>`}</CodeBlock>
         </div>
       );
     case "alerts":
@@ -249,21 +249,21 @@ colors: {
         <div>
           <h2 className='text-2xl font-bold text-brand-deep mb-4'>Alerts</h2>
           <div className='space-y-4 mb-8'>
-            <div className='p-4 rounded bg-brand-indigo/10 text-brand-indigo border-l-4 border-brand-indigo font-medium'>
+            <div className='p-4 rounded-sm bg-brand-indigo/10 text-brand-indigo border-l-4 border-brand-indigo font-medium'>
               Info: This is an info alert.
             </div>
-            <div className='p-4 rounded bg-brand-lime/30 text-brand-deep border-l-4 border-brand-lime font-medium'>
+            <div className='p-4 rounded-sm bg-brand-lime/30 text-brand-deep border-l-4 border-brand-lime font-medium'>
               Success: This is a success alert.
             </div>
-            <div className='p-4 rounded bg-yellow-100 text-yellow-900 border-l-4 border-yellow-400 font-medium'>
+            <div className='p-4 rounded-sm bg-yellow-100 text-yellow-900 border-l-4 border-yellow-400 font-medium'>
               Warning: This is a warning alert.
             </div>
-            <div className='p-4 rounded bg-red-100 text-red-900 border-l-4 border-red-400 font-medium'>
+            <div className='p-4 rounded-sm bg-red-100 text-red-900 border-l-4 border-red-400 font-medium'>
               Error: This is an error alert.
             </div>
           </div>
-          <CodeBlock>{`<div className="p-4 rounded bg-brand-indigo/10 text-brand-indigo border-l-4 border-brand-indigo">Info</div>
-<div className="p-4 rounded bg-brand-lime/30 text-brand-deep border-l-4 border-brand-lime">Success</div>`}</CodeBlock>
+          <CodeBlock>{`<div className="p-4 rounded-sm bg-brand-indigo/10 text-brand-indigo border-l-4 border-brand-indigo">Info</div>
+<div className="p-4 rounded-sm bg-brand-lime/30 text-brand-deep border-l-4 border-brand-lime">Success</div>`}</CodeBlock>
         </div>
       );
     case "badges":
@@ -297,13 +297,13 @@ colors: {
             Motion & Animation
           </h2>
           <div className='flex flex-wrap gap-6 mb-8'>
-            <div className='w-32 h-16 bg-brand-indigo/10 rounded flex items-center justify-center'>
+            <div className='w-32 h-16 bg-brand-indigo/10 rounded-sm flex items-center justify-center'>
               <div className='w-8 h-8 bg-brand-indigo rounded-full animate-bounce' />
             </div>
-            <div className='w-32 h-16 bg-brand-indigo/10 rounded flex items-center justify-center'>
+            <div className='w-32 h-16 bg-brand-indigo/10 rounded-sm flex items-center justify-center'>
               <div className='w-8 h-8 bg-brand-indigo rounded-full animate-spin' />
             </div>
-            <div className='w-32 h-16 bg-brand-indigo/10 rounded flex items-center justify-center'>
+            <div className='w-32 h-16 bg-brand-indigo/10 rounded-sm flex items-center justify-center'>
               <div className='w-8 h-8 bg-brand-indigo rounded-full animate-pulse' />
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function ComponentsGuidePage() {
   return (
     <div className='min-h-screen flex bg-brand-ivory'>
       {/* Sidebar */}
-      <aside className='w-64 bg-brand-ivory text-brand-deep flex-shrink-0 flex flex-col py-10 px-6 border-r border-brand-lime/40'>
+      <aside className='w-64 bg-brand-ivory text-brand-deep shrink-0 flex flex-col py-10 px-6 border-r border-brand-lime/40'>
         <div className='mb-10'>
           <span className='text-xl font-bold tracking-tight text-brand-indigo'>
             GS UI Kit
@@ -343,7 +343,7 @@ export default function ComponentsGuidePage() {
               onClick={() => setActiveSection(s.id)}
               className={`text-left px-3 py-2 rounded-md transition-all font-medium ${
                 activeSection === s.id
-                  ? "bg-brand-indigo text-brand-ivory shadow"
+                  ? "bg-brand-indigo text-brand-ivory shadow-sm"
                   : "hover:bg-brand-lime/30 hover:text-brand-indigo"
               }`}
             >
